@@ -19,9 +19,9 @@ public class Address {
 	private int phoneNumber1;
 	private int phoneNumber2;
 	private String remarks;
-	private String adress1;
-	private String adress2;
-	private String adress3;
+	private String address1;
+	private String address2;
+	private String address3;
 	private int postalCode;
 	private String city;
 	private String contactEmail;	
@@ -71,28 +71,28 @@ public class Address {
 		this.remarks = remarks;
 	}
 
-	public String getAdress1() {
-		return adress1;
+	public String getAddress1() {
+		return address1;
 	}
 
-	public void setAdress1(String adress1) {
-		this.adress1 = adress1;
+	public void setAddress1(String adress1) {
+		this.address1 = adress1;
 	}
 
-	public String getAdress2() {
-		return adress2;
+	public String getAddress2() {
+		return address2;
 	}
 
-	public void setAdress2(String adress2) {
-		this.adress2 = adress2;
+	public void setAddress2(String adress2) {
+		this.address2 = adress2;
 	}
 
-	public String getAdress3() {
-		return adress3;
+	public String getAddress3() {
+		return address3;
 	}
 
-	public void setAdress3(String adress3) {
-		this.adress3 = adress3;
+	public void setAddress3(String adress3) {
+		this.address3 = adress3;
 	}
 
 	public int getPostalCode() {
