@@ -1,11 +1,16 @@
 package com.wildcodeschool.festivalorleansjoue.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Event {
@@ -17,7 +22,7 @@ public class Event {
     private String name;
     private short tables;
     private byte protozoneTables;
-    private byte maxTablesperEditor;
+    private byte maxTablesPerEditor;
     private Date eventBeginningDate;
     private Date eventEndingDate;
     private Date editorsRegistrationBeginDate;
@@ -27,6 +32,12 @@ public class Event {
     private Date volunteersRegistrationBeginDate;
     private Date volunteersRegistrationEndDate;
     
+    @ManyToMany
+    @JoinTable(name = "event_tasks",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "task_id"))
+    private List<EventTasks> tasks = new ArrayList<>();
+
     
 	public Long getId() {
 		return id;
@@ -146,5 +157,26 @@ public class Event {
 	public void setVolunteersRegistrationEndDate(Date volunteersRegistrationEndDate) {
 		this.volunteersRegistrationEndDate = volunteersRegistrationEndDate;
 	}
+
+
+	public byte getMaxTablesPerEditor() {
+		return maxTablesPerEditor;
+	}
+
+
+	public void setMaxTablesPerEditor(byte maxTablesPerEditor) {
+		this.maxTablesPerEditor = maxTablesPerEditor;
+	}
+
+
+	public List<EventTasks> getTasks() {
+		return tasks;
+	}
+
+
+	public void setTasks(List<EventTasks> tasks) {
+		this.tasks = tasks;
+	}
     
+	
 }
