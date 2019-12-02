@@ -17,6 +17,7 @@ public class Event {
     private String name;
     private short tables;
     private byte protozoneTables;
+    private byte maxTablesperEditor;
     private Date eventBeginningDate;
     private Date eventEndingDate;
     private Date editorsRegistrationBeginDate;
