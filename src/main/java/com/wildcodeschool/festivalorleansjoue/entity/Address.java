@@ -26,7 +26,7 @@ public class Address {
 	private String city;
 	private String contactEmail;	
 	@OneToOne(mappedBy = "address")
-	private Address address;
+	private User user;
 	
 	public Address() {
 	}
@@ -119,11 +119,11 @@ public class Address {
 		this.contactEmail = contactEmail;
 	}
 
-	public Address getAddress() {
-		return address;
+	public User getUser() {
+		return user;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setUser(User user) {
+		this.user = user;
 	}
 }
