@@ -1,10 +1,13 @@
 package com.wildcodeschool.festivalorleansjoue.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -18,7 +21,10 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 	private String firstname;
-	private String lastname;
+	private String lastname;	
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+	private Address address;
 	
 	public User() {
 	}
@@ -61,6 +67,14 @@ public class User {
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 }
