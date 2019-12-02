@@ -12,7 +12,7 @@
 	<artifactId>sept2019-java-orleans-festival-orleans-joue</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>sept2019-java-orleans-festival-orleans-joue</name>
-	<description>Football Club Orléans</description>
+	<description>Orléans Joue</description>
 
 	<properties>
 		<java.version>11</java.version>
