@@ -39,6 +39,10 @@ public class Event {
     private List<EventTasks> tasks = new ArrayList<>();
 
     
+	public Event() {
+	}
+
+
 	public Long getId() {
 		return id;
 	}
