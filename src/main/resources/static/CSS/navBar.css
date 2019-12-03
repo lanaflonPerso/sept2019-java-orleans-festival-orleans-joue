@@ -5,10 +5,28 @@
 .nav-link {
 	color: white !important;
 	font-size: 20px;
+	padding-left:10px;
+	padding-right:10px;
 }
 
 .nav1:hover {
 	background: white;
 	border-radius: 20px;
 	color: #ec5d31 !important;
+	animation:growUp 0.5s
+}
+
+#event:target .nav-item:first-child {
+	font-weight: bold;
+}
+
+@keyframes growUp {
+	from {
+		font-size:18px;
+	}
+	to{
+		font-size:20px;
+		background: white;
+	}
+	
 }
