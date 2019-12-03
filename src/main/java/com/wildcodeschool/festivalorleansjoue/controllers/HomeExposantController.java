@@ -13,18 +13,18 @@ import com.wildcodeschool.festivalorleansjoue.entity.Event;
 import com.wildcodeschool.festivalorleansjoue.repository.EventRepository;
 
 @RestController
-public class HomeController {	
+public class HomeExposantController {	
 	
 	@Autowired 
 	EventRepository eventRepository;
 	
-	@GetMapping("/") 
-	public ModelAndView home(ModelAndView model) {
+	@GetMapping("/accueil_exposant") 
+	public ModelAndView homeExposant(ModelAndView model) {
 		
 		Date today = new Date();
 		List<Event> event = new ArrayList<>();
 		event = eventRepository.findByEventEndingDateAfter(today);
-		model = new ModelAndView("home");
+		model = new ModelAndView("homeExposant");
 		if(event != null) {
 			model.addObject(event);
 		}
