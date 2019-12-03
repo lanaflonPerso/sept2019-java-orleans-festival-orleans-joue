@@ -35,7 +35,7 @@ public class Event {
     @JoinTable(name = "EventTasks",
             joinColumns = @JoinColumn(name = "event_id"),
             inverseJoinColumns = @JoinColumn(name = "task_id"))
-    private List<EventTasks> tasks = new ArrayList<>();
+    private List<Tasks> tasks = new ArrayList<>();
 
     
 	public Event() {
@@ -198,13 +198,13 @@ public class Event {
 	}
 
 
-	public List<EventTasks> getTasks() {
+	public List<Tasks> getTasks() {
 		
 		return this.tasks;
 	}
 
 
-	public void setTasks(List<EventTasks> tasks) {
+	public void setTasks(List<Tasks> tasks) {
 		
 		this.tasks = tasks;
 	}
