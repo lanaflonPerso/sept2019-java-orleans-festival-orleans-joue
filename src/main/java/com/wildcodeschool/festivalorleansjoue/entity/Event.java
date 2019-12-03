@@ -32,7 +32,7 @@ public class Event {
     private Date volunteersRegistrationEndDate;
     
     @ManyToMany
-    @JoinTable(name = "eventTasks",
+    @JoinTable(name = "EventTasks",
             joinColumns = @JoinColumn(name = "event_id"),
             inverseJoinColumns = @JoinColumn(name = "task_id"))
     private List<EventTasks> tasks = new ArrayList<>();
