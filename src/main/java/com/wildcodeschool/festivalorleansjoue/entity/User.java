@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
@@ -24,6 +26,10 @@ public class User {
 	@OneToOne(cascade = CascadeType.ALL)
     @MapsId
 	private Address address;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_role_id")
+	private UserRole userRole;
 	
 	
 	public User() {

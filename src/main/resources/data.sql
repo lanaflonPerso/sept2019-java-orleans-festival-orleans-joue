@@ -45,7 +45,9 @@ INSERT INTO event (name,
 				   volunteers_registration_end_date
 				   ) VALUES('Edition 2019',200,20,20,'2019-2-1','2019-2-28','2018-10-1','2018-10-31','2018-10-1','2018-10-31','2018-10-1','2018-10-31');
 INSERT INTO address (wording,phone_number1,phone_number2, postal_code) VALUES('Adresse de toto',1234567891,1234567891,45000);
-INSERT INTO user (email,password,firstname,lastname, address_id) VALUES('toto@toto.fr','1234','toto','tata',1);
+INSERT INTO user_role (wording) VALUES('admin');
+INSERT INTO user_role (wording) VALUES('exposant');
+INSERT INTO user (email,password,firstname,lastname, address_id, user_role_id) VALUES('toto@toto.fr','1234','toto','tata',1,2);
 INSERT INTO event_tasks VALUES(1,1);
 INSERT INTO event_tasks VALUES(1,2);
 INSERT INTO event_tasks VALUES(1,3);
