@@ -1,6 +1,8 @@
 package com.wildcodeschool.festivalorleansjoue.controllers;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +22,8 @@ public class HomeController {
 	public ModelAndView home(ModelAndView model) {
 		
 		Date today = new Date();
-		Event event = eventRepository.findByEventEndingDateAfter(today);
+		List<Event> event = new ArrayList<>();
+		event = eventRepository.findByEventEndingDateAfter(today);
 		model = new ModelAndView("home");
 		if(event != null) {
 			model.addObject(event);
