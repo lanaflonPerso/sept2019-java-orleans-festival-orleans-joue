@@ -8,9 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.JoinColumn;
 
 @Entity
 public class Event {
@@ -20,6 +20,7 @@ public class Event {
 	private Long id;
     private String name;
     private short tables;
+    private String description;
     private byte protozoneTables;
     private byte maxTablesPerEditor;
     private Date eventBeginningDate;
@@ -207,6 +208,16 @@ public class Event {
 	public void setTasks(List<Tasks> tasks) {
 		
 		this.tasks = tasks;
+	}
+
+
+	public String getDescription() {
+		return this.description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
     
 	
