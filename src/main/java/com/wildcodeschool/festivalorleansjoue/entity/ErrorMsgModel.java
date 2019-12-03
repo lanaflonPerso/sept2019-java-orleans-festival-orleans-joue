@@ -2,11 +2,13 @@ package com.wildcodeschool.festivalorleansjoue.entity;
 
 public class ErrorMsgModel {
 	
+	private boolean errorON = false;
 	private String errorMsg;
 	private String errorDescription;
 	
-	public ErrorMsgModel(String errorMsg, String errorDescription) {
+	public ErrorMsgModel(boolean errorON, String errorMsg, String errorDescription) {
 		
+		this.errorON = errorON;
 		this.errorMsg = errorMsg;
 		this.errorDescription = errorDescription;
 	}
@@ -14,7 +16,25 @@ public class ErrorMsgModel {
 	
 	public ErrorMsgModel(String errorMsg) {
 		
+		this.errorON = true;
 		this.errorMsg = errorMsg;
+	}
+	
+	
+	public ErrorMsgModel() {
+
+	}
+	
+	
+	public boolean isErrorON() {
+		
+		return this.errorON;
+	}
+
+
+	public void setErrorON(boolean errorON) {
+		
+		this.errorON = errorON;
 	}
 
 

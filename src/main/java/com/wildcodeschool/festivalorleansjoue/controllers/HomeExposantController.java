@@ -28,11 +28,13 @@ public class HomeExposantController {
 		event = eventRepository.findByEventEndingDateAfter(today);
 		model = new ModelAndView("homeExposant");
 		if (event.size() > 0) {
-			model.addObject("event", event);	
+			noEvent = new ErrorMsgModel();
+			model.addObject("event", event);
+			model.addObject("eventError", noEvent);
 			return model;
 		} else {
 			noEvent = new ErrorMsgModel("Aucun évènnement en cours");
-			model.addObject("noEvent", noEvent);
+			model.addObject("eventError", noEvent);
 			return model;
 		}
 	}
