@@ -16,11 +16,15 @@ h1, h2, h3, h4, h5 {
 }
 
 hr{
-	color:#5e3388
+	background:rgba(94,51,136,0.3);
+}
+
+.hrBottom{
+	margin-top:4rem;
 }
 /*Card*/
 .pcard {
-	height: 80px;
+	height: 90px;
 }
 
 .col-sm-12 {
@@ -32,6 +36,15 @@ hr{
 	padding: 0;
 	border: 1px solid #5e3388;
 	border-radius: 5px;
+}
+
+.containerTitleStyle {
+	
+	padding: 0;
+}
+
+.title{
+	padding-left:0;
 }
 
 .card-header {

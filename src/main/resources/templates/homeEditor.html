@@ -19,10 +19,13 @@
 	<main>
 		<!--/.evenement -->
 		
-			<h1 class="entete">Bonjour Exposant</h1>
-		<section id="evenement">
-			<hr />
+		<h1 class="entete">Bonjour Exposant</h1>
+		<hr class="col-11"/>
+		<section class="fluid-container" id="evenement">
 			<div class="pcard" ></div>
+			<div class="container containerTitleStyle">
+				<h2 class="col-12 title">Evenements:</h2>
+			</div>
 			<div th:if="!${eventError.errorON}" class="container containerStyle" th:each="eventInfos : ${event}" >
 				<div class="col-sm-12">  
 					<div class="card">
@@ -41,14 +44,17 @@
 		<!--/.evenement -->
 
 		<!--/.Mon inscription -->
-		<section id="inscription">
-			<hr />
+		<hr class="col-11 hrBottom"/>
+		<section class="fluid-container" id="inscription">
 			<div class="pcard" ></div>
+			<div class="container containerTitleStyle">
+				<h2 class="col-12 title">Mes inscriptions:</h2>
+			</div>
 			<div class="container containerStyle">
 				<div class="col-sm-12">  
 					<div class="card">
 						<div class="card-header">
-							<h2>Mon Inscription</h2>
+							<h2>Récapitulatif inscription evenement</h2>
 						</div>
 						<div class="card-body">
 							<h3 class="card-title">demande d'inscription effectuée le : </h3>
@@ -65,19 +71,23 @@
 		<!--/.Mon inscription -->
 
 		<!--/.Mes informations -->
-		<section id="information">
+		<hr class="col-11 hrBottom"/>
+		<section class="fluid-container" id="information">
 			<div class="pcard" ></div>
+			<div class="container containerTitleStyle">
+				<h2 class="col-12 title">Mes informations:</h2>
+			</div>
 			<div class="container containerStyle">
 				<div class="col-sm-12">  
 					<div class="card">
-						<div class="card-header">
-							<h2>Mes Informations</h2>
-						</div>
 						<div class="card-body">
 							<p class="card-text">société truc</p>
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste perspiciatis modi officiis, inventore nihil quisquam vero quos? Voluptas ipsam, obcaecati aut rem, accusamus est expedita, libero nihil iusto asperiores veniam!</p>
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste perspiciatis modi officiis, inventore nihil quisquam vero quos? Voluptas ipsam, obcaecati aut rem, accusamus est expedita, libero nihil iusto asperiores veniam!</p>
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste perspiciatis modi officiis, inventore nihil quisquam vero quos? Voluptas ipsam, obcaecati aut rem, accusamus est expedita, libero nihil iusto asperiores veniam!</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste perspiciatis modi officiis, inventore nihil quisquam vero quos? Voluptas ipsam, obcaecati aut rem, accusamus est expedita, libero nihil iusto asperiores veniam!</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste perspiciatis modi officiis, inventore nihil quisquam vero quos? Voluptas ipsam, obcaecati aut rem, accusamus est expedita, libero nihil iusto asperiores veniam!</p>
+
 						</div>
 					</div>
 				</div>
