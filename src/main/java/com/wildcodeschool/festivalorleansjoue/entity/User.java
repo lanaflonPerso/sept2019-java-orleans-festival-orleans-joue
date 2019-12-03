@@ -10,8 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class User {
-	
+public class User {	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,54 +25,79 @@ public class User {
     @JoinColumn(name = "address_id", referencedColumnName = "id")
 	private Address address;
 	
+	
 	public User() {
+		
 	}
+	
 
 	public Long getId() {
-		return id;
+		
+		return this.id;
 	}
+	
 
 	public void setId(Long id) {
+		
 		this.id = id;
 	}
+	
 
 	public String getEmail() {
-		return email;
+		
+		return this.email;
 	}
+	
 
 	public void setEmail(String email) {
+		
 		this.email = email;
 	}
+	
 
 	public String getPassword() {
-		return password;
+		
+		return this.password;
 	}
+	
 
 	public void setPassword(String password) {
+		
 		this.password = password;
 	}
 
 	public String getFirstname() {
-		return firstname;
+		
+		return this.firstname;
 	}
+	
 
 	public void setFirstname(String firstname) {
+		
 		this.firstname = firstname;
 	}
+	
 
 	public String getLastname() {
-		return lastname;
+		
+		return this.lastname;
 	}
+	
 
 	public void setLastname(String lastname) {
+		
 		this.lastname = lastname;
 	}
+	
 
 	public Address getAddress() {
-		return address;
+		
+		return this.address;
 	}
+	
 
 	public void setAddress(Address address) {
+		
 		this.address = address;
 	}
 

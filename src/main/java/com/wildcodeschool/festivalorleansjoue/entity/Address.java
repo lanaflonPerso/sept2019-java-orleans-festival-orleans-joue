@@ -8,8 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Address {
-	
+public class Address {	
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,102 +27,149 @@ public class Address {
 	@OneToOne(mappedBy = "address")
 	private User user;
 	
+	
 	public Address() {
+		
 	}
 
+	
 	public Long getId() {
-		return id;
+		
+		return this.id;
 	}
+	
 
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 
 	public String getWording() {
-		return wording;
+		
+		return this.wording;
 	}
+	
 
 	public void setWording(String wording) {
+		
 		this.wording = wording;
 	}
+	
 
 	public int getPhoneNumber1() {
-		return phoneNumber1;
+		
+		return this.phoneNumber1;
 	}
+	
 
 	public void setPhoneNumber1(int phoneNumber1) {
+		
 		this.phoneNumber1 = phoneNumber1;
 	}
+	
 
 	public int getPhoneNumber2() {
-		return phoneNumber2;
+		
+		return this.phoneNumber2;
 	}
+	
 
 	public void setPhoneNumber2(int phoneNumber2) {
+		
 		this.phoneNumber2 = phoneNumber2;
 	}
+	
 
 	public String getRemarks() {
-		return remarks;
+		
+		return this.remarks;
 	}
+	
 
 	public void setRemarks(String remarks) {
+		
 		this.remarks = remarks;
 	}
+	
 
 	public String getAddress1() {
-		return address1;
+		
+		return this.address1;
 	}
+	
 
 	public void setAddress1(String adress1) {
 		this.address1 = adress1;
 	}
+	
 
 	public String getAddress2() {
-		return address2;
+		
+		return this.address2;
 	}
+	
 
 	public void setAddress2(String adress2) {
 		this.address2 = adress2;
 	}
+	
 
 	public String getAddress3() {
-		return address3;
+		
+		return this.address3;
 	}
+	
 
 	public void setAddress3(String adress3) {
+		
 		this.address3 = adress3;
 	}
+	
 
 	public int getPostalCode() {
-		return postalCode;
+		
+		return this.postalCode;
 	}
+	
 
 	public void setPostalCode(int postalCode) {
+		
 		this.postalCode = postalCode;
 	}
+	
 
 	public String getCity() {
-		return city;
+		
+		return this.city;
 	}
+	
 
 	public void setCity(String city) {
+		
 		this.city = city;
 	}
+	
 
 	public String getContactEmail() {
-		return contactEmail;
+		
+		return this.contactEmail;
 	}
+	
 
 	public void setContactEmail(String contactEmail) {
+		
 		this.contactEmail = contactEmail;
 	}
+	
 
 	public User getUser() {
-		return user;
+		
+		return this.user;
 	}
+	
 
 	public void setUser(User user) {
+		
 		this.user = user;
 	}
 }

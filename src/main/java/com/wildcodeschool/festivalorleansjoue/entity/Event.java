@@ -14,7 +14,6 @@ import javax.persistence.JoinColumn;
 
 @Entity
 public class Event {
-
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +32,7 @@ public class Event {
     private Date volunteersRegistrationEndDate;
     
     @ManyToMany
-    @JoinTable(name = "event_tasks",
+    @JoinTable(name = "eventTasks",
             joinColumns = @JoinColumn(name = "event_id"),
             inverseJoinColumns = @JoinColumn(name = "task_id"))
     private List<EventTasks> tasks = new ArrayList<>();
@@ -41,7 +40,7 @@ public class Event {
     
 	public Long getId() {
 		
-		return id;
+		return this.id;
 	}
 	
 	
@@ -53,7 +52,7 @@ public class Event {
 	
 	public String getName() {
 		
-		return name;
+		return this.name;
 	}
 	
 	
@@ -65,7 +64,7 @@ public class Event {
 	
 	public short getTables() {
 		
-		return tables;
+		return this.tables;
 	}
 	
 	
@@ -77,7 +76,7 @@ public class Event {
 	
 	public byte getProtozoneTables() {
 		
-		return protozoneTables;
+		return this.protozoneTables;
 	}
 	
 	
@@ -89,7 +88,7 @@ public class Event {
 	
 	public Date getEventBeginningDate() {
 		
-		return eventBeginningDate;
+		return this.eventBeginningDate;
 	}
 	
 	
@@ -101,7 +100,7 @@ public class Event {
 	
 	public Date getEventEndingDate() {
 		
-		return eventEndingDate;
+		return this.eventEndingDate;
 	}
 	
 	
@@ -113,7 +112,7 @@ public class Event {
 	
 	public Date getEditorsRegistrationBeginDate() {
 		
-		return editorsRegistrationBeginDate;
+		return this.editorsRegistrationBeginDate;
 	}
 	
 	
@@ -125,7 +124,7 @@ public class Event {
 	
 	public Date getEditorsRegistrationEndDate() {
 		
-		return editorsRegistrationEndDate;
+		return this.editorsRegistrationEndDate;
 	}
 	
 	
@@ -137,7 +136,7 @@ public class Event {
 	
 	public Date getShopsRegistrationBeginDate() {
 		
-		return shopsRegistrationBeginDate;
+		return this.shopsRegistrationBeginDate;
 	}
 	
 	
@@ -149,7 +148,7 @@ public class Event {
 	
 	public Date getShopsRegistrationEndDate() {
 		
-		return shopsRegistrationEndDate;
+		return this.shopsRegistrationEndDate;
 	}
 	
 	
@@ -161,7 +160,7 @@ public class Event {
 	
 	public Date getVolunteersRegistrationBeginDate() {
 		
-		return volunteersRegistrationBeginDate;
+		return this.volunteersRegistrationBeginDate;
 	}
 	
 	
@@ -173,7 +172,7 @@ public class Event {
 	
 	public Date getVolunteersRegistrationEndDate() {
 		
-		return volunteersRegistrationEndDate;
+		return this.volunteersRegistrationEndDate;
 	}
 	
 	
@@ -185,7 +184,7 @@ public class Event {
 
 	public byte getMaxTablesPerEditor() {
 		
-		return maxTablesPerEditor;
+		return this.maxTablesPerEditor;
 	}
 
 
@@ -197,7 +196,7 @@ public class Event {
 
 	public List<EventTasks> getTasks() {
 		
-		return tasks;
+		return this.tasks;
 	}
 
 
