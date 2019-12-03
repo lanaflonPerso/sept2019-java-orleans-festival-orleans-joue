@@ -13,7 +13,11 @@ public class EventTasks {
 	private Long id;
 	private String name;	
 	
-	
+	public EventTasks() {
+		
+	}
+
+
 	public Long getId() {
 		
 		return this.id;
