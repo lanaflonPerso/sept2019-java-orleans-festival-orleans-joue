@@ -21,7 +21,8 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 	private String firstname;
-	private String lastname;	
+	private String lastname;
+	private String profilePicture;
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
 	private Address address;
@@ -94,6 +95,16 @@ public class User {
 		this.lastname = lastname;
 	}
 	
+
+	public String getProfilePicture() {
+		return profilePicture;
+	}
+
+
+	public void setProfilePicture(String profilePicture) {
+		this.profilePicture = profilePicture;
+	}
+
 
 	public Address getAddress() {
 		

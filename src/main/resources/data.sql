@@ -47,7 +47,7 @@ INSERT INTO event (name,
 INSERT INTO address (wording,phone_number1,phone_number2, postal_code) VALUES('Adresse de toto',1234567891,1234567891,45000);
 INSERT INTO user_role (wording) VALUES('admin');
 INSERT INTO user_role (wording) VALUES('exposant');
-INSERT INTO user (email,password,firstname,lastname, address_id, user_role_id) VALUES('toto@toto.fr','1234','toto','tata',1,2);
+INSERT INTO user (email,password,firstname,lastname, address_id, user_role_id,profile_picture) VALUES('toto@toto.fr','1234','toto','tata',1,2,'pictures/profile/1.jpg');
 INSERT INTO event_tasks VALUES(1,1);
 INSERT INTO event_tasks VALUES(1,2);
 INSERT INTO event_tasks VALUES(1,3);
