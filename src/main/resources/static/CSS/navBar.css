@@ -1,0 +1,14 @@
+.navbar {
+	background-color: #ec5d31;
+}
+
+.nav-link {
+	color: white !important;
+	font-size: 20px;
+}
+
+.nav1:hover {
+	background: white;
+	border-radius: 20px;
+	color: #ec5d31 !important;
+}
