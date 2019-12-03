@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5 {
 	padding: 0;
 }
 
-.container {
+.containerStyle {
 	
 	padding: 0;
 	border: 1px solid #5e3388;
@@ -52,7 +52,7 @@ h1, h2, h3, h4, h5 {
 	margin-right: 2px;
 }
 
-.container {
+.containerStyle {
 	position: relative;
 	width: 80%;
 	background: white;
@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5 {
 	margin: 15px auto;
 }
 
-.container:before, .container:after {
+.containerStyle:before, .containerStyle:after {
 	z-index: -1;
 	position: absolute;
 	content: "";
@@ -79,7 +79,7 @@ h1, h2, h3, h4, h5 {
 	transform: rotate(-2deg);
 }
 
-.container:after {
+.containerStyle:after {
 	transform: rotate(2deg);
 	right: 10px;
 	left: auto;
