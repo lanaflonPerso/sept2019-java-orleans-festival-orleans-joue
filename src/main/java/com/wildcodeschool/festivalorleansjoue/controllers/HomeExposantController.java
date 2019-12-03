@@ -26,7 +26,7 @@ public class HomeExposantController {
 		Date today = new Date();
 		List<Event> event = new ArrayList<>();
 		event = eventRepository.findByEventEndingDateAfter(today);
-		model = new ModelAndView("accueil_exposants");
+		model = new ModelAndView("homeExposant");
 		if (event.size() > 0) {
 			model.addObject("event", event);	
 			return model;
