@@ -22,7 +22,7 @@ public class HomeExposantController {
 	
 
 	@GetMapping("/accueil_boutique")
-	public ModelAndView homeshop() {
+	public ModelAndView homeShop() {
 
 		modelService.setHomeModel("homeShop");
 		return modelService.getModel();
