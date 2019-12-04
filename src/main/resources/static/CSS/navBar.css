@@ -9,7 +9,7 @@
     padding-right: 10px;
 }
 
-.nav1:hover {
+.navElement:hover {
     background: white;
     border-radius: 5px;
     color: #ec5d31 !important;
@@ -41,5 +41,4 @@ nav li a {
     to {
         background: white;
     }
-
 }
