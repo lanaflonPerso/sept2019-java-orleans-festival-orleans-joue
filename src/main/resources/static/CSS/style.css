@@ -1,119 +1,125 @@
 /*Body*/
 * {
-	font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-	padding-top: 120px;
+    padding-top: 120px;
 }
 
-h1, h2, h3, h4, h5 {
-	font-family: 'Acme', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Acme', sans-serif;
 }
 
 .entete {
-	padding-left: 3rem;
+    padding-left: 3rem;
 }
 
-hr{
-	background:rgba(94,51,136,0.3);
+hr {
+    background: rgba(94, 51, 136, 0.3);
 }
 
-.hrBottom{
-	margin-top:4rem;
+.hrBottom {
+    margin-top: 4rem;
 }
+
 /*Card*/
 .pcard {
-	height: 90px;
+    height: 90px;
 }
 
 .col-sm-12 {
-	padding: 0;
+    padding: 0;
 }
 
 .containerStyle {
-	
-	padding: 0;
-	border: 1px solid #5e3388;
-	border-radius: 5px;
+
+    padding: 0;
+    border: 1px solid #5e3388;
+    border-radius: 5px;
 }
 
 .containerTitleStyle {
-    width:80%;	
-	padding: 0;
+    width: 80%;
+    padding: 0;
 }
 
-.title{
-	padding-left:0;
+.title {
+    padding-left: 0;
 }
 
 .card-header {
-	background: lightgrey;
+    background: lightgrey;
 }
 
 .card-body {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .btn {
-	background: #5e3388;
-	border: none;
-	margin-left: auto;
+    background: #5e3388;
+    border: none;
+    margin-left: auto;
 }
 
 .btn:hover {
-	background: #ec5d31;
-	box-shadow: 0 0px 5px rgba(0, 0, 0, 0.9);
-	margin-right:5px;
-	animation: toRight 0.5s;
+    background: #ec5d31;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.9);
+    margin-right: 5px;
+    animation: toRight 0.5s;
 }
 
 .containerStyle {
-	position: relative;
-	width: 80%;
-	background: white;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	padding: 0;
-	color: rgba(0, 0, 0, .8);
-	text-shadow: 0 1px 0 #fff;
-	line-height: 1.5;
-	margin: 15px auto;
+    position: relative;
+    width: 80%;
+    background: white;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 0;
+    color: rgba(0, 0, 0, .8);
+    text-shadow: 0 1px 0 #fff;
+    line-height: 1.5;
+    margin: 15px auto;
 }
 
-.containerStyle:before, .containerStyle:after {
-	z-index: -1;
-	position: absolute;
-	content: "";
-	bottom: 15px;
-	left: 10px;
-	width: 50%;
-	top: 80%;
-	max-width: 300px;
-	background: rgba(0, 0, 0, 0.7);
-	box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
-	transform: rotate(-2deg);
+.containerStyle:before,
+.containerStyle:after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+    transform: rotate(-2deg);
 }
 
 .containerStyle:after {
-	transform: rotate(2deg);
-	right: 10px;
-	left: auto;
+    transform: rotate(2deg);
+    right: 10px;
+    left: auto;
 }
 
 @keyframes toRight {
-	
-	from {
-		margin-right:0;
-	}
-	
-	to{
-		margin-right:5px;
-	}
+
+    from {
+        margin-right: 0;
+    }
+
+    to {
+        margin-right: 5px;
+    }
 }
 
-.regMessage{
-	text-align: center;
-	color: red;
+.regMessage {
+    text-align: center;
+    color: red;
 }
