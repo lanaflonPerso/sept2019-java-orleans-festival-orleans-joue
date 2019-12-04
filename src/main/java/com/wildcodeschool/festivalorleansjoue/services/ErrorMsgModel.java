@@ -1,4 +1,4 @@
-package com.wildcodeschool.festivalorleansjoue.entity;
+package com.wildcodeschool.festivalorleansjoue.services;
 
 public class ErrorMsgModel {
 	
