@@ -35,11 +35,10 @@ nav li a {
 
 @keyframes growUp {
     from {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     to {
-        font-size: 20px;
         background: white;
     }
 
