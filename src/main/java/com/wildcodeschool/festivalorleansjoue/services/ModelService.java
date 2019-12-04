@@ -44,12 +44,11 @@ public class ModelService {
 	public void setHomeModel(String route) {
 
 		Date today = new Date();
-		List<Event> event = new ArrayList<>();
-		event = eventRepository.findByEventEndingDateAfter(today);
+		List<Event> events = new ArrayList<>();
+		events = eventRepository.findByEventEndingDateAfter(today);
 		this.errorModel = new ErrorMsgModel();
-		this.model = new ModelAndView(route);
-
-		if (event.size() == 0) {
+		this.model = new ModelAndView(route);		
+		if (events.size() == 0) {
 			this.errorModel.setErrorON(true);
 			this.errorModel.setErrorMsg("Aucun évènnement en cours.");
 		}
@@ -61,9 +60,8 @@ public class ModelService {
 		}
 
 		if (connectedUser.getUserRole().getWording().equals("editeur")) {
-			for (Event event2 : event) {
-				if (event2.getEditorsRegistrationBeginDate().before(today)
-						&& event2.getEditorsRegistrationEndDate().after(today)) {
+			for (Event event2 : events) {
+				if (event2.getEditorsRegistrationBeginDate().before(today) && event2.getEditorsRegistrationEndDate().after(today)) {
 					event2.setRegistrationOpen(true);
 				} else
 					DateUtils.registrationCondition(today, event2);
@@ -71,9 +69,8 @@ public class ModelService {
 		}
 
 		else if (connectedUser.getUserRole().getWording().equals("boutique")) {
-			for (Event event2 : event) {
-				if (event2.getShopsRegistrationBeginDate().before(today)
-						&& event2.getShopsRegistrationEndDate().after(today)) {
+			for (Event event2 : events) {
+				if (event2.getShopsRegistrationBeginDate().before(today) && event2.getShopsRegistrationEndDate().after(today)) {
 					event2.setRegistrationOpen(true);
 				} else
 					DateUtils.registrationCondition(today, event2);
@@ -81,9 +78,8 @@ public class ModelService {
 		}
 
 		else if (connectedUser.getUserRole().getWording().equals("benevole")) {
-			for (Event event2 : event) {
-				if (event2.getVolunteersRegistrationBeginDate().before(today)
-						&& event2.getVolunteersRegistrationEndDate().after(today)) {
+			for (Event event2 : events) {
+				if (event2.getVolunteersRegistrationBeginDate().before(today) && event2.getVolunteersRegistrationEndDate().after(today)) {
 					event2.setRegistrationOpen(true);
 				} else
 					DateUtils.registrationCondition(today, event2);
@@ -92,6 +88,6 @@ public class ModelService {
 
 		this.model.addObject("connectedUser", connectedUser);
 		this.model.addObject("eventError", this.errorModel);
-		this.model.addObject("event", event);
+		this.model.addObject("event", events);		
 	}
 }
