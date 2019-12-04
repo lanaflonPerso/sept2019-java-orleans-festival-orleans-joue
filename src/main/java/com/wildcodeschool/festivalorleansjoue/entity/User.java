@@ -32,6 +32,7 @@ public class User {
 	private UserRole userRole;
 	
 	
+	
 	public User() {
 		
 	}
@@ -115,6 +116,16 @@ public class User {
 	public void setAddress(Address address) {
 		
 		this.address = address;
+	}
+	
+	
+	public UserRole getUserRole() {
+		return userRole;
+	}
+
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
 	}
 
 }

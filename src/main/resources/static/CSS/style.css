@@ -110,5 +110,10 @@ hr{
 	
 	to{
 		margin-right:5px;
-	}	
+	}
+}
+
+.regMessage{
+	text-align: center;
+	color: red;
 }
