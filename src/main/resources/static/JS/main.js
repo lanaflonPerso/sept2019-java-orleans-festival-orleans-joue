@@ -37,10 +37,7 @@ jQuery(document).ready(function($){
         var clickover = $(event.target);
         var _opened = $(".navbar-collapse").hasClass("show");
         if (_opened === true && !clickover.hasClass("navbar-toggle")) {
-            $("button.navbar-toggle").click();
-            console.log("show");
-
+            $("button.navbar-toggler").click();
         }
-        console.log("coucou");
     });
 });
