@@ -35,6 +35,7 @@ public class Event {
     private boolean registrationBefore = false;
     private String registrationMessage;
     
+    
     @ManyToMany
     @JoinTable(name = "EventTasks",
             joinColumns = @JoinColumn(name = "event_id"),

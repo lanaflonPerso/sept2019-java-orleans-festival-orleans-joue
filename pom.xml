@@ -67,22 +67,22 @@
 				<groupId>nl.geodienstencentrum.maven</groupId>
 				<artifactId>sass-maven-plugin</artifactId>
 				<version>3.7.2</version>
-				<executions>
-	               <execution>
-	                   <id>lint</id>
-	                   <phase>validate</phase>
-	                   <goals>
-	                       <goal>scss-lint</goal>
-	                   </goals>
-	               </execution>
-	               <execution>
-	                   <id>build</id>
-	                   <phase>generate-resources</phase>
-	                   <goals>
-	                       <goal>update-stylesheets</goal>
-	                   </goals>
-	               </execution>
-	            </executions>
+			<executions>
+	             <execution>
+	                 <id>lint</id>
+	                 <phase>validate</phase>
+	                 <goals>
+	                     <goal>scss-lint</goal>
+	                 </goals>
+	             </execution>
+	             <execution>
+	                 <id>build</id>
+	                 <phase>generate-resources</phase>
+	                 <goals>
+	                     <goal>update-stylesheets</goal>
+	                 </goals>
+	             </execution>
+			</executions>
             <configuration>
                 <sassSourceDirectory>
                     ${project.basedir}/src/main/resources/static/SASS
