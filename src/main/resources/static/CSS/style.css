@@ -15,20 +15,36 @@ h1, h2, h3, h4, h5 {
 	padding-left: 3rem;
 }
 
+hr{
+	background:rgba(94,51,136,0.3);
+}
+
+.hrBottom{
+	margin-top:4rem;
+}
 /*Card*/
 .pcard {
-	height: 80px;
+	height: 90px;
 }
 
 .col-sm-12 {
 	padding: 0;
 }
 
-.container {
+.containerStyle {
 	
 	padding: 0;
 	border: 1px solid #5e3388;
 	border-radius: 5px;
+}
+
+.containerTitleStyle {
+	
+	padding: 0;
+}
+
+.title{
+	padding-left:0;
 }
 
 .card-header {
@@ -49,10 +65,11 @@ h1, h2, h3, h4, h5 {
 .btn:hover {
 	background: #ec5d31;
 	box-shadow: 0 0px 5px rgba(0, 0, 0, 0.9);
-	margin-right: 2px;
+	margin-right:5px;
+	animation: toRight 0.5s;
 }
 
-.container {
+.containerStyle {
 	position: relative;
 	width: 80%;
 	background: white;
@@ -65,7 +82,7 @@ h1, h2, h3, h4, h5 {
 	margin: 15px auto;
 }
 
-.container:before, .container:after {
+.containerStyle:before, .containerStyle:after {
 	z-index: -1;
 	position: absolute;
 	content: "";
@@ -79,8 +96,19 @@ h1, h2, h3, h4, h5 {
 	transform: rotate(-2deg);
 }
 
-.container:after {
+.containerStyle:after {
 	transform: rotate(2deg);
 	right: 10px;
 	left: auto;
+}
+
+@keyframes toRight {
+	
+	from {
+		margin-right:0;
+	}
+	
+	to{
+		margin-right:5px;
+	}	
 }

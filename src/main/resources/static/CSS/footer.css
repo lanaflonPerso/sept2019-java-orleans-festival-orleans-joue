@@ -11,21 +11,16 @@
 
 .footer .links li a {
 	color: white;
-	transition: color .2s;
+	text-decoration:underline;
 }
 
-.mailto {
+.mailto, .tel {
 	color: white;
+	text-decoration:underline;
 }
 
-.footer .links li a:hover {
-	text-decoration: none;
-	color: #5e3388;
-}
-
-.mailto:hover {
-	text-decoration: none;
-	color: #5e3388 !important;
+.mailto:hover, .tel:hover{
+	color:white;
 }
 
 .footer .about-company i {
@@ -45,7 +40,7 @@
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.container1, .row {
+.footerContainer, .row {
 	margin-top: 0 !important;
 }
 

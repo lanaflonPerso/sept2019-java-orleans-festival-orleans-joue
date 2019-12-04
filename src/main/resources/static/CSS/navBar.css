@@ -5,10 +5,41 @@
 .nav-link {
 	color: white !important;
 	font-size: 20px;
+	padding-left:10px;
+	padding-right:10px;
 }
 
 .nav1:hover {
 	background: white;
-	border-radius: 20px;
+	border-radius: 5px;
 	color: #ec5d31 !important;
+	animation:growUp 0.5s
+}
+
+#event:target .nav-item:first-child {
+	font-weight: bold;
+}
+
+nav li a {
+	transition: all .2s;
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+.selected{
+	font-weight:bold;
+	box-shadow:0 2px 0 #fff;
+}
+
+@keyframes growUp {
+	from {
+		font-size:18px;
+	}
+	to{
+		font-size:20px;
+		background: white;
+	}
+	
 }
