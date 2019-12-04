@@ -216,16 +216,19 @@ public class Event {
 
 
 	public String getDescription() {
+		
 		return this.description;
 	}
 
 
 	public void setDescription(String description) {
+		
 		this.description = description;
 	}
 
 
 	public boolean isRegistrationOpen() {
+		
 		return this.registrationOpen;
 	}
 
@@ -236,21 +239,25 @@ public class Event {
 
 
 	public boolean isRegistrationBefore() {
+		
 		return this.registrationBefore;
 	}
 
 
 	public void setRegistrationBefore(boolean registrationBefore) {
+		
 		this.registrationBefore = registrationBefore;
 	}
 
 
 	public String getRegistrationMessage() {
+		
 		return this.registrationMessage;
 	}
 
 
 	public void setRegistrationMessage(String registrationMessage) {
+		
 		this.registrationMessage = registrationMessage;
 	}
     

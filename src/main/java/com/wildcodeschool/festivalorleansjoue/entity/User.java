@@ -72,6 +72,7 @@ public class User {
 		
 		this.password = password;
 	}
+	
 
 	public String getFirstname() {
 		
@@ -120,11 +121,13 @@ public class User {
 	
 	
 	public UserRole getUserRole() {
-		return userRole;
+		
+		return this.userRole;
 	}
 
 
 	public void setUserRole(UserRole userRole) {
+		
 		this.userRole = userRole;
 	}
 

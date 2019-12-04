@@ -43,17 +43,19 @@ public class ModelService {
 	}
 	
 	
-	public void setEventModel (String route) {
+	public void setHomeModel (String route) {
 		
 		Date today = new Date();
 		List<Event> event = new ArrayList<>();
 		event = eventRepository.findByEventEndingDateAfter(today);
 		this.errorModel = new ErrorMsgModel();
 		this.model = new ModelAndView(route);
+		
 		if (event.size() == 0) {
 			this.errorModel.setErrorON(true);
 			this.errorModel.setErrorMsg("Aucun évènnement en cours.");
 		}
+		
 		User connectedUser= new User();
 		Optional<User> optionalUser = userRepository.findById(1L);		
 		if (optionalUser.isPresent()) {
@@ -85,13 +87,7 @@ public class ModelService {
 				}
 				else DateUtils.registrationCondition(today, event2);
 			}
-		}
-		
-		System.out.print(event.get(0).isRegistrationOpen());
-		System.out.println(event.get(0).getId());
-		System.out.print(event.get(1).isRegistrationOpen());
-		System.out.println(event.get(1).getId());
-		
+		}	
 		
 		this.model.addObject("connectedUser", connectedUser);
 		this.model.addObject("eventError", this.errorModel);

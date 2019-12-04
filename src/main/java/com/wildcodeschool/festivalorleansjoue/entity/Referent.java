@@ -19,38 +19,56 @@ public class Referent {
 	@JoinColumn(name="entity_id")
 	private Society society;
 	
+	
 	public Referent() {
+		
 	}
+	
 
 	public Long getId() {
-		return id;
+		
+		return this.id;
 	}
+	
 
 	public void setId(Long id) {
+		
 		this.id = id;
 	}
+	
 
 	public String getFirstName() {
-		return firstName;
+		
+		return this.firstName;
 	}
+	
 
 	public void setFirstName(String firstName) {
+		
 		this.firstName = firstName;
 	}
+	
 
 	public String getLastName() {
-		return lastName;
+		
+		return this.lastName;
 	}
+	
 
 	public void setLastName(String lastName) {
+		
 		this.lastName = lastName;
 	}
+	
 
 	public Society getSociety() {
-		return society;
+		
+		return this.society;
 	}
+	
 
 	public void setSociety(Society society) {
+		
 		this.society = society;
 	}
 

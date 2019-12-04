@@ -26,37 +26,54 @@ public class Society {
 	private List<Referent> referents = new ArrayList<Referent>();
 	
 	public Society() {
+		
 	}
+	
 
 	public Long getId() {
-		return id;
+		
+		return this.id;
 	}
+	
 
 	public void setId(Long id) {
+		
 		this.id = id;
 	}
+	
 
 	public String getName() {
-		return name;
+		
+		return this.name;
 	}
+	
 
 	public void setName(String name) {
+		
 		this.name = name;
 	}
+	
 
 	public List<Referent> getReferents() {
-		return referents;
+		
+		return this.referents;
 	}
+	
 
 	public void setReferents(List<Referent> referents) {
+		
 		this.referents = referents;
 	}
+	
 
 	public Address getAddress() {
-		return address;
+		
+		return this.address;
 	}
+	
 
 	public void setAddress(Address address) {
+		
 		this.address = address;
 	}
 

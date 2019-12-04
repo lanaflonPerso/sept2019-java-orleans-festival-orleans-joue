@@ -21,7 +21,8 @@ public class HomeExposantController {
 	
 	@GetMapping("/accueil_editeur") 
 	public ModelAndView homeEditor() {
-		modelService.setEventModel("homeEditor");
+		
+		modelService.setHomeModel("homeEditor");
 		return modelService.getModel();	
 	}
 	
@@ -29,7 +30,7 @@ public class HomeExposantController {
 	@GetMapping("/accueil_boutique") 
 	public ModelAndView homeshop() {
 		
-		modelService.setEventModel("homeShop");
+		modelService.setHomeModel("homeShop");
 		return modelService.getModel();	
 	}
 	
@@ -37,10 +38,7 @@ public class HomeExposantController {
 	@GetMapping("/accueil_volontaires") 
 	public ModelAndView homeVolunteers() {
 	
-		modelService.setEventModel("homeVolunteers");
+		modelService.setHomeModel("homeVolunteers");
 		return modelService.getModel();		
-	}
-
-
-	
+	}	
 }
