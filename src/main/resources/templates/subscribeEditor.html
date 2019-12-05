@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Acme|Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+	<link rel="stylesheet" href="../CSS/navBar.css">
+	<link rel="stylesheet" href="../CSS/subscribeEditor.css">
+	<title>formulaire d'inscription editeur</title>
+</head>
+
+<body>
+	<header th:replace="navBar.html :: top"></header>
+
+	<main>
+		<!-- MultiStep Form -->
+		<div class="fluid-container">
+			<h1 class="col-12">Formulaire d'inscription</h1>
+			<div class="row">
+				<div class="col-12 ">
+					<form id="msform">
+						<!-- progressbar -->
+						<ul class="row progressbar" id="progressbar">
+							<li class="active col-3">Informations générales</li>
+							<li class="col-3">Jeux présentés</li>
+							<li class="col-3">Moyens Humains</li>
+							<li class="col-3">Informations complémentaires</li>
+						</ul>
+						<!-- fieldsets -->
+						<fieldset>
+							<h2 class="fs-title">Informations générales</h2>
+							<h3 class="fs-subtitle">Inscription de l'entreprise:</h3>
+							<div class="row align-items-center text-left pt-5">
+								<div class="col-sm-8">
+									<label for="nbtable">Nombre de tables souhaitées</label>
+								</div>
+								<div class="col-sm-2">
+									<input type="number" id="nbtable" name="nbtable" value="1" min="0" max="10">
+								</div>
+							</div>
+							<div class="row align-items-center text-left pt-4">
+								<div class="col-md-8">
+									<label for="elec">Besoin d'éléctricité</label>
+								</div>
+								<div class="col-md-2">
+									<input type="checkbox" id="elec" data-toggle="toggle" data-on="OUI" data-off="NON">
+								</div>
+							</div>
+							<div class="row align-items-center text-left pt-4">
+								<div class="col-md-8">
+									<label for="send">Option vente sur le stand</label>
+								</div>
+								<div class="col-md-2">
+									<input type="checkbox" id="send" data-toggle="toggle" data-on="OUI" data-off="NON">
+								</div>
+							</div>
+							<input type="button" name="next" class="next action-button" value="Suivant" />
+
+
+
+						</fieldset>
+						<fieldset>
+							<h2 class="fs-title">Jeux présentés</h2>
+							<h3 class="fs-subtitle">Your presence on the social network</h3>
+							<input type="text" name="twitter" placeholder="Twitter" />
+							<input type="text" name="facebook" placeholder="Facebook" />
+							<input type="text" name="gplus" placeholder="Google Plus" />
+							<input type="button" name="previous" class="previous action-button-previous"
+								value="Précédent" />
+							<input type="button" name="next" class="next action-button" value="Suivant" />
+						</fieldset>
+						<fieldset>
+							<h2 class="fs-title">Moyens Humains</h2>
+							<h3 class="fs-subtitle">Your presence on the social network</h3>
+							<input type="text" name="twitter" placeholder="Twitter" />
+							<input type="text" name="facebook" placeholder="Facebook" />
+							<input type="text" name="gplus" placeholder="Google Plus" />
+							<input type="button" name="previous" class="previous action-button-previous"
+								value="Précédent" />
+							<input type="button" name="next" class="next action-button" value="Suivant" />
+						</fieldset>
+						<fieldset>
+							<h2 class="fs-title">Informations complémentaires</h2>
+							<h3 class="fs-subtitle">Fill in your credentials</h3>
+							<input type="text" name="email" placeholder="Email" />
+							<input type="password" name="pass" placeholder="Password" />
+							<input type="password" name="cpass" placeholder="Confirm Password" />
+							<input type="button" name="previous" class="previous action-button-previous"
+								value="Précédent" />
+							<input type="submit" name="submit" class="submit action-button" value="Envoyer" />
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- /.MultiStep Form -->
+	</main>
+
+	<footer th:replace="footer :: bottom"></footer>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+	<script src="JS/subscribeEditor.js"></script>
+
+</body>
+
+</html>
