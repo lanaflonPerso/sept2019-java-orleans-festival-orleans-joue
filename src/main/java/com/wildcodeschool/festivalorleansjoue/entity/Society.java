@@ -23,7 +23,8 @@ public class Society {
 	private Address address;
 	@OneToMany(mappedBy = "society")
 	private List<Referent> referents = new ArrayList<Referent>();
-	
+	@OneToMany(mappedBy = "society")
+	private List<Game> game = new ArrayList<Game>();
 
 	public Society() {
 

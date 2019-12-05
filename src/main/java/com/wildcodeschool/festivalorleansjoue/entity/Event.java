@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Event {
@@ -37,7 +38,8 @@ public class Event {
 	@ManyToMany
 	@JoinTable(name = "EventTasks", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "task_id"))
 	private List<Tasks> tasks = new ArrayList<>();
-	
+	@OneToMany(mappedBy = "event")
+	private List<Game> game = new ArrayList<Game>();
 
 	public Event() {
 	}
