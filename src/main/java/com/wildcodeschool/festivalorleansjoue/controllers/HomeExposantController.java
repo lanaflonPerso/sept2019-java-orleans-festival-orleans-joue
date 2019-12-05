@@ -12,7 +12,8 @@ public class HomeExposantController {
 	@Autowired
 	ModelService modelService;
 	
-
+	
+	
 	@GetMapping("/accueil_editeur")
 	public ModelAndView homeEditor() {
 
