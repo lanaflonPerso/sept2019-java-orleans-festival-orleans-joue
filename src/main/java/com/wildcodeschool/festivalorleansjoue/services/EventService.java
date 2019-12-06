@@ -1,5 +1,8 @@
 package com.wildcodeschool.festivalorleansjoue.services;
 
-public class EventService {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class EventService implements IEventService{
 
 }

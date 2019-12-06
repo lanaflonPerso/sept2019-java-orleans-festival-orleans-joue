@@ -22,7 +22,8 @@ public class ModelService {
 	UserRepository userRepository;
 	ModelAndView model = new ModelAndView();
 	ErrorMsgModel errorModel;
-	
+	@Autowired
+	UserService userService;
 
 	public ModelService() {
 
@@ -94,13 +95,8 @@ public class ModelService {
 	
 	public void setSubscribeEditorModel(String route) {
 		
-		User connectedUser = new User();
-		Optional<User> optionalUser = userRepository.findById(1L);
-		if (optionalUser.isPresent()) {
-			connectedUser = optionalUser.get();
-		}
 		this.model = new ModelAndView(route);
-		this.model.addObject("connectedUser", connectedUser);
+		this.model.addObject("connectedUser", userService.returnUser());
 		
 	}
 }
