@@ -17,6 +17,7 @@ public class UserService implements IUserService{
 	@Autowired
 	UserRepository userRepository;
 	
+	@Override
 	public User returnUser() {
 		User connectedUser = new User();
 		Optional<User> optionalUser = userRepository.findById(1L);
