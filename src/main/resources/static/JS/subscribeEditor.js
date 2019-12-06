@@ -8,11 +8,11 @@ $(".next").click(function(){
 	if(animating) return false;
 	animating = true;
 	
-	current_fs = $(this).parent();
-	next_fs = $(this).parent().next();
+	current_fs = $(this).closest('form');
+	next_fs = $(this).closest('form').next();
 	
 	//activate next step on progressbar using the index of next_fs
-	$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+	$("#progressbar li").eq($("form").index(next_fs)).addClass("active");
 	
 	//show the next fieldset
 	next_fs.show(); 
@@ -46,11 +46,11 @@ $(".previous").click(function(){
 	if(animating) return false;
 	animating = true;
 	
-	current_fs = $(this).parent();
-	previous_fs = $(this).parent().prev();
+	current_fs = $(this).closest('form');
+	previous_fs = $(this).closest('form').prev();
 	
 	//de-activate current step on progressbar
-	$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+	$("#progressbar li").eq($("form").index(current_fs)).removeClass("active");
 	
 	//show the previous fieldset
 	previous_fs.show(); 
