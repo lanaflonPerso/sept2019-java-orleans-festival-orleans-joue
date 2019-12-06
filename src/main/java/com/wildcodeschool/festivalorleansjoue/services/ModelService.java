@@ -51,7 +51,6 @@ public class ModelService {
 		events = eventService.returnEvent(today);
 		User connectedUser = userService.returnUser();
 		eventService.setMessage(connectedUser, events, today);
-
 		this.model.addObject("connectedUser", connectedUser);
 		this.model.addObject("eventError", messageService.eventMessage(events));
 		this.model.addObject("event", events);		

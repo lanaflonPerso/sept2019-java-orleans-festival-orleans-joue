@@ -2,6 +2,7 @@ package com.wildcodeschool.festivalorleansjoue.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.wildcodeschool.festivalorleansjoue.entity.Event;
@@ -9,16 +10,16 @@ import com.wildcodeschool.festivalorleansjoue.entity.Event;
 @Repository
 public class MessageService implements IMessageService{
 
+	@Autowired
+	ErrorMsgModel errorMsgModel;
 	@Override
 	public ErrorMsgModel eventMessage(List<Event> events) {
 
-		ErrorMsgModel errorModel = new ErrorMsgModel();
-		
 		if (events.size() == 0) {
-			errorModel.setErrorON(true);
-			errorModel.setErrorMsg("Aucun évènnement en cours.");
+			errorMsgModel.setErrorON(true);
+			errorMsgModel.setErrorMsg("Aucun évènnement en cours.");
 		}
-		return errorModel;
+		return errorMsgModel;
 	};
 
 }
