@@ -34,7 +34,7 @@ INSERT INTO event (name,
 				   volunteers_registration_end_date,
 				   registration_open,
 				   registration_before
-				   ) VALUES('Edition 2020 ouverte inscription fermée',200,20,20,'2020-2-1','2020-2-28','2019-12-5','2019-12-31','2019-10-1','2019-10-31','2019-10-1','2019-10-31',0,0);
+				   ) VALUES('Edition 2020 ouverte inscription fermée',200,20,20,'2020-2-1','2020-2-28','2019-12-10','2019-12-31','2019-10-1','2019-10-31','2019-10-1','2019-10-31',0,0);
 INSERT INTO event (name, 
 				   tables, 
 				   protozone_tables,
@@ -53,7 +53,7 @@ INSERT INTO event (name,
 INSERT INTO address (wording,phone_number1,phone_number2, postal_code) VALUES('Adresse de toto',1234567891,1234567891,45000);
 INSERT INTO user_role (wording) VALUES('admin');
 INSERT INTO user_role (wording) VALUES('editeur');
-INSERT INTO user (email,password,firstname,lastname, address_id, user_role_id,profile_picture) VALUES('toto@toto.fr','1234','toto','tata',1,2,'pictures/profile/1.jpg');
+INSERT INTO user (email,password,firstname,lastname, address_id, user_role_id,profile_picture) VALUES('jeanmichel@editeur.fr','1234','Jean-Michel','Editeur',1,2,'pictures/profile/1.jpg');
 INSERT INTO event_tasks VALUES(1,1);
 INSERT INTO event_tasks VALUES(1,2);
 INSERT INTO event_tasks VALUES(1,3);
