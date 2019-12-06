@@ -9,6 +9,4 @@ import com.wildcodeschool.festivalorleansjoue.entity.Registration;
 @Repository
 public interface RegistrationRepository extends JpaRepository<Registration, Long> {
 
-	public Optional<Registration> findById(Long i);
-
 }

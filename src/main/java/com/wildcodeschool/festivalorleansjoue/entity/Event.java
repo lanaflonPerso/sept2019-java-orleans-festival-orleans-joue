@@ -266,11 +266,13 @@ public class Event {
 
 
 	public List<Registration> getRegList() {
+		
 		return regList;
 	}
 
 
 	public void setRegList(List<Registration> regList) {
+		
 		this.regList = regList;
 	}
 	
