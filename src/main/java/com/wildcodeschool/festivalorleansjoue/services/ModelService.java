@@ -90,4 +90,17 @@ public class ModelService {
 		this.model.addObject("eventError", this.errorModel);
 		this.model.addObject("event", events);		
 	}
+	
+	
+	public void setSubscribeEditorModel(String route) {
+		
+		User connectedUser = new User();
+		Optional<User> optionalUser = userRepository.findById(1L);
+		if (optionalUser.isPresent()) {
+			connectedUser = optionalUser.get();
+		}
+		this.model = new ModelAndView(route);
+		this.model.addObject("connectedUser", connectedUser);
+		
+	}
 }
