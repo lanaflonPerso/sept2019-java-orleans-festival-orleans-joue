@@ -39,18 +39,18 @@
                                 <h3 class="fs-subtitle">Inscription de l'entreprise:</h3>
                                 <div class="row align-items-center text-left pt-5">
                                     <div class="col-sm-8">
-                                        <label for="nbtable">Nombre de tables souhaitées</label>
+                                        <label for="tablesQuantity">Nombre de tables souhaitées</label>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" id="nbtable" name="tableNb" value="1" min="0" max="20">
+                                        <input type="number" id="tablesQuantity" name="tablesQuantity" value="1" min="0" max="20">
                                     </div>
                                 </div>
                                 <div class="row align-items-center text-left pt-4">
                                     <div class="col-md-8">
-                                        <label for="elec">Besoin d'éléctricité</label>
+                                        <label for="electricalSupplyNeed">Besoin d'éléctricité</label>
                                     </div>
                                     <div class="col-md-2">
-                                        <input type="checkbox" id="elec" name="electricity" data-toggle="toggle" data-on="OUI" data-off="NON">
+                                        <input type="checkbox" id="electricalSupplyNeed" name="electricalSupplyNeed" data-toggle="toggle" data-on="OUI" data-off="NON">
                                     </div>
                                 </div>
                                 <div class="row align-items-center text-left pt-4">
@@ -74,7 +74,7 @@
                                         <p>Ajouter un référent</p>
                                     </div>
                                     <div class="col-md-2">
-                                        <input type="checkbox" id="volunteer" name="volunteerNeed" data-toggle="toggle" data-on="OUI" data-off="NON">
+                                        <input type="checkbox" id="volunteer" name="volunteersNeed" data-toggle="toggle" data-on="OUI" data-off="NON">
                                     </div>
                                 </div>
                                 <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
@@ -91,7 +91,8 @@
                                     <textarea id="comments" class="comments" name="comments"></textarea>
                                 </div>
                                 <div>
-                                    <p>Coût de l'inscrption : 65 euros</p>
+                                    <label for="cost">Coût de l'inscrption : 65 euros</label>
+                                    <input type="hidden" id="cost" name="registrationCost"  value="65"/>
                                 </div>
                                 <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
                                 <button type="submit" name="registration" class="next action-button">Valider votre demande d'inscription</button>

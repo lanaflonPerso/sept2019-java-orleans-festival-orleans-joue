@@ -22,7 +22,10 @@ public class Registration {
 	private Event event;
 	private int tablesQuantity;
 	private boolean electricalSupplyNeed;
-	private boolean seller;
+	private boolean saleOption;
+	private boolean volunteersNeed;
+	private String comments;
+	private float registrationCost;
 
 	
 	public Registration() {
@@ -90,15 +93,49 @@ public class Registration {
 	}
 	
 
-	public boolean isSeller() {
+	public boolean isSaleOption() {
 		
-		return this.seller;
+		return this.saleOption;
 	}
 	
 
-	public void setSeller(boolean seller) {
+	public void setSaleOption(boolean saleOption) {
 		
-		this.seller = seller;
+		this.saleOption = saleOption;
+	}
+
+
+	public boolean isVolunteersNeed() {
+		
+		return this.volunteersNeed;
+	}
+
+
+	public void setVolunteersNeed(boolean volunteersNeed) {
+		
+		this.volunteersNeed = volunteersNeed;
+	}
+
+
+	public String getComments() {
+		
+		return this.comments;
+	}
+
+
+	public void setComments(String comments) {
+		
+		this.comments = comments;
+	}
+
+
+	public float getRegistrationCost() {
+		return registrationCost;
+	}
+
+
+	public void setRegistrationCost(float registrationCost) {
+		this.registrationCost = registrationCost;
 	}
 
 }
