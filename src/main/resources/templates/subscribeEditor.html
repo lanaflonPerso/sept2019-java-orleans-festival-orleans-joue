@@ -41,7 +41,7 @@
                                     <label for="nbtable">Nombre de tables souhaitées</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input type="number" id="nbtable" name="nbtable" value="1" min="0" max="10">
+                                    <input type="number" id="nbtable" name="tableNb" value="1" min="0" max="20">
                                 </div>
                             </div>
                             <div class="row align-items-center text-left pt-4">
@@ -49,7 +49,7 @@
                                     <label for="elec">Besoin d'éléctricité</label>
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="checkbox" id="elec" data-toggle="toggle" data-on="OUI" data-off="NON">
+                                    <input type="checkbox" id="elec" name="electricity" data-toggle="toggle" data-on="OUI" data-off="NON">
                                 </div>
                             </div>
                             <div class="row align-items-center text-left pt-4">
@@ -57,7 +57,7 @@
                                     <label for="send">Option vente sur le stand</label>
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="checkbox" id="send" data-toggle="toggle" data-on="OUI" data-off="NON">
+                                    <input type="checkbox" id="send" name="saleOption" data-toggle="toggle" data-on="OUI" data-off="NON">
                                 </div>
                             </div>
                             <input type="button" name="next" class="next action-button" value="Suivant" />
@@ -65,20 +65,29 @@
                         <fieldset>
                             <h2 class="fs-title">Moyens Humains</h2>
                             <h3 class="fs-subtitle">Your presence on the social network</h3>
-                            <input type="text" name="twitter" placeholder="Twitter" />
-                            <input type="text" name="facebook" placeholder="Facebook" />
-                            <input type="text" name="gplus" placeholder="Google Plus" />
+							<div></div>
+                            <div class="row align-items-center text-left pt-4">
+                                <div class="col-md-8">
+                                    <p>Ajouter un référent</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="checkbox" id="volunteer" name="volunteerNeed" data-toggle="toggle" data-on="OUI" data-off="NON">
+                                </div>
+                            </div>
                             <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
                             <input type="button" name="next" class="next action-button" value="Suivant" />
                         </fieldset>
                         <fieldset>
                             <h2 class="fs-title">Informations complémentaires</h2>
                             <h3 class="fs-subtitle">Fill in your credentials</h3>
-                            <input type="text" name="email" placeholder="Email" />
-                            <input type="password" name="pass" placeholder="Password" />
-                            <input type="password" name="cpass" placeholder="Confirm Password" />
-                            <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
-                            <input type="submit" name="submit" class="submit action-button" value="Envoyer" />
+                            <div>
+                            	<label for="comments">Ajouter un commentaire</label>
+                            	<textarea id="comments" class="comments" name="comments"></textarea>
+                            </div>
+                            <div>
+                            	<p>Coût de l'inscrption : 65 euros</p>
+                            </div>
+                            <button type="submit" name="registration" class="next action-button">Valider votre demande d'inscription</button>
                         </fieldset>
                     </form>
                 </div>
