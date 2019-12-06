@@ -20,6 +20,5 @@ public class MessageService implements IMessageService{
 			errorMsgModel.setErrorMsg("Aucun évènnement en cours.");
 		}
 		return errorMsgModel;
-	};
-
+	}
 }
