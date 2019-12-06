@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
 
 @Entity
 public class Event {
@@ -40,6 +42,9 @@ public class Event {
 	private List<Tasks> tasks = new ArrayList<>();
 	@OneToMany(mappedBy = "event")
 	private List<Game> game = new ArrayList<Game>();
+	@OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+	private List<Registration> regList = new ArrayList<>();
+
 
 	public Event() {
 	}
@@ -258,5 +263,18 @@ public class Event {
 
 		this.registrationMessage = registrationMessage;
 	}
+
+
+	public List<Registration> getRegList() {
+		return regList;
+	}
+
+
+	public void setRegList(List<Registration> regList) {
+		this.regList = regList;
+	}
+	
+	
+	
 
 }

@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 import com.wildcodeschool.festivalorleansjoue.entity.Event;
+import com.wildcodeschool.festivalorleansjoue.entity.Registration;
 import com.wildcodeschool.festivalorleansjoue.entity.User;
 import com.wildcodeschool.festivalorleansjoue.repository.EventRepository;
+import com.wildcodeschool.festivalorleansjoue.repository.RegistrationRepository;
 import com.wildcodeschool.festivalorleansjoue.repository.UserRepository;
 
 @Service
@@ -26,6 +28,7 @@ public class ModelService {
 	@Autowired
 	MessageService messageService;
 	
+
 	public ModelService() {
 
 	}

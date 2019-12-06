@@ -30,6 +30,7 @@ public class User {
 	@JoinColumn(name = "user_role_id")
 	private UserRole userRole;
 	
+	
 
 	public User() {
 
