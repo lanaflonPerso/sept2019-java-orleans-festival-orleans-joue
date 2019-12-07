@@ -22,8 +22,8 @@ import com.wildcodeschool.festivalorleansjoue.services.ModelService;
 		}
 		
 		@PostMapping("/inscription_editeur")
-		public String submitRegistration() {
+		public ModelAndView submitRegistration() {
 			
-			return "redirect:/accueil_editeur";
+			return new ModelAndView("redirect:/accueil_editeur"); 
 		}
 }
