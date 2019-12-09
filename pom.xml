@@ -67,7 +67,8 @@
 				<groupId>nl.geodienstencentrum.maven</groupId>
 				<artifactId>sass-maven-plugin</artifactId>
 				<version>3.7.2</version>
-<!--  		<executions>
+			<!-- 
+			<executions>
 	             <execution>
 	                 <id>lint</id>
 	                 <phase>validate</phase>

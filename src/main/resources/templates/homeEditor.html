@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/footer.css">
     <link rel="stylesheet" href="../CSS/navBar.css">
+    <link rel="stylesheet" href="../CSS/toast.css">
     <title>accueil exposant</title>
 </head>
 
@@ -19,8 +20,12 @@
     <header th:replace="navBar.html :: top"></header>
 
     <main>
-        <!--/.evenement -->
-
+        <!-- code pour test alert! -->
+		
+			<a href="#" class="toastCustom-trigger toastCustom-auto" data-toastCustom="toastAlertOk">Auto FadeOut Toast</a>
+			<a href="#" class="toastCustom-trigger toastCustom-auto" data-toastCustom="toastAlertKo">Auto FadeOut Toast</a>
+    
+        <!--/.evenement -->		
         <h1 class="helloUser" th:text="|Bonjour ${connectedUser.firstname} ${connectedUser.lastname}|"></h1>
         <hr class="col-11" />
         <section class="fluid-container" id="evenement">
@@ -97,6 +102,10 @@
 			</div>
 		</section>
 		<!--/.Mes informations -->
+
+		  <!-- Toast -->		
+		<div th:replace="toasts :: toats">
+		</div>
 	</main>
 
 	<footer th:replace="footer :: bottom"></footer>

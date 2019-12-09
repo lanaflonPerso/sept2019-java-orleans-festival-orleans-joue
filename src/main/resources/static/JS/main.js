@@ -42,4 +42,23 @@ jQuery(document).ready(function ($) {
             $("button.navbar-toggler").click();
         }
     });
+    
+
+    $(".toastCustom-trigger").click(function(e){
+      e.preventDefault();
+      datatoastCustom = $(this).attr("data-toastCustom");
+      if ( $( this ).hasClass( "toastCustom-auto" ) && !$("#" + datatoastCustom).is(":visible") ){ 
+        $("#" + datatoastCustom).fadeIn(400).delay(2000).fadeOut(400);
+        console.log("coucou");
+      }
+      else if ( !$("#" + datatoastCustom).is(":visible") ){
+        $("#" + datatoastCustom).fadeIn(400);
+      };
+    });
+
+    $(".close-toastCustom").click(function(e){
+      e.preventDefault();
+      datatoastCustom = $(this).parent().attr("id");
+      $("#" + datatoastCustom).fadeOut(400);
+    });
 });
