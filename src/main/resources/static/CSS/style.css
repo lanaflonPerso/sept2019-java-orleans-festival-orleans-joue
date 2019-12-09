@@ -3,8 +3,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
-body {
-    padding-top: 120px;
+main {
+	margin-top: 120px;
+    min-height: calc(100vh - 86px - 201.8px - 120px);
+    /*100vh - header - footer - body margin-top*/
 }
 
 h1,
