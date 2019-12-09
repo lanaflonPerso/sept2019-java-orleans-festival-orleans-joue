@@ -39,12 +39,14 @@
                         <div class="card-header">
                             <h2 th:text="${eventInfos.name}">Evènement</h2>
                         </div>
-                        <div class="card-body">
+                        <form class="card-body" action="subscribeEditor" method="POST">
                             <h4 class="card-title" th:text="|${eventInfos.name} ouvre ses portes du ${#dates.format(eventInfos.eventBeginningDate, 'dd/MM/yyyy')} au ${#dates.format(eventInfos.eventEndingDate, 'dd/MM/yyyy')}|"></h4>
 							<p class="card-text" th:text="${eventInfos.description}"></p>
 								<p class="regMessage" th:unless="${eventInfos.registrationOpen}" th:text="${eventInfos.registrationMessage}"></p>
-								<a th:if="${eventInfos.registrationOpen}" href="/subscribeEditor" th:attr="value=${eventInfos.id}" class="btn btn-primary">S'inscrire</a>
-						</div>
+								<input name="id" type="hidden" th:value="${eventInfos.id}"></input>
+								<button type="submit" th:if="${eventInfos.registrationOpen}" class="btn btn-primary">S'inscrire</button>
+							
+						</form>
 					</div>
 				</div>
 			</div>

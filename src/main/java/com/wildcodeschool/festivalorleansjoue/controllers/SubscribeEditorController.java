@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import com.wildcodeschool.festivalorleansjoue.entity.Registration;
@@ -20,17 +21,16 @@ import com.wildcodeschool.festivalorleansjoue.services.ModelService;
 		@Autowired
 		RegistrationRepository registrationRepository;
 		
-		@GetMapping("/subscribeEditor")
-		public ModelAndView subscribeEditor() {
-
-			modelService.setSubscribeEditorModel("subscribeEditor");
+		@PostMapping("/subscribeEditor")
+		public ModelAndView subscribeEditor(@RequestParam String id) {
+			System.out.println(id);
+			modelService.setSubscribeEditorModel("subscribeEditor",id);
 			return modelService.getModel();
 		}
 		
-		@PostMapping("/subscribeEditor")
+		@PostMapping("/submitRegistration")
 		public ModelAndView submitRegistration(@ModelAttribute Registration registration) {
-			
-			registrationRepository.save(registration);
+			Registration registrationEntity = registrationRepository.save(registration);
 			return new ModelAndView("redirect:/accueil_editeur");
 		}
 }
