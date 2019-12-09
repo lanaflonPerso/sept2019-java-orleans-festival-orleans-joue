@@ -25,6 +25,8 @@ public class ModelService {
 	EventService eventService;
 	@Autowired
 	MessageService messageService;
+	@Autowired
+	NavbarLinksService navbarLinks;
 	
 
 	public ModelService() {
@@ -52,16 +54,19 @@ public class ModelService {
 		events = eventService.returnEvent(today);
 		User connectedUser = userService.returnUser();
 		eventService.setMessage(connectedUser, events, today);
+		navbarLinks.setCurrentPage("home");
 		this.model.addObject("connectedUser", connectedUser);
 		this.model.addObject("eventError", messageService.eventMessage(events));
-		this.model.addObject("event", events);		
+		this.model.addObject("event", events);
+		this.model.addObject("navbarLinks", navbarLinks);
 	}
 	
 	
 	public void setSubscribeEditorModel(String route) {
 		
 		this.model = new ModelAndView(route);
+		navbarLinks.setCurrentPage("editorSubscribe");
 		this.model.addObject("connectedUser", userService.returnUser());
-		
+		this.model.addObject("navbarLinks", navbarLinks);		
 	}
 }
