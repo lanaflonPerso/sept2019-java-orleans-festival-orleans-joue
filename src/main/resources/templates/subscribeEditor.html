@@ -22,7 +22,7 @@
     <main class="subscribeEditor">
         <!-- MultiStep Form -->
         <div class="fluid-container">
-            <h1 class="col-12 pl-7">Formulaire d'inscription</h1>
+            <h1 class="col-12">Formulaire d'inscription</h1>
             <div class="row">
                 <div class="col-12 ">
                     <div id="msform" class="msform">
@@ -46,7 +46,7 @@
                                     <div class="col-sm-8">
                                         <label for="tablesQuantity">Nombre de tables souhaitées</label>
                                     </div>
-                                    <div class="col-sm-2">
+                                    <div class="col-lg-2">
                                         <input type="number" id="tablesQuantity" name="tablesQuantity" value="1" min="0" max="20">
                                     </div>
                                 </div>
@@ -66,29 +66,59 @@
                                         <input type="checkbox" id="send" name="saleOption" data-toggle="toggle" data-on="OUI" data-off="NON">
                                     </div>
                                 </div>
-<!--                                 <input type="button" name="next" class="next action-button" value="Suivant" /> -->
-                                <button type="submit" class="next action-button">Suivant</button>
+                                <div class="text-left registration_cost">Prévisualisation du coût de l'inscription : 65 €</div>
+                                <input type="button" name="next" class="next action-button" value="Suivant" />
                             </fieldset>
                         </form>
                         <form method="post" action="/inscription_editeur">
                             <fieldset>
                                 <h2 class="fs-title">Moyens Humains</h2>
                                 <h3 class="fs-subtitle">Orléans Joue 2020</h3>
-                                <div class="pt-3"></div>
-                                <div class="row align-items-center text-left pt-4 pb-4">
-                                    <div class="col-md-8">
-                                        <p>Ajouter un référent</p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <input type="checkbox" id="volunteer" name="volunteersNeed" data-toggle="toggle" data-on="OUI" data-off="NON">
-                                    </div>
+                                <div class="row align-items-center text-left pt-4 pb-4 pl-2 pr-2">
+                                    <fieldset disabled class="col-12 p-3 border">
+                                        <legend>Référents</legend>
+                                        <h4 class="pb-1">Ajouter un référent :</h4>
+                                        <input type="text" name="fistName" placeholder="Prénom" />
+                                        <input type="text" name="lastName" placeholder="Nom" />
+                                        <div class="row align-items-center text-left">
+                                            <div class="col-md-8">
+                                                <label for="accomadationNeed">Besoin d'un hébergement</label>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <input type="checkbox" id="accomadationNeed" name="accomadationNeed" data-toggle="toggle" data-on="OUI" data-off="NON">
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center text-left">
+                                            <div class="col-md-8">
+                                                <label for="gardenParty">Participation à la garden party</label>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <input type="checkbox" id="gardenParty" name="gardenParty" data-toggle="toggle" data-on="OUI" data-off="NON">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 pt-4 pl-0">
+                                            <h4>Référents enregistrés</h4>
+                                            <ul>
+                                                <li>Patrick</li>
+                                                <li>Sophie</li>
+                                            </ul>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset class="border w-100 mt-4">
+                                       <legend class="pl-2">Bénévoles</legend>
+                                        <div class="volunteer col-md-8 pt-2">
+                                            <label for="volunteer">Besoin de bénévoles</label>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="checkbox" id="volunteer" name="volunteersNeed" data-toggle="toggle" data-on="OUI" data-off="NON">
+                                        </div>                
+                                    </fieldset>
                                 </div>
                                 <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
-<!--                                 <input type="button" name="next" class="next action-button" value="Suivant" /> -->
-                                <button type="submit" class="next action-button">Suivant</button>
+                                <input type="button" name="next" class="next action-button" value="Suivant" />
                             </fieldset>
                         </form>
-                                
+
                         <form method="post" action="/inscription_editeur">
                             <fieldset>
                                 <h2 class="fs-title">Informations complémentaires</h2>
@@ -97,9 +127,9 @@
                                     <label for="comments" class="w-100 text-left pt-3">Ajouter un commentaire</label>
                                     <textarea id="comments" class="comments" name="comments"></textarea>
                                 </div>
-                                <div class="pb-4">
-                                    <label for="cost" class="w-100 text-left">Coût de l'inscrption : 65 euros</label>
-                                    <input type="hidden" id="cost" name="registrationCost"  value="65"/>
+                                <div>
+                                    <label for="cost" class="registration_cost w-100 text-left mt-4">Coût de l'inscription : 65 euros</label>
+                                    <input type="hidden" id="cost" name="registrationCost" value="65" />
                                 </div>
                                 <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
                                 <button type="submit" name="registration" class="next action-button">Valider</button>
@@ -115,10 +145,10 @@
     <footer th:replace="footer :: bottom"></footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
- 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="../JS/subscribeEditor.js"></script>
-    <script	src="../JS/main.js"></script>
+    <script src="../JS/main.js"></script>
 
 </body>
 

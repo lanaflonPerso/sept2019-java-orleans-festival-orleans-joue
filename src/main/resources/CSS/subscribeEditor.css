@@ -1,4 +1,4 @@
-.progressbar{
+.progressbar {
     max-width: 100%;
     margin: auto;
     padding: 0px;
@@ -14,7 +14,7 @@
 .msform form {
     background: white;
     border: 1px solid var(--purple);
-    border-radius: 5px ;
+    border-radius: 5px;
     box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.3);
     padding: 20px 30px;
     box-sizing: border-box;
@@ -31,7 +31,8 @@
 }
 
 /*inputs*/
-.msform input, .msform textarea {
+.msform input,
+.msform textarea {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 0px;
@@ -40,7 +41,8 @@
     box-sizing: border-box;
 }
 
-.msform input:focus, .msform textarea:focus {
+.msform input:focus,
+.msform textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -62,10 +64,11 @@
     border-radius: 25px;
     cursor: pointer;
     padding: 10px 5px;
-    margin: 10px 5px;
+    margin: 28px 5px 10px;
 }
 
-.msform .action-button:hover, .msform .action-button:focus {
+.msform .action-button:hover,
+.msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px var(--orange);
 }
 
@@ -81,7 +84,8 @@
     margin: 10px 5px;
 }
 
-.msform .action-button-previous:hover, .msform .action-button-previous:focus {
+.msform .action-button-previous:hover,
+.msform .action-button-previous:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
 }
 
@@ -142,7 +146,8 @@
     position: absolute;
     left: -50%;
     top: 9px;
-    z-index: -1; /*put it behind the numbers*/
+    z-index: -1;
+    /*put it behind the numbers*/
 }
 
 .progressbar li:first-child:after {
@@ -152,7 +157,8 @@
 
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
-.progressbar li.active:before, .progressbar li.active:after {
+.progressbar li.active:before,
+.progressbar li.active:after {
     background: var(--purple);
     color: white;
 }
@@ -163,6 +169,7 @@
     margin-top: 30px;
     text-align: center;
 }
+
 .dme_link a {
     background: #FFF;
     font-weight: bold;
@@ -174,11 +181,23 @@
     font-size: 12px;
 }
 
-.dme_link a:hover, .dme_link a:focus {
+.dme_link a:hover,
+.dme_link a:focus {
     background: #C5C5F1;
     text-decoration: none;
 }
 
-subscribeEditor label{
-    font-size: 14px;
+.subscribeEditor h1 {
+    margin: 0 7%;
+    padding: 0;
+}
+
+.subscribeEditor h4, .volunteer {
+    font-family: 'Roboto';
+    font-size: 1.3em;
+}
+
+.registration_cost {
+    font-style: italic;
+    font-size: 0.9em;
 }
