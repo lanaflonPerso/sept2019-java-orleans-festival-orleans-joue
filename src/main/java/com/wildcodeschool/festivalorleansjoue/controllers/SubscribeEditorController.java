@@ -14,7 +14,7 @@ import com.wildcodeschool.festivalorleansjoue.services.ModelService;
 		@Autowired
 		ModelService modelService;
 		
-		@GetMapping("/inscription_editeur")
+		@GetMapping("/subscribeEditor")
 		public ModelAndView subscribeEditor() {
 
 			modelService.setSubscribeEditorModel("subscribeEditor");

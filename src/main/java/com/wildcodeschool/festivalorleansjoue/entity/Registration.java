@@ -26,6 +26,7 @@ public class Registration {
 	private boolean volunteersNeed;
 	private String comments;
 	private float registrationCost;
+	private boolean validated = false;
 
 	
 	public Registration() {
@@ -63,7 +64,7 @@ public class Registration {
 	}
 	
 
-	public void setEventId(Event event) {
+	public void setEvent(Event event) {
 		
 		this.event = event;
 	}
@@ -130,12 +131,26 @@ public class Registration {
 
 
 	public float getRegistrationCost() {
-		return registrationCost;
+		
+		return this.registrationCost;
 	}
 
 
 	public void setRegistrationCost(float registrationCost) {
+		
 		this.registrationCost = registrationCost;
+	}
+
+
+	public boolean isValidated() {
+		
+		return this.validated;
+	}
+
+
+	public void setValidated(boolean validated) {
+		
+		this.validated = validated;
 	}
 
 }
