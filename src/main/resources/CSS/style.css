@@ -1,10 +1,18 @@
+:root {
+    --orange: #ec5d31;
+    --purple: #5e3388;
+    --font-1: 'Acme';
+    --font-2: 'Roboto';
+    --font-nav: 'Open Sans';
+}
+
 /*Body*/
 * {
     font-family: 'Roboto', sans-serif;
 }
 
 main {
-	margin-top: 120px;
+    margin-top: 120px;
     min-height: calc(100vh - 86px - 201.8px - 120px);
     /*100vh - header - footer - body margin-top*/
 }
@@ -41,7 +49,7 @@ hr {
 .containerStyle {
 
     padding: 0;
-    border: 1px solid #5e3388;
+    border: 1px solid var(--purple);
     border-radius: 5px;
 }
 
@@ -64,13 +72,13 @@ hr {
 }
 
 .btn {
-    background: #5e3388;
+    background: var(--purple);
     border: none;
     margin-left: auto;
 }
 
 .btn:hover {
-    background: #ec5d31;
+    background: var(--orange);
     box-shadow: 0 0px 5px rgba(0, 0, 0, 0.9);
     margin-right: 5px;
     animation: toRight 0.5s;

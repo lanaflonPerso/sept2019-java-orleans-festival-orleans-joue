@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #ec5d31;
+    background-color: var(--orange);
 }
 
 .nav-link {
@@ -12,7 +12,7 @@
 .navElement:hover {
     background: white;
     border-radius: 5px;
-    color: #ec5d31 !important;
+    color: var(--orange) !important;
     animation: growUp 0.5s
 }
 
