@@ -11,7 +11,8 @@
     margin-top: 30px;
 }
 
-.msform form {
+
+.registrationState{
     background: white;
     border: 1px solid var(--purple);
     border-radius: 5px;
@@ -26,7 +27,7 @@
 }
 
 /*Hide all except first fieldset*/
-.msform form:not(:first-of-type) {
+.registrationState:not(:first-of-type) {
     display: none;
 }
 
@@ -192,14 +193,15 @@
     padding: 0;
 }
 
-.subscribeEditor h4, .volunteer {
+.subscribeEditor h4 {
     font-family: 'Roboto';
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
 
 .subscribeEditor legend {
     width: auto;
-    padding: 0 5px;
+    padding: 0 4px;
+
 }
 
 .registration_cost {
