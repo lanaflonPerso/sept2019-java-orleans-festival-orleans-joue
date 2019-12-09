@@ -197,6 +197,11 @@
     font-size: 1.3em;
 }
 
+.subscribeEditor legend {
+    width: auto;
+    padding: 0 5px;
+}
+
 .registration_cost {
     font-style: italic;
     font-size: 0.9em;
