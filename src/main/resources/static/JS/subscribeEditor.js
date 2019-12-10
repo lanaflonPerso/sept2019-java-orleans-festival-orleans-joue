@@ -93,3 +93,10 @@ $(".previous").click(function () {
 $(".submit").click(function () {
     return false;
 })
+
+//Confirm message
+function confirmation() {
+ if (confirm("Êtes-vous sûr de vouloir annuler l'inscription ?")) {
+  window.location.href = "/stopRegistration"
+ }
+}
