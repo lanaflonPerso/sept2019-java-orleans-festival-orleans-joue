@@ -34,7 +34,7 @@ public class Registration {
 	private boolean volunteersNeed;
 	private String comments;
 	private float registrationCost;
-	private boolean validated = false;
+	private String state;
 
 	
 	public Registration() {
@@ -160,15 +160,16 @@ public class Registration {
 	}
 
 
-	public boolean isValidated() {
+	public String getState() {
 		
-		return this.validated;
+		return this.state;
 	}
 
 
-	public void setValidated(boolean validated) {
+	public void setState(String state) {
 		
-		this.validated = validated;
+		this.state = state;
 	}
+
 
 }
