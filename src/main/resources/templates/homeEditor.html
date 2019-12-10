@@ -42,10 +42,9 @@
                         <form class="card-body" action="subscribeEditor" method="POST">
                             <h4 class="card-title" th:text="|${eventInfos.name} ouvre ses portes du ${#dates.format(eventInfos.eventBeginningDate, 'dd/MM/yyyy')} au ${#dates.format(eventInfos.eventEndingDate, 'dd/MM/yyyy')}|"></h4>
 							<p class="card-text" th:text="${eventInfos.description}"></p>
-								<p class="regMessage" th:unless="${eventInfos.registrationOpen}" th:text="${eventInfos.registrationMessage}"></p>
-								<input name="id" type="hidden" th:value="${eventInfos.id}"></input>
-								<button type="submit" th:if="${eventInfos.registrationOpen}" class="btn btn-primary">S'inscrire</button>
-							
+							<p class="regMessage" th:unless="${eventInfos.registrationOpen}" th:text="${eventInfos.registrationMessage}"></p>
+							<input name="id" type="hidden" th:value="${eventInfos.id}">
+							<button type="submit" th:if="${eventInfos.registrationOpen}" class="btn btn-primary">S'inscrire</button>
 						</form>
 					</div>
 				</div>
@@ -67,11 +66,50 @@
 							<h2 th:text="|Récapitulatif inscription evenement : ${events.name}|"></h2>
 						</div>
 						<div class="card-body">
-							<h3 class="card-title">demande d'inscription effectuée le : </h3>
-							<p class="card-text">Récapitulatif de ma demande</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste perspiciatis modi officiis, inventore nihil quisquam vero quos? Voluptas ipsam, obcaecati aut rem, accusamus est expedita, libero nihil iusto asperiores veniam!</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste perspiciatis modi officiis, inventore nihil quisquam vero quos? Voluptas ipsam, obcaecati aut rem, accusamus est expedita, libero nihil iusto asperiores veniam!</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste perspiciatis modi officiis, inventore nihil quisquam vero quos? Voluptas ipsam, obcaecati aut rem, accusamus est expedita, libero nihil iusto asperiores veniam!</p>
+							<h4 class="card-title">Demande d'inscription effectuée le :</h4>
+							<p class="text-center">
+								<span class="badge badge-pill badge-warning">En attente</span>
+								<span class="badge badge-pill badge-success">Validée</span>
+								<span class="badge badge-pill badge-danger">Refusée</span>
+							</p>
+							<fieldset class="border p-3 text-left">
+								<legend class="w-auto">Récapitulatif de vos demandes</legend>
+								<div class="row align-items-center">
+									<div class="col-sm-8">
+										<p for="tablesQuantity">Nombre de tables demandées : <span class="badge badge-pill badge-secondary">5</span></p>
+										<p for="electricalSupplyNeed">Vous avez besoin d'un raccord au réseau éléctrique : <span class="badge badge-pill badge-secondary">oui</span></p>
+										<p for="send">Vous Souhaitez vendre des produits lors de l'évènement : <span class="badge badge-pill badge-secondary">oui</span></p>
+										<p for="agent">Des représentants de votre entreprise seront présents lors de l'évènement : <span class="badge badge-pill badge-secondary">oui</span></p>
+										<p for="volunteer">Vous avez besoin de bénévoles pour l'animation de vos jeux : <span class="badge badge-pill badge-secondary">non</span></p>
+									</div>
+								</div>  
+							</fieldset>
+							<fieldset class="border p-3 text-left">
+								<legend class="w-auto">Vos jeux inscrits</legend>
+								<div class="row align-items-center">
+									<div class="col-sm-12">
+										<p for="tablesQuantity">Vous avez demandé x tables, vous devez inscrire x jeux.</p>
+										
+									</div>
+								</div>  
+							</fieldset>
+							<fieldset class="border p-3 text-left">
+								<legend class="w-auto">Vos collaborateurs</legend>
+								<div class="row align-items-center">
+									<div class="col-sm-12">
+										<p for="tablesQuantity">Vous avez indiqué que vos collaborateurs participeront à l'évènement. Merci de compléter leur inscription.</p>
+										
+									</div>
+								</div>  
+							</fieldset>
+							<fieldset class="border p-3 text-left">
+								<legend class="w-auto">Coût de votre participation</legend>
+								<div class="row align-items-center">
+									<div class="col-sm-12">
+									<p for="cost">Le montant de votre inscription est de :  euros</p>
+									</div>
+								</div>  
+							</fieldset>
 							<a href="#" class="btn btn-primary">Modifier ma demande</a>
 						</div>
 					</div>
