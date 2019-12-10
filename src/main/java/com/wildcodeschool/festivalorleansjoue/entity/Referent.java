@@ -18,6 +18,9 @@ public class Referent {
 	@ManyToOne
 	@JoinColumn(name = "society_id")
 	private Society society;
+	@ManyToOne
+	@JoinColumn(name = "society_referent")
+	private SocietyReferent societyReferent;
 	
 
 	public Referent() {
