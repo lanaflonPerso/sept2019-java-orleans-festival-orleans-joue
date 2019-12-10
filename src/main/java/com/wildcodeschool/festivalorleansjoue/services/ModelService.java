@@ -62,7 +62,7 @@ public class ModelService {
 	}
 	
 	
-	public void setSubscribeEditorModel(String route, String id) {
+	public void setSubscribeEditorModel(String route, int id) {
 		
 		this.model = new ModelAndView(route);
 		navbarLinks.setCurrentPage("editorSubscribe");
