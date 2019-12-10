@@ -212,3 +212,11 @@
     font-style: italic;
     font-size: 0.9em;
 }
+.row{
+	width:100%;
+}
+
+.fluid-container{
+	width:100vw;
+	max-width:100%;
+}
