@@ -188,7 +188,7 @@
     text-decoration: none;
 }
 
-.subscribeEditor main>div {
+.mainContainer {
 	height: 700px;
 }
 
