@@ -40,8 +40,6 @@ public class Event {
 	@ManyToMany
 	@JoinTable(name = "EventTasks", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "task_id"))
 	private List<Tasks> tasks = new ArrayList<>();
-	@OneToMany(mappedBy = "event")
-	private List<Game> game = new ArrayList<Game>();
 	@OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
 	private List<Registration> regList = new ArrayList<>();
 

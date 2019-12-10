@@ -1,10 +1,15 @@
 package com.wildcodeschool.festivalorleansjoue.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 
@@ -20,6 +25,9 @@ public class Registration {
 	@ManyToOne
 	@JoinColumn(name = "event_id")
 	private Event event;
+	@ManyToMany
+	@JoinTable(name = "game_registration", joinColumns = @JoinColumn(name = "registration_id"), inverseJoinColumns = @JoinColumn(name = "game_id"))
+	private List<Game> games = new ArrayList<>();
 	private int tablesQuantity;
 	private boolean electricalSupplyNeed;
 	private boolean saleOption;
@@ -69,6 +77,16 @@ public class Registration {
 		this.event = event;
 	}
 	
+
+	public List<Game> getGames() {
+		return this.games;
+	}
+
+
+	public void setGames(List<Game> games) {
+		this.games = games;
+	}
+
 
 	public int getTablesQuantity() {
 		
