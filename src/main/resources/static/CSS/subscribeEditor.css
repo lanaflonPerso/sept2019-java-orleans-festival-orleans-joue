@@ -188,6 +188,10 @@
     text-decoration: none;
 }
 
+.subscribeEditor main>div {
+	height: 700px;
+}
+
 .subscribeEditor h1 {
     margin: 0 7%;
     padding: 0;
