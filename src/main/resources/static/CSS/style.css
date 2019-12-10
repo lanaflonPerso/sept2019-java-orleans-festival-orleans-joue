@@ -1,7 +1,9 @@
 :root {
     --orange: #ec5d31;
     --purple: #5e3388;
+    --grey:#ccc;
     --active:#82D485;
+    --danger:#DC3545;
     --font-1: 'Acme';
     --font-2: 'Roboto';
     --font-nav: 'Open Sans';
@@ -201,4 +203,21 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.quitIcon {
+    height: 30px;  
+}
+.quitIcon a{
+    cursor: pointer;
+}
+
+.quitIcon svg {
+    height: 100%;
+    width: auto;
+    fill: var(--grey);
+}
+
+.quitIcon svg:hover {
+    fill:var(--danger);
 }
