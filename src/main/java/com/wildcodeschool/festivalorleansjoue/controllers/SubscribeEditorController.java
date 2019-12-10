@@ -3,6 +3,7 @@ package com.wildcodeschool.festivalorleansjoue.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,4 +43,12 @@ import com.wildcodeschool.festivalorleansjoue.services.ModelService;
 			model.addAttribute("hasSubscribe", "ok");
 			return new ModelAndView("redirect:/accueil_editeur", model);
 		}
+		
+		@GetMapping("/stopRegistration")
+		public ModelAndView stopRegistration() {
+			ModelMap model = new ModelMap();
+			model.addAttribute("hasSubscribe", "ko");
+			return new ModelAndView("redirect:/accueil_editeur", model);
+		}
+
 }
