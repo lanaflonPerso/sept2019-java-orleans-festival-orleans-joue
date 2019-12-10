@@ -34,7 +34,7 @@
                 <h2 class="col-12 title">Evenements:</h2>
             </div>
             <div th:if="!${eventError.errorON}" class="container containerStyle" th:each="eventInfos : ${event}">
-                <div class="col-sm-12">
+                <div class="col-sm-12 p-0">
                     <div class="card">
                         <div class="card-header">
                             <h2 th:text="${eventInfos.name}">Evènement</h2>
@@ -60,7 +60,7 @@
 				<h2 class="col-12 title">Mes inscriptions:</h2>
 			</div>
 			<div th:each="events : ${subscribedEvents}"class="container containerStyle">
-				<div class="col-sm-12">  
+				<div class="col-sm-12 p-0">
 					<div class="card">
 						<div class="card-header">
 							<h2 th:text="|Récapitulatif inscription evenement : ${events.name}|"></h2>
@@ -123,10 +123,10 @@
 		<section class="fluid-container" id="information">
 			<div class="pcard" ></div>
 			<div class="container containerTitleStyle">
-				<h2 class="col-sm-12 title">Mes informations:</h2>
+				<h2 class="col-sm-12 p-0 title">Mes informations:</h2>
 			</div>
 			<div class="container containerStyle">
-				<div class="col-sm-12">  
+				<div class="col-sm-12 p-0">  
 					<div class="card">
 						<div class="card-body">
 							<p class="card-text">société truc</p>

@@ -17,154 +17,153 @@
 </head>
 
 <body>
+
     <header th:replace="navBar.html :: top"></header>
 
     <main class="subscribeEditor">
         <!-- MultiStep Form -->
-        <div class="fluid-container mainContainer">
+        <div class="container-fluid mainContainer">
             <div class="row">
-            	<h1 class="col-11 offset-1">Formulaire d'inscription</h1>
+                <div class="col p-2 text-center text-sm-left">
+                    <h1>Formulaire d'inscription</h1>
+                </div>
             </div>
             <div class="row">
-                <div class="col-12 ">
-                    <div id="msform" class="msform">
-                        <!-- progressbar -->
-                        <ul class="row progressbar d-none d-sm-block" id="progressbar_1">
-                            <li class="active col-4">Informations générales</li>
-                            <li class="col-4">Moyens Humains</li>
-                            <li class="col-4">Informations complémentaires</li>
-                        </ul>
-                        <ul class="row progressbar d-sm-none" id="progressbar_2">
-                            <li class="active col-4"></li>
-                            <li class="col-4"></li>
-                            <li class="col-4"></li>
-                        </ul>
-                        <!-- form -->
-                        <form method="post" action="/submitRegistration">
-                            <input type="hidden" name="eventId" th:value="${event}">
-                            <!-- fieldset 1 -->
-                            <fieldset class="registrationState">
-                                <div class="quitIcon">
-                                    <a href="#" title="Annuler l'inscripition à l'évènement" onclick="confirmation();">
-                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" class="svg-inline--fa fa-times-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                            <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path>
-                                        </svg>
-                                    </a>
+                <div id="msform" class="msform">
+                    <!-- progressbar -->
+                    <ul class="row progressbar d-none d-sm-block" id="progressbar_1">
+                        <li class="active col-4">Informations générales</li>
+                        <li class="col-4">Moyens Humains</li>
+                        <li class="col-4">Informations complémentaires</li>
+                    </ul>
+                    <ul class="row progressbar d-sm-none" id="progressbar_2">
+                        <li class="active col-4"></li>
+                        <li class="col-4"></li>
+                        <li class="col-4"></li>
+                    </ul>
+                    <!-- form -->
+                    <form method="post" action="/submitRegistration">
+                        <input type="hidden" name="eventId" th:value="${event}">
+                        <!-- fieldset 1 -->
+                        <fieldset class="registrationState">
+                            <div class="quitIcon">
+                                <a href="#" title="Annuler l'inscripition à l'évènement" onclick="confirmation();">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" class="svg-inline--fa fa-times-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            <h2 class="fs-title">Informations générales</h2>
+                            <h3 class="fs-subtitle">Orléans Joue 2020</h3>
+                            <fieldset class="border p-3 text-left">
+                                <legend>Besoins matériel</legend>
+                                <div class="row align-items-center">
+                                    <div class="col-sm-10">
+                                        <label for="tablesQuantity">Nombre de tables souhaitées :</label>
+                                    </div>
+                                    <div class="col-lg-1 p-lg-0 m-auto">
+                                        <input type="number" id="tablesQuantity" name="tablesQuantity" value="1" min="0" max="20">
+                                    </div>
                                 </div>
-                                <h2 class="fs-title">Informations générales</h2>
-                                <h3 class="fs-subtitle">Orléans Joue 2020</h3>
-                                <fieldset class="border p-3 text-left">
-                                    <legend>Besoins matériel</legend>
-                                    <div class="row align-items-center">
-                                        <div class="col-sm-10">
-                                            <label for="tablesQuantity">Nombre de tables souhaitées :</label>
-                                        </div>
-                                        <div class="col-lg-1 p-lg-0 m-auto">
-                                            <input type="number" id="tablesQuantity" name="tablesQuantity" value="1" min="0" max="20">
-                                        </div>
+                                <div class="row align-items-center">
+                                    <div class="col-sm-10">
+                                        <label for="electricalSupplyNeed">Besoin d'un raccord au réseau éléctrique :</label>
                                     </div>
-                                    <div class="row align-items-center">
-                                        <div class="col-sm-10">
-                                            <label for="electricalSupplyNeed">Besoin d'un raccord au réseau éléctrique :</label>
-                                        </div>
-                                        <div class="m-auto">
-                                            <label class="switch">
-                                                <input type="checkbox" id="electricalSupplyNeed" name="electricalSupplyNeed">
-                                                <span class="slider round"></span>
-                                            </label>
-                                        </div>
+                                    <div class="m-auto">
+                                        <label class="switch">
+                                            <input type="checkbox" id="electricalSupplyNeed" name="electricalSupplyNeed">
+                                            <span class="slider round"></span>
+                                        </label>
                                     </div>
-                                </fieldset>
-                                <fieldset class="border text-left mt-3 p-3">
-                                    <legend>Option vente</legend>
-                                    <div class="row align-items-cente">
-                                        <div class="col-sm-10">
-                                            <label for="send">Souhaitez-vous vendre des produits lors de l'évènement ?</label>
-                                        </div>
-                                        <div class="m-auto">
-                                            <label class="switch">
-                                                <input type="checkbox" id="send" name="saleOption">
-                                                <span class="slider round"></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                                <div class="text-left registration_cost mt-3">Prévisualisation du coût de l'inscription : 65 €</div>
-                                <input type="button" name="next" class="next action-button" value="Suivant" />
+                                </div>
                             </fieldset>
-                            <!-- fieldset 2 -->
-                            <fieldset class="registrationState">
-                                <div class="quitIcon">
-                                    <a href="#" title="Annuler l'inscripition à l'évènement" onclick="confirmation();">
-                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" class="svg-inline--fa fa-times-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                            <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <h2 class="fs-title">Moyens Humains</h2>
-                                <h3 class="fs-subtitle">Orléans Joue 2020</h3>
-                                <fieldset class="border p-3 text-left">
-                                    <legend>Représentants</legend>
-                                    <div class="row align-items-center">
-                                        <div class="col-sm-10">
-                                            <label for="agent">Des représentants de votre entreprise seront-ils présents ?</label>
-                                        </div>
-                                        <div class="m-auto">
-                                            <label class="switch">
-                                                <input type="checkbox" id="agent" name="agentProvided">
-                                                <span class="slider round"></span>
-                                            </label>
-                                        </div>
+                            <fieldset class="border text-left mt-3 p-3">
+                                <legend>Option vente</legend>
+                                <div class="row align-items-cente">
+                                    <div class="col-sm-10">
+                                        <label for="send">Souhaitez-vous vendre des produits lors de l'évènement ?</label>
                                     </div>
-                                </fieldset>
-                                <fieldset class="border p-3 text-left mt-3">
-                                    <legend>Bénévoles</legend>
-                                    <div class="row align-items-center">
-                                        <div class="volunteer col-sm-10">
-                                            <label for="volunteer">Aurez-vous besoin de bénévoles ?</label>
-                                        </div>
-                                        <div class="m-auto">
-                                            <label class="switch">
-                                                <input type="checkbox" id="volunteer" name="volunteersNeed">
-                                                <span class="slider round"></span>
-                                            </label>
-                                        </div>
+                                    <div class="m-auto">
+                                        <label class="switch">
+                                            <input type="checkbox" id="send" name="saleOption">
+                                            <span class="slider round"></span>
+                                        </label>
                                     </div>
-                                </fieldset>
-                                <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
-                                <input type="button" name="next" class="next action-button" value="Suivant" />
+                                </div>
                             </fieldset>
-                            <!-- fieldset 3 -->
-                            <fieldset class="registrationState">
-                                <div class="quitIcon">
-                                    <a href="#" title="Annuler l'inscripition à l'évènement" onclick="confirmation();">
-                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" class="svg-inline--fa fa-times-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                            <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path>
-                                        </svg>
-                                    </a>
+                            <div class="text-left registration_cost mt-3">Prévisualisation du coût de l'inscription : 65 €</div>
+                            <input type="button" name="next" class="next action-button" value="Suivant" />
+                        </fieldset>
+                        <!-- fieldset 2 -->
+                        <fieldset class="registrationState">
+                            <div class="quitIcon">
+                                <a href="#" title="Annuler l'inscripition à l'évènement" onclick="confirmation();">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" class="svg-inline--fa fa-times-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            <h2 class="fs-title">Moyens <br/>Humains</h2>
+                            <h3 class="fs-subtitle">Orléans Joue 2020</h3>
+                            <fieldset class="border p-3 text-left">
+                                <legend>Représentants</legend>
+                                <div class="row align-items-center">
+                                    <div class="col-sm-10">
+                                        <label for="agent">Des représentants de votre entreprise seront-ils présents ?</label>
+                                    </div>
+                                    <div class="m-auto">
+                                        <label class="switch">
+                                            <input type="checkbox" id="agent" name="agentProvided">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
                                 </div>
-                                <h2 class="fs-title">Informations complémentaires</h2>
-                                <h3 class="fs-subtitle">Orléans Joue 2020</h3>
-                                <div>
-                                    <label for="comments" class="w-100 text-left pt-3">Ajouter un commentaire</label>
-                                    <textarea id="comments" class="comments" name="comments"></textarea>
-                                </div>
-                                <div>
-                                    <label for="cost" class="registration_cost w-100 text-left mt-4">Coût de l'inscription : 65 euros</label>
-                                    <input type="hidden" id="cost" name="registrationCost" value="65" />
-                                </div>
-                                <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
-                                <button type="submit" name="registration" class="next action-button">Valider</button>
                             </fieldset>
-                        </form>
-                    </div>
+                            <fieldset class="border p-3 text-left mt-3">
+                                <legend>Bénévoles</legend>
+                                <div class="row align-items-center">
+                                    <div class="volunteer col-sm-10">
+                                        <label for="volunteer">Aurez-vous besoin de bénévoles ?</label>
+                                    </div>
+                                    <div class="m-auto">
+                                        <label class="switch">
+                                            <input type="checkbox" id="volunteer" name="volunteersNeed">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
+                            <input type="button" name="next" class="next action-button" value="Suivant" />
+                        </fieldset>
+                        <!-- fieldset 3 -->
+                        <fieldset class="registrationState">
+                            <div class="quitIcon">
+                                <a href="#" title="Annuler l'inscripition à l'évènement" onclick="confirmation();">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" class="svg-inline--fa fa-times-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            <h2 class="fs-title">Informations complémentaires</h2>
+                            <h3 class="fs-subtitle">Orléans Joue 2020</h3>
+                            <div>
+                                <label for="comments" class="w-100 text-left pt-3">Ajouter un commentaire</label>
+                                <textarea id="comments" class="comments" name="comments"></textarea>
+                            </div>
+                            <div>
+                                <label for="cost" class="registration_cost w-100 text-left mt-4">Coût de l'inscription : 65 euros</label>
+                                <input type="hidden" id="cost" name="registrationCost" value="65" />
+                            </div>
+                            <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
+                            <button type="submit" name="registration" class="next action-button">Valider</button>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
         </div>
         <!-- /.MultiStep Form -->
     </main>
-
-    <footer th:replace="footer :: bottom"></footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

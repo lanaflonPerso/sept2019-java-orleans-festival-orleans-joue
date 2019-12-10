@@ -42,10 +42,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footerContainer,
-.row {
-    margin-top: 0 !important;
-}
+
 
 .copyright {
     margin-bottom: 0 !important;
