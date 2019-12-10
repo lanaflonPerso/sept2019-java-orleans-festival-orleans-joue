@@ -3,6 +3,8 @@ package com.wildcodeschool.festivalorleansjoue.services;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -46,7 +48,7 @@ public class ModelService {
 	}
 	
 
-	public void setHomeModel(String route) {
+	public void setHomeModel(String route, Optional<String> hasSubscribe) {
 
 		Date today = new Date();
 		this.model = new ModelAndView(route);
@@ -55,6 +57,9 @@ public class ModelService {
 		User connectedUser = userService.returnUser();
 		eventService.setMessage(connectedUser, events, today);
 		navbarLinks.setCurrentPage("home");
+		if (!hasSubscribe.isEmpty()) {
+			this.model.addObject("hasSubscribe",(hasSubscribe.get()));
+		}
 		this.model.addObject("connectedUser", connectedUser);
 		this.model.addObject("eventError", messageService.eventMessage(events));
 		this.model.addObject("event", events);

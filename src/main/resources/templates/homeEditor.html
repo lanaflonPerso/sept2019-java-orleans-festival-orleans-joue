@@ -14,17 +14,17 @@
     <link rel="stylesheet" href="../CSS/navBar.css">
     <link rel="stylesheet" href="../CSS/toast.css">
     <title>accueil exposant</title>
+    
+    <script>
+    	var hasSubscribe = "[[${hasSubscribe}]]";
+	</script>
 </head>
 
 <body>
     <header th:replace="navBar.html :: top"></header>
 
     <main>
-        <!-- code pour test alert! -->
-		
-			<a href="#" class="toastCustom-trigger toastCustom-auto" data-toastCustom="toastAlertOk">Auto FadeOut Toast</a>
-			<a href="#" class="toastCustom-trigger toastCustom-auto" data-toastCustom="toastAlertKo">Auto FadeOut Toast</a>
-    
+   
         <!--/.evenement -->		
         <h1 class="helloUser" th:text="|Bonjour ${connectedUser.firstname} ${connectedUser.lastname}|"></h1>
         <hr class="col-11" />
