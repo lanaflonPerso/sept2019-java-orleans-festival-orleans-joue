@@ -72,7 +72,7 @@ public class Event {
 		this.name = name;
 	}
 
-	
+
 	public short getTables() {
 
 		return this.tables;

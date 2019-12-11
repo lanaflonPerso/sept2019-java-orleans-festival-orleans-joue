@@ -1,5 +1,7 @@
 package com.wildcodeschool.festivalorleansjoue.controllers;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,11 +38,12 @@ import com.wildcodeschool.festivalorleansjoue.services.ModelService;
 		
 		@PostMapping("/submitRegistration")
 		public ModelAndView submitRegistration(@ModelAttribute Registration registration, @RequestParam String eventId) {
-			
-			Event e = eventRepository.getOne(Long.parseLong(eventId));
-			registration.setEvent(e);
-			if (registration.getTablesQuantity() > e.getMaxTablesPerEditor()) {
-				registration.setTablesQuantity(e.getMaxTablesPerEditor());
+			Date subscriptionDate = new Date();
+			Event createdEvent = eventRepository.getOne(Long.parseLong(eventId));
+			registration.setEvent(createdEvent);
+			registration.setSubscriptionDate(subscriptionDate);
+			if (registration.getTablesQuantity() > createdEvent.getMaxTablesPerEditor()) {
+				registration.setTablesQuantity(createdEvent.getMaxTablesPerEditor());
 			}
 			registrationRepository.save(registration);
 			ModelMap model = new ModelMap();

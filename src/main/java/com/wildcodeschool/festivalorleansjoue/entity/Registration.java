@@ -1,6 +1,7 @@
 package com.wildcodeschool.festivalorleansjoue.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -35,6 +36,7 @@ public class Registration {
 	private String comments;
 	private float registrationCost;
 	private String state;
+	private Date subscriptionDate;
 
 	
 	public Registration() {
@@ -169,6 +171,16 @@ public class Registration {
 	public void setState(String state) {
 		
 		this.state = state;
+	}
+
+
+	public Date getSubscriptionDate() {
+		return subscriptionDate;
+	}
+
+
+	public void setSubscriptionDate(Date subscriptionDate) {
+		this.subscriptionDate = subscriptionDate;
 	}
 
 
