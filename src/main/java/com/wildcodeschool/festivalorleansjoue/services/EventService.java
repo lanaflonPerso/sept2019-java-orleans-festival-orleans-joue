@@ -21,7 +21,6 @@ public class EventService implements IEventService{
 
 		List<Event> events = new ArrayList<>();
 		events = eventRepository.findByEventEndingDateAfter(today);
-
 		return events;
 	}
 
@@ -53,7 +52,5 @@ public class EventService implements IEventService{
 					DateUtils.registrationCondition(today, event2);
 			}
 		}
-
-		
 	}
 }

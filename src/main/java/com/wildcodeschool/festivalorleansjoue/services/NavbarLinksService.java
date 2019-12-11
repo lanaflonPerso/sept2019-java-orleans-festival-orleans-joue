@@ -7,8 +7,8 @@ public class NavbarLinksService {
 	
 	private String currentPage;	
 	
+	
 	public NavbarLinksService() {
-		
 	}
 
 	
