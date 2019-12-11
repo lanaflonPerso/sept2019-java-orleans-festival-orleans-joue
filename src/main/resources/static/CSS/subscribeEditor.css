@@ -12,7 +12,6 @@
     width: 100%;
 }
 
-
 .registrationState {
     background: white;
     border: 1px solid var(--purple);
@@ -165,7 +164,6 @@
     color: white;
 }
 
-
 /* Not relevant to this form */
 .dme_link {
     margin-top: 30px;
@@ -198,8 +196,6 @@
     padding: 0;
 }
 
-
-
 .subscribeEditor h4 {
     font-family: 'Roboto';
     font-size: 1.2em;
@@ -208,7 +204,6 @@
 .subscribeEditor legend {
     width: auto;
     padding: 0 4px;
-
 }
 
 .registration_cost {
@@ -246,5 +241,4 @@
     	width: 90%;
     	margin: auto 5%;
     }
-
 }
