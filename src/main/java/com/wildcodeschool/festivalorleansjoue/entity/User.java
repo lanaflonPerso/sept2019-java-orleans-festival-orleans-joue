@@ -31,8 +31,6 @@ public class User {
 	private UserRole userRole;
  
 	
-	
-
 	public User() {
 
 	}
