@@ -103,9 +103,6 @@ public class Society {
 	public void setGame(List<Game> game) {
 		
 		this.game = game;
-	}
-	
-	
-	
+	}	
 
 }
