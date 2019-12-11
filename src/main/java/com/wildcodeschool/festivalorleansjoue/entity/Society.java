@@ -83,21 +83,25 @@ public class Society {
 
 
 	public List<Registration> getRegList() {
+		
 		return regList;
 	}
 
 
 	public void setRegList(List<Registration> regList) {
+		
 		this.regList = regList;
 	}
 
 
 	public List<Game> getGame() {
+		
 		return this.game;
 	}
 
 
 	public void setGame(List<Game> game) {
+		
 		this.game = game;
 	}
 	
