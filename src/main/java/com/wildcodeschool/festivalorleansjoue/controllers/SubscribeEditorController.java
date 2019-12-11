@@ -30,15 +30,20 @@ import com.wildcodeschool.festivalorleansjoue.services.ModelService;
 		
 		@PostMapping("/subscribeEditor")
 		public ModelAndView subscribeEditor(@RequestParam int id) {
+			
 			modelService.setSubscribeEditorModel("subscribeEditor",id);
 			return modelService.getModel();
 		}
 		
 		@PostMapping("/submitRegistration")
 		public ModelAndView submitRegistration(@ModelAttribute Registration registration, @RequestParam String eventId) {
+			
 			Event e = eventRepository.getOne(Long.parseLong(eventId));
 			registration.setEvent(e);
-			Registration registrationEntity = registrationRepository.save(registration);
+			if (registration.getTablesQuantity() > e.getMaxTablesPerEditor()) {
+				registration.setTablesQuantity(e.getMaxTablesPerEditor());
+			}
+			registrationRepository.save(registration);
 			ModelMap model = new ModelMap();
 			model.addAttribute("hasSubscribe", "ok");
 			return new ModelAndView("redirect:/accueil_editeur", model);
@@ -46,6 +51,7 @@ import com.wildcodeschool.festivalorleansjoue.services.ModelService;
 		
 		@GetMapping("/stopRegistration")
 		public ModelAndView stopRegistration() {
+			
 			ModelMap model = new ModelMap();
 			model.addAttribute("hasSubscribe", "ko");
 			return new ModelAndView("redirect:/accueil_editeur", model);
