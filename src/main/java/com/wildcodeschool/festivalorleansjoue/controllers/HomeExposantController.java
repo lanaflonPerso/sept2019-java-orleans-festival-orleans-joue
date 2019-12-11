@@ -19,7 +19,6 @@ public class HomeExposantController {
 	
 	@GetMapping("/accueil_editeur")
 	public ModelAndView homeEditor(@RequestParam (name="hasSubscribe", required = false) Optional<String> hasSubscribe){
-		System.out.println(hasSubscribe);
 		modelService.setHomeModel("homeEditor", hasSubscribe);
 		return modelService.getModel();
 	}
