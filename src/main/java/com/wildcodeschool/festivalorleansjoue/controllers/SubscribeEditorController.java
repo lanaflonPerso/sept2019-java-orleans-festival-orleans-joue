@@ -15,6 +15,7 @@ import com.wildcodeschool.festivalorleansjoue.entity.Registration;
 import com.wildcodeschool.festivalorleansjoue.repository.EventRepository;
 import com.wildcodeschool.festivalorleansjoue.repository.RegistrationRepository;
 import com.wildcodeschool.festivalorleansjoue.services.ModelService;
+import com.wildcodeschool.festivalorleansjoue.utils.MathUtils;
 
 
 	@RestController
@@ -39,11 +40,19 @@ import com.wildcodeschool.festivalorleansjoue.services.ModelService;
 		@PostMapping("/submitRegistration")
 		public ModelAndView submitRegistration(@ModelAttribute Registration registration, @RequestParam String eventId) {
 			Date subscriptionDate = new Date();
-			Event createdEvent = eventRepository.getOne(Long.parseLong(eventId));
-			registration.setEvent(createdEvent);
 			registration.setSubscriptionDate(subscriptionDate);
-			if (registration.getTablesQuantity() > createdEvent.getMaxTablesPerEditor()) {
-				registration.setTablesQuantity(createdEvent.getMaxTablesPerEditor());
+			
+			Event event = eventRepository.getOne(Long.parseLong(eventId));
+			registration.setEvent(event);
+			
+			int tablesQuantity = registration.getTablesQuantity();
+			float tablePrice = event.getPricePerTable();		
+			float saleOptionPrice = (registration.isSaleOption()) ? event.getSaleOptionPrice() : 0.00f;
+			float registrationCost = MathUtils.registrationCost(tablesQuantity, tablePrice, saleOptionPrice);
+			registration.setRegistrationCost(registrationCost);
+			
+			if (registration.getTablesQuantity() > event.getMaxTablesPerEditor()) {
+				registration.setTablesQuantity(event.getMaxTablesPerEditor());
 			}
 			registrationRepository.save(registration);
 			ModelMap model = new ModelMap();

@@ -34,7 +34,7 @@ public class Registration {
 	private boolean saleOption;
 	private boolean volunteersNeed;
 	private String comments;
-	private float registrationCost;
+	private double registrationCost;
 	private String state;
 	private Date subscriptionDate;
 
@@ -150,13 +150,13 @@ public class Registration {
 	}
 
 
-	public float getRegistrationCost() {
+	public double getRegistrationCost() {
 		
 		return this.registrationCost;
 	}
 
 
-	public void setRegistrationCost(float registrationCost) {
+	public void setRegistrationCost(double registrationCost) {
 		
 		this.registrationCost = registrationCost;
 	}
