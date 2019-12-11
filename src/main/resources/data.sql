@@ -19,8 +19,9 @@ INSERT INTO event (name,
 				   volunteers_registration_end_date,
 				   registration_open,
 				   registration_before,
-				   agent_provided
-				   )VALUES('Edition 2020 ouverte',200,20,20,'2020-2-1','2020-2-28','2019-10-1','2019-12-31','2019-10-1','2019-12-31','2019-10-1','2019-12-31',0,0,0);
+				   agent_provided,
+				   pricePerTable
+				   )VALUES('Edition 2020 ouverte',200,20,20,'2020-2-1','2020-2-28','2019-10-1','2019-12-31','2019-10-1','2019-12-31','2019-10-1','2019-12-31',0,0,0,65);
 INSERT INTO event (name, 
 				   tables, 
 				   protozone_tables,
@@ -35,8 +36,9 @@ INSERT INTO event (name,
 				   volunteers_registration_end_date,
 				   registration_open,
 				   registration_before,
-				   agent_provided
-				   ) VALUES('Edition 2020 ouverte inscription fermée',200,20,20,'2020-2-1','2020-2-28','2019-12-10','2019-12-31','2019-10-1','2019-10-31','2019-10-1','2019-10-31',0,0,0);
+				   agent_provided,
+				   pricePerTable
+				   ) VALUES('Edition 2020 ouverte inscription fermée',200,20,20,'2020-2-1','2020-2-28','2019-12-10','2019-12-31','2019-10-1','2019-10-31','2019-10-1','2019-10-31',0,0,0,65);
 INSERT INTO event (name, 
 				   tables, 
 				   protozone_tables,
@@ -51,8 +53,9 @@ INSERT INTO event (name,
 				   volunteers_registration_end_date,
 				   registration_open,
 				   registration_before,
-				   agent_provided
-				   ) VALUES('Edition 2019',200,20,20,'2019-2-1','2019-2-28','2018-10-1','2018-10-31','2018-10-1','2018-10-31','2018-10-1','2018-10-31',0,0,0);
+				   agent_provided,
+				   pricePerTable
+				   ) VALUES('Edition 2019',200,20,20,'2019-2-1','2019-2-28','2018-10-1','2018-10-31','2018-10-1','2018-10-31','2018-10-1','2018-10-31',0,0,0,65);
 INSERT INTO address (wording,phone_number1,phone_number2, postal_code) VALUES('Adresse de toto',1234567891,1234567891,45000);
 INSERT INTO address (wording,phone_number1,phone_number2, postal_code) VALUES('Adresse de la société de JM',1234567891,1234567891,45000);
 INSERT INTO user_role (wording) VALUES('admin');
