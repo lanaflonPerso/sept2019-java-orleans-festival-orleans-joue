@@ -1,5 +1,5 @@
 .footer {
-    background: #ec5d31;
+    background: var(--orange);
     color: white;
     padding: 10px !important;
     margin-top: 5rem !important;
@@ -40,11 +40,6 @@
 
 .footer .copyright p {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footerContainer,
-.row {
-    margin-top: 0 !important;
 }
 
 .copyright {

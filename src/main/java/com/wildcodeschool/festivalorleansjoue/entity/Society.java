@@ -23,7 +23,11 @@ public class Society {
 	private Address address;
 	@OneToMany(mappedBy = "society")
 	private List<Referent> referents = new ArrayList<Referent>();
-	
+	@OneToMany(mappedBy = "society")
+	private List<Game> game = new ArrayList<Game>();
+	@OneToMany(mappedBy = "society", cascade = CascadeType.ALL)
+	private List<Registration> regList = new ArrayList<>();
+
 
 	public Society() {
 
@@ -76,5 +80,29 @@ public class Society {
 
 		this.address = address;
 	}
+
+
+	public List<Registration> getRegList() {
+		
+		return regList;
+	}
+
+
+	public void setRegList(List<Registration> regList) {
+		
+		this.regList = regList;
+	}
+
+
+	public List<Game> getGame() {
+		
+		return this.game;
+	}
+
+
+	public void setGame(List<Game> game) {
+		
+		this.game = game;
+	}	
 
 }

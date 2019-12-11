@@ -42,4 +42,29 @@ jQuery(document).ready(function ($) {
             $("button.navbar-toggler").click();
         }
     });
+    
+
+/*    $(".toastCustom-trigger").click(function(e){ */
+
+    $(".close-toastCustom").click(function(e){
+      e.preventDefault();
+      datatoastCustom = $(this).parent().attr("id");
+      $("#" + datatoastCustom).fadeOut(400);
+    });
 });
+
+window.onload = function (e) {    
+    e.preventDefault();
+    
+    if (hasSubscribe === "ok") {
+		if (!$("#toastAlertOk").is(":visible") ){ 
+			$("#toastAlertOk").fadeIn(400).delay(2000).fadeOut(400);
+		}
+    }
+    else if (hasSubscribe === "ko") {
+		if (!$("#toastAlertKo").is(":visible") ){ 
+			$("#toastAlertKo").fadeIn(400).delay(2000).fadeOut(400);
+		}
+    };
+};
+

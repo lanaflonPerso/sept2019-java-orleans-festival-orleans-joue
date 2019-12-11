@@ -67,6 +67,7 @@
 				<groupId>nl.geodienstencentrum.maven</groupId>
 				<artifactId>sass-maven-plugin</artifactId>
 				<version>3.7.2</version>
+			<!-- 
 			<executions>
 	             <execution>
 	                 <id>lint</id>
@@ -82,7 +83,7 @@
 	                     <goal>update-stylesheets</goal>
 	                 </goals>
 	             </execution>
-			</executions>
+			</executions>	-->
             <configuration>
                 <sassSourceDirectory>
                     ${project.basedir}/src/main/resources/static/SASS
