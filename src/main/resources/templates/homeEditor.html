@@ -59,11 +59,18 @@
 			<div class="container containerTitleStyle">
 				<h2 class="col-12 title">Mes inscriptions:</h2>
 			</div>
+			<!--
 			<div th:each="events : ${subscribedEvents}"class="container containerStyle">
+			-->
+			<div class="container containerStyle">
 				<div class="col-sm-12 p-0">
 					<div class="card">
 						<div class="card-header">
+							<!-- 
 							<h2 th:text="|Récapitulatif inscription evenement : ${events.name}|"></h2>
+							 -->
+							<h2>Inscription Evenement</h2>
+
 						</div>
 						<div class="card-body">
 							<h4 class="card-title">Demande d'inscription effectuée le :</h4>
@@ -76,11 +83,11 @@
 								<legend class="w-auto">Récapitulatif de vos demandes</legend>
 								<div class="row align-items-center">
 									<div class="col-sm-8">
-										<p for="tablesQuantity">Nombre de tables demandées : <span class="badge badge-pill badge-secondary">5</span></p>
-										<p for="electricalSupplyNeed">Vous avez besoin d'un raccord au réseau éléctrique : <span class="badge badge-pill badge-secondary">oui</span></p>
-										<p for="send">Vous Souhaitez vendre des produits lors de l'évènement : <span class="badge badge-pill badge-secondary">oui</span></p>
-										<p for="agent">Des représentants de votre entreprise seront présents lors de l'évènement : <span class="badge badge-pill badge-secondary">oui</span></p>
-										<p for="volunteer">Vous avez besoin de bénévoles pour l'animation de vos jeux : <span class="badge badge-pill badge-secondary">non</span></p>
+										<p>Nombre de tables demandées : <span class="badge badge-pill badge-secondary">5</span></p>
+										<p>Vous avez besoin d'un raccord au réseau éléctrique : <span class="badge badge-pill badge-secondary">oui</span></p>
+										<p>Vous Souhaitez vendre des produits lors de l'évènement : <span class="badge badge-pill badge-secondary">oui</span></p>
+										<p>Des représentants de votre entreprise seront présents lors de l'évènement : <span class="badge badge-pill badge-secondary">oui</span></p>
+										<p>Vous avez besoin de bénévoles pour l'animation de vos jeux : <span class="badge badge-pill badge-secondary">non</span></p>
 									</div>
 								</div>  
 							</fieldset>
@@ -88,7 +95,7 @@
 								<legend class="w-auto">Vos jeux inscrits</legend>
 								<div class="row align-items-center">
 									<div class="col-sm-12">
-										<p for="tablesQuantity">Vous avez demandé x tables, vous devez inscrire x jeux.</p>
+										<p>Vous avez demandé x tables, vous devez inscrire x jeux.</p>
 										
 									</div>
 								</div>  
@@ -97,7 +104,7 @@
 								<legend class="w-auto">Vos collaborateurs</legend>
 								<div class="row align-items-center">
 									<div class="col-sm-12">
-										<p for="tablesQuantity">Vous avez indiqué que vos collaborateurs participeront à l'évènement. Merci de compléter leur inscription.</p>
+										<p>Vous avez indiqué que vos collaborateurs participeront à l'évènement. Merci de compléter leur inscription.</p>
 										
 									</div>
 								</div>  
@@ -106,7 +113,7 @@
 								<legend class="w-auto">Coût de votre participation</legend>
 								<div class="row align-items-center">
 									<div class="col-sm-12">
-									<p for="cost">Le montant de votre inscription est de :  euros</p>
+									<p>Le montant de votre inscription est de :  euros</p>
 									</div>
 								</div>  
 							</fieldset>
