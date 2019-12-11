@@ -1,4 +1,4 @@
-//jQuery time
+//Animations
 var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
@@ -92,11 +92,38 @@ $(".previous").click(function () {
 
 $(".submit").click(function () {
     return false;
-})
+});
 
-//Confirm message
+//Abandon confirm message
 function confirmation() {
- if (confirm("Êtes-vous sûr de vouloir annuler l'inscription ?")) {
-  window.location.href = "/stopRegistration"
- }
+    if (confirm("Êtes-vous sûr de vouloir annuler l'inscription ?")) {
+        window.location.href = "/stopRegistration";
+    }
 }
+
+//Registration cost preview and final view
+var table_quantity = 0;
+var sale_option_price = 0;
+var price_per_table, sale_option_price;
+var registrationCost;
+
+price_per_table = 65.00;
+
+document.getElementById("saleOption").addEventListener("change", function (e) {
+    if (e.target.checked == false) {
+        sale_option_price = 0;
+    } else {
+        sale_option_price = 100;
+    }
+    registrationCost = table_quantity * price_per_table - parseInt(table_quantity / 4) * price_per_table + sale_option_price;
+    document.getElementById("costPreview").textContent = "Prévisualisation du coût de l'inscription : " + registrationCost.toString() + " €";
+    document.getElementById("finalCost").textContent = "Coût de l'inscription : " + registrationCost.toString() + " €";
+
+});
+
+document.getElementById('tablesQuantity').addEventListener('change', function () {
+    table_quantity = this.value;
+    registrationCost = table_quantity * price_per_table - parseInt(table_quantity / 4) * price_per_table + sale_option_price;
+    document.getElementById("costPreview").textContent = "Prévisualisation du coût de l'inscription : " + registrationCost.toString() + " €";
+    document.getElementById("finalCost").textContent = "Coût de l'inscription : " + registrationCost.toString() + " €";
+});

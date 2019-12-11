@@ -37,7 +37,7 @@
 	                    </ul>
 	                    <form method="post" action="/submitRegistration">
 	                        <input type="hidden" name="eventId" th:value="${event.id}">
-	                        <fieldset class="registrationState">
+	                        <fieldset id="state_1" class="registrationState">
 	                            <div class="quitIcon">
 	                                <a href="#" title="Annuler l'inscripition à l'évènement" onclick="confirmation();">
 	                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" class="svg-inline--fa fa-times-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -77,13 +77,13 @@
 	                                    </div>
 	                                    <div class="m-auto">
 	                                        <label class="switch">
-	                                            <input type="checkbox" id="send" name="saleOption">
+	                                            <input type="checkbox" id="saleOption" name="saleOption">
 	                                            <span class="slider round"></span>
 	                                        </label>
 	                                    </div>
 	                                </div>
 	                            </fieldset>
-	                            <div class="text-left registration_cost mt-3">Prévisualisation du coût de l'inscription : 65 €</div>
+	                            <div id="costPreview" class="text-left registration_cost mt-3">Prévisualisation du coût de l'inscription : <span class="registrationCost">65</span> €</div>
 	                            <input type="button" name="next" class="next action-button" value="Suivant" />
 	                        </fieldset>
 	                        <fieldset class="registrationState">
@@ -142,7 +142,7 @@
 	                                <textarea id="comments" class="comments" name="comments"></textarea>
 	                            </div>
 	                            <div>
-	                                <label for="cost" class="registration_cost w-100 text-left mt-4">Coût de l'inscription : 65 euros</label>
+	                                <label id="finalCost" for="cost" class="registration_cost w-100 text-left mt-4">Coût de l'inscription : 65 euros</label>
 	                                <input type="hidden" id="cost" name="registrationCost" value="65" />
 	                            </div>
 	                            <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
