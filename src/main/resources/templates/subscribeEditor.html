@@ -36,7 +36,7 @@
 	                        <li class="col-4"></li>
 	                    </ul>
 	                    <form method="post" action="/submitRegistration">
-	                        <input type="hidden" name="eventId" th:value="${event}">
+	                        <input type="hidden" name="eventId" th:value="${event.id}">
 	                        <fieldset class="registrationState">
 	                            <div class="quitIcon">
 	                                <a href="#" title="Annuler l'inscripition à l'évènement" onclick="confirmation();">
@@ -51,7 +51,7 @@
 	                                <legend>Besoins matériel</legend>
 	                                <div class="row align-items-center">
 	                                    <div class="col-sm-10">
-	                                        <label for="tablesQuantity">Nombre de tables souhaitées :</label>
+	                                        <label for="tablesQuantity" th:text="|Nombre de tables souhaitées (${event.maxTablesPerEditor} max.) :|">Nombre de tables souhaitées :</label>
 	                                    </div>
 	                                    <div class="col-lg-1 p-lg-0 m-auto">
 	                                        <input type="number" id="tablesQuantity" name="tablesQuantity" value="1" min="0" max="20">

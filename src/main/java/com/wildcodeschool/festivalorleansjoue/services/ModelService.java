@@ -69,10 +69,12 @@ public class ModelService {
 	
 	public void setSubscribeEditorModel(String route, int id) {
 		
+		Event event = eventRepository.getOne((long) id);
+		
 		this.model = new ModelAndView(route);
 		navbarLinks.setCurrentPage("editorSubscribe");
-		this.model.addObject("event", id);
+		this.model.addObject("event", event);
 		this.model.addObject("connectedUser", userService.returnUser());
-		this.model.addObject("navbarLinks", navbarLinks);		
+		this.model.addObject("navbarLinks", navbarLinks);
 	}
 }
