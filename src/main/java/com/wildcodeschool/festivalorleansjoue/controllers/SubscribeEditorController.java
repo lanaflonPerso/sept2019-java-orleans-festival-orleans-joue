@@ -38,7 +38,10 @@ import com.wildcodeschool.festivalorleansjoue.services.ModelService;
 		public ModelAndView submitRegistration(@ModelAttribute Registration registration, @RequestParam String eventId) {
 			Event e = eventRepository.getOne(Long.parseLong(eventId));
 			registration.setEvent(e);
-			Registration registrationEntity = registrationRepository.save(registration);
+			if (registration.getTablesQuantity() > e.getMaxTablesPerEditor()) {
+				registration.setTablesQuantity(e.getMaxTablesPerEditor());
+			}
+			registrationRepository.save(registration);
 			ModelMap model = new ModelMap();
 			model.addAttribute("hasSubscribe", "ok");
 			return new ModelAndView("redirect:/accueil_editeur", model);
