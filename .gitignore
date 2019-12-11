@@ -152,6 +152,6 @@ buildNumber.properties
 sept2019-java-orleans-festival-orleans-joue.uml
 sept2019-java-orleans-festival-orleans-joue.umlcd
 # End of https://www.gitignore.io/api/java,maven,eclipse,java-web,code-java
-.attach_pid15422
+.attach_pid*
 
 
