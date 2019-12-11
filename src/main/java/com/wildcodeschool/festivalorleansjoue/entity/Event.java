@@ -26,7 +26,7 @@ public class Event {
 	private String description;
 	private byte protozoneTables;
 	private byte maxTablesPerEditor;
-	private float pricePerTabe;
+	private float pricePerTable;
 	private int discount;
 	private Date eventBeginningDate;
 	private Date eventEndingDate;
@@ -206,13 +206,13 @@ public class Event {
 	}
 	
 
-	public float getPricePerTabe() {
-		return pricePerTabe;
+	public float getPricePerTable() {
+		return pricePerTable;
 	}
 
 
-	public void setPricePerTabe(float pricePerTabe) {
-		this.pricePerTabe = pricePerTabe;
+	public void setPricePerTable(float pricePerTable) {
+		this.pricePerTable = pricePerTable;
 	}
 
 
