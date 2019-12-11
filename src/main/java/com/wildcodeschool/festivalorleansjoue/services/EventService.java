@@ -2,10 +2,8 @@ package com.wildcodeschool.festivalorleansjoue.services;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import java.util.Date;
 import com.wildcodeschool.festivalorleansjoue.entity.Event;
 import com.wildcodeschool.festivalorleansjoue.entity.User;
