@@ -40,7 +40,6 @@ public class Event {
 	private boolean registrationOpen = false;
 	private boolean registrationBefore = false;
 	private String registrationMessage;
-	private boolean agentProvided;
 	@ManyToMany
 	@JoinTable(name = "EventTasks", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "task_id"))
 	private List<Tasks> tasks = new ArrayList<>();
@@ -282,18 +281,6 @@ public class Event {
 	public void setRegistrationBefore(boolean registrationBefore) {
 
 		this.registrationBefore = registrationBefore;
-	}
-	
-	
-	public boolean isAgentProvided() {
-		
-		return this.agentProvided;
-	}
-
-
-	public void setAgentProvided(boolean agentProvided) {
-		
-		this.agentProvided = agentProvided;
 	}
 	
 

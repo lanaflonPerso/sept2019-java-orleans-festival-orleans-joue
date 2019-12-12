@@ -37,6 +37,7 @@ public class Registration {
 	private double registrationCost;
 	private String state;
 	private Date subscriptionDate;
+	private boolean agentProvided;
 
 	
 	public Registration() {
@@ -177,13 +178,28 @@ public class Registration {
 
 
 	public Date getSubscriptionDate() {
-		return subscriptionDate;
+		
+		return this.subscriptionDate;
 	}
 
 
 	public void setSubscriptionDate(Date subscriptionDate) {
+		
 		this.subscriptionDate = subscriptionDate;
 	}
 
 
+	public boolean isAgentProvided() {
+		
+		return this.agentProvided;
+	}
+
+
+	public void setAgentProvided(boolean agentProvided) {
+		
+		this.agentProvided = agentProvided;
+	}
+
+
+	
 }
