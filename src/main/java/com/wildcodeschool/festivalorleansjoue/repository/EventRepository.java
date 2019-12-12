@@ -7,9 +7,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.wildcodeschool.festivalorleansjoue.entity.Event;
+import com.wildcodeschool.festivalorleansjoue.entity.Registration;
 
 @Repository
 public interface EventRepository extends JpaRepository<Event, Long>{
 
-	List<Event> findByEventEndingDateAfter(Date today);
+	public List<Event> findByEventEndingDateAfter(Date today);
+	public Event findByRegList(Registration registration);
+	
 }

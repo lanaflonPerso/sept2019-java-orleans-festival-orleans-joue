@@ -7,5 +7,5 @@ import com.wildcodeschool.festivalorleansjoue.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
-
+	
 }

@@ -1,6 +1,7 @@
 package com.wildcodeschool.festivalorleansjoue.controllers;
 
 import java.util.Date;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
@@ -12,8 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import com.wildcodeschool.festivalorleansjoue.entity.Event;
 import com.wildcodeschool.festivalorleansjoue.entity.Registration;
+import com.wildcodeschool.festivalorleansjoue.entity.User;
 import com.wildcodeschool.festivalorleansjoue.repository.EventRepository;
 import com.wildcodeschool.festivalorleansjoue.repository.RegistrationRepository;
+import com.wildcodeschool.festivalorleansjoue.repository.UserRepository;
 import com.wildcodeschool.festivalorleansjoue.services.ModelService;
 import com.wildcodeschool.festivalorleansjoue.utils.MathUtils;
 
@@ -22,13 +25,13 @@ import com.wildcodeschool.festivalorleansjoue.utils.MathUtils;
 	public class SubscribeEditorController {
 		
 		@Autowired
-		ModelService modelService;
-		
+		ModelService modelService;		
 		@Autowired
-		RegistrationRepository registrationRepository;
-		
+		RegistrationRepository registrationRepository;		
 		@Autowired
 		EventRepository eventRepository;
+		@Autowired
+		UserRepository userRepository;
 		
 		@PostMapping("/subscribeEditor")
 		public ModelAndView subscribeEditor(@RequestParam int id) {
@@ -37,8 +40,9 @@ import com.wildcodeschool.festivalorleansjoue.utils.MathUtils;
 			return modelService.getModel();
 		}
 		
+		
 		@PostMapping("/submitRegistration")
-		public ModelAndView submitRegistration(@ModelAttribute Registration registration, @RequestParam String eventId) {
+		public ModelAndView submitRegistration(@ModelAttribute Registration registration, @RequestParam Long userId, @RequestParam String eventId) {
 			Date subscriptionDate = new Date();
 			registration.setSubscriptionDate(subscriptionDate);
 			
@@ -56,7 +60,15 @@ import com.wildcodeschool.festivalorleansjoue.utils.MathUtils;
 			float saleOptionPrice = (registration.isSaleOption()) ? event.getSaleOptionPrice() : 0.00f;
 			float registrationCost = MathUtils.registrationCost(tablesQuantity, tablePrice, saleOptionPrice);
 			registration.setRegistrationCost(registrationCost);
-			
+			if (registration.getTablesQuantity() > event.getMaxTablesPerEditor()) {
+				registration.setTablesQuantity(event.getMaxTablesPerEditor());
+			}
+			Optional<User> optionalUser = userRepository.findById(userId);
+			User user = null;
+			if (!optionalUser.isEmpty()) {
+				user = optionalUser.get();
+			}
+			registration.setSociety(user.getSociety());
 			registrationRepository.save(registration);
 			ModelMap model = new ModelMap();
 			model.addAttribute("hasSubscribe", "ok");

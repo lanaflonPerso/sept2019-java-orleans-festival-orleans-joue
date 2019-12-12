@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 import com.wildcodeschool.festivalorleansjoue.entity.Event;
 import com.wildcodeschool.festivalorleansjoue.entity.Registration;
+import com.wildcodeschool.festivalorleansjoue.entity.Society;
 import com.wildcodeschool.festivalorleansjoue.entity.User;
 import com.wildcodeschool.festivalorleansjoue.repository.EventRepository;
 import com.wildcodeschool.festivalorleansjoue.repository.UserRepository;
@@ -62,6 +63,9 @@ public class ModelService {
 		if (!hasSubscribe.isEmpty()) {
 			this.model.addObject("hasSubscribe",(hasSubscribe.get()));
 		}
+		Society userSociety = connectedUser.getSociety();
+		if (userSociety != null)
+		this.model.addObject("registrations", userSociety.getRegList());		
 		this.model.addObject("connectedUser", connectedUser);
 		this.model.addObject("eventError", messageService.eventMessage(events));
 		this.model.addObject("event", events);
