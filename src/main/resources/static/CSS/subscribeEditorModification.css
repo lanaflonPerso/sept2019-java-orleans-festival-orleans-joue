@@ -79,3 +79,7 @@
 .deleteUpdateSVG:first-child{
 	fill:red;
 }
+
+.previewImg{
+	width:100%;
+}
