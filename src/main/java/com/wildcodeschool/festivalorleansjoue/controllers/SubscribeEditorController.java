@@ -45,15 +45,18 @@ import com.wildcodeschool.festivalorleansjoue.utils.MathUtils;
 			Event event = eventRepository.getOne(Long.parseLong(eventId));
 			registration.setEvent(event);
 			
+			if (registration.getTablesQuantity() > event.getMaxTablesPerEditor()) {
+				registration.setTablesQuantity(event.getMaxTablesPerEditor());
+			}
+			if (registration.getTablesQuantity() < 0) {
+				registration.setTablesQuantity(0);
+			}
 			int tablesQuantity = registration.getTablesQuantity();
 			float tablePrice = event.getPricePerTable();		
 			float saleOptionPrice = (registration.isSaleOption()) ? event.getSaleOptionPrice() : 0.00f;
 			float registrationCost = MathUtils.registrationCost(tablesQuantity, tablePrice, saleOptionPrice);
 			registration.setRegistrationCost(registrationCost);
 			
-			if (registration.getTablesQuantity() > event.getMaxTablesPerEditor()) {
-				registration.setTablesQuantity(event.getMaxTablesPerEditor());
-			}
 			registrationRepository.save(registration);
 			ModelMap model = new ModelMap();
 			model.addAttribute("hasSubscribe", "ok");

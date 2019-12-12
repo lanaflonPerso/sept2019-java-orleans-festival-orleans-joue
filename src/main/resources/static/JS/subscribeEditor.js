@@ -101,6 +101,16 @@ function confirmation() {
     }
 }
 
+//Don't submit with enter button
+$(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+
 //Registration cost preview and final view
 var table_quantity = 0;
 var sale_option_choice = 0;
@@ -123,7 +133,13 @@ document.getElementById("saleOption").addEventListener("change", function (e) {
 });
 
 document.getElementById('tablesQuantity').addEventListener('change', function () {
-    table_quantity = this.value;
+    table_quantity = parseFloat(this.value);
+    if (table_quantity >= 20) {
+    	table_quantity = 20;
+    }
+    if (table_quantity <= 0) { 
+    	table_quantity = 0;
+    }
     registrationCost = table_quantity * price_per_table - parseInt(table_quantity / 4) * price_per_table + sale_option_choice;
     document.getElementById("costPreview").textContent = "Prévisualisation du coût de l'inscription : " + registrationCost.toString() + " €";
     document.getElementById("finalCost").textContent = "Coût de l'inscription : " + registrationCost.toString() + " €";

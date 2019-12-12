@@ -11,6 +11,7 @@ import com.wildcodeschool.festivalorleansjoue.entity.Event;
 import com.wildcodeschool.festivalorleansjoue.entity.Registration;
 import com.wildcodeschool.festivalorleansjoue.entity.User;
 import com.wildcodeschool.festivalorleansjoue.repository.EventRepository;
+import com.wildcodeschool.festivalorleansjoue.repository.RegistrationRepository;
 import com.wildcodeschool.festivalorleansjoue.repository.UserRepository;
 
 @Service
@@ -77,6 +78,8 @@ public class ModelService {
 		this.model.addObject("event", event);
 		this.model.addObject("connectedUser", userService.returnUser());
 		this.model.addObject("navbarLinks", navbarLinks);
+		
+
 	}
 	
 	public void setSubscribeEditorModificationModel(String route, Registration registration) {
