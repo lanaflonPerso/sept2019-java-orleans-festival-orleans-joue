@@ -28,6 +28,8 @@ public class ModelService {
 	MessageService messageService;
 	@Autowired
 	NavbarLinksService navbarLinks;
+	@Autowired
+	GameService gameService;
 	
 
 	public ModelService() {
@@ -75,4 +77,16 @@ public class ModelService {
 		this.model.addObject("connectedUser", userService.returnUser());
 		this.model.addObject("navbarLinks", navbarLinks);
 	}
+	
+	public void setSubscribeEditorModificationModel(String route, int id) {
+		
+		this.model = new ModelAndView(route);
+		User connectedUser = userService.returnUser();
+		this.model.addObject("connectedUser", connectedUser);
+		this.model.addObject("society", connectedUser.getSociety());
+		this.model.addObject("games", gameService.ReturnGamesBySociety(connectedUser.getSociety()));
+		
+	}
+
+	
 }

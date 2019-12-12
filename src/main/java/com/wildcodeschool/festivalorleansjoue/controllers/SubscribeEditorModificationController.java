@@ -17,8 +17,8 @@ public class SubscribeEditorModificationController {
 	
 	@GetMapping("/subscribeEditorModification")
 	public ModelAndView subscribeEditor() {
-		//TODO a modifier! (id en deuxieme parametre)
-		modelService.setSubscribeEditorModel("subscribeEditorModification",1);
+		
+		modelService.setSubscribeEditorModificationModel("subscribeEditorModification",1);
 		return modelService.getModel();
 	}
 }

@@ -29,7 +29,10 @@ public class User {
 	@ManyToOne
 	@JoinColumn(name = "user_role_id")
 	private UserRole userRole;
- 
+	@ManyToOne
+	@JoinColumn(name = "society_id")
+	private Society society;
+	
 	
 	public User() {
 
@@ -129,6 +132,16 @@ public class User {
 	public void setUserRole(UserRole userRole) {
 
 		this.userRole = userRole;
+	}
+
+
+	public Society getSociety() {
+		return this.society;
+	}
+
+
+	public void setSociety(Society society) {
+		this.society = society;
 	}
 
 }

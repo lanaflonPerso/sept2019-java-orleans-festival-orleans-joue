@@ -25,7 +25,23 @@ import com.wildcodeschool.festivalorleansjoue.repository.GameRepository;
 	    }
 		
 		
-		
+//		@PostMapping("/game")
+//	    public String getAllByEditor(Model model) {
+//
+//			
+//	    	model.addAttribute("game", gameRepository.findById(id));
+//	    	return "game";
+//	    }
+//		
+//		
+//		@PostMapping("/game")
+//	    public String getAllByRegistrationId(Model model) {
+//
+//			
+//	    	model.addAttribute("game", gameRepository.findById(id));
+//	    	return "game";
+//	    }
+//		
 		
 		@PostMapping("/addgame")
 	    public String postGame(@ModelAttribute Game game) {
@@ -43,12 +59,5 @@ import com.wildcodeschool.festivalorleansjoue.repository.GameRepository;
 
 	        return "redirect:/subscribeEditorModification";
 	    }
-		
-		
-		//getAllByEditor
-		
-		//getAllByRegistrationId
-		
 
-		
 }
