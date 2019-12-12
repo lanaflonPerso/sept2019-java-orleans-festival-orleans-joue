@@ -28,7 +28,17 @@ public class GameService {
 		return gameRepository.findByRegistrations(registration);
 	}
 	
+
+	public void addGame (Game game) {
+		
+		gameRepository.save(game);
+	}
 	
+
+	public void deleteGame (Game game) {
+		
+		gameRepository.delete(game);
+	}
 	
 	
 	

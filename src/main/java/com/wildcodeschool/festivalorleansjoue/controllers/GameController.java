@@ -46,7 +46,7 @@ import com.wildcodeschool.festivalorleansjoue.repository.GameRepository;
 		@PostMapping("/addgame")
 	    public String postGame(@ModelAttribute Game game) {
 
-	    	gameRepository.save(game);
+	    	
 
 	        return "redirect:/subscribeEditorModification";
 	    }
@@ -55,7 +55,7 @@ import com.wildcodeschool.festivalorleansjoue.repository.GameRepository;
 		@PostMapping("/deletegame")
 	    public String deleteGame(@ModelAttribute Game game) {
 
-	    	gameRepository.deleteById(game.getId());
+	    	
 
 	        return "redirect:/subscribeEditorModification";
 	    }

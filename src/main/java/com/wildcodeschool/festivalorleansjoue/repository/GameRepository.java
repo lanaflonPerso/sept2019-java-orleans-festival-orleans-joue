@@ -14,4 +14,8 @@ public interface GameRepository extends JpaRepository<Game, Long>{
 	public List<Game> findBySociety (Society society);
 	
 	public List<Game> findByRegistrations (Registration registration);
+	
+//	public void addGame (Game game);
+//	
+//	public void deleteGame (Game game);
 }
