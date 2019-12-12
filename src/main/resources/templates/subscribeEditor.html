@@ -39,7 +39,7 @@
 	                        <input type="hidden" name="eventId" th:value="${event.id}">
 	                        <input type="hidden" id="pricePerTable" name="pricePerTable" th:value="${event.pricePerTable}" disabled>
 	                        <input type="hidden" id="saleOptionPrice" name="saleOptionPrice" th:value="${event.saleOptionPrice}" disabled>
-	                        <input type="hidden" id="society" name="userId" th:value="${connectedUser.id}">
+	                        <input type="hidden" id="userId" name="userId" th:value="${connectedUser.id}">
 	                        <fieldset id="state_1" class="registrationState">
 	                            <div class="quitIcon">
 	                                <a href="#" title="Annuler l'inscripition à l'évènement" onclick="confirmation();">

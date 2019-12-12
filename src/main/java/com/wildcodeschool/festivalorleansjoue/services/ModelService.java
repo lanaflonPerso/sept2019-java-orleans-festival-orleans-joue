@@ -12,6 +12,7 @@ import com.wildcodeschool.festivalorleansjoue.entity.Registration;
 import com.wildcodeschool.festivalorleansjoue.entity.Society;
 import com.wildcodeschool.festivalorleansjoue.entity.User;
 import com.wildcodeschool.festivalorleansjoue.repository.EventRepository;
+import com.wildcodeschool.festivalorleansjoue.repository.RegistrationRepository;
 import com.wildcodeschool.festivalorleansjoue.repository.UserRepository;
 
 @Service
@@ -21,6 +22,8 @@ public class ModelService {
 	EventRepository eventRepository;
 	@Autowired
 	UserRepository userRepository;
+	@Autowired
+	RegistrationRepository registrationRepository;
 	ModelAndView model = new ModelAndView();
 	@Autowired
 	UserService userService;
@@ -31,8 +34,7 @@ public class ModelService {
 	@Autowired
 	NavbarLinksService navbarLinks;
 	@Autowired
-	GameService gameService;
-	
+	GameService gameService;	
 
 	public ModelService() {
 
@@ -64,8 +66,9 @@ public class ModelService {
 			this.model.addObject("hasSubscribe",(hasSubscribe.get()));
 		}
 		Society userSociety = connectedUser.getSociety();
-		if (userSociety != null)
-		this.model.addObject("registrations", userSociety.getRegList());		
+		if (userSociety != null) {
+			this.model.addObject("registrations", userSociety.getRegList());
+		}
 		this.model.addObject("connectedUser", connectedUser);
 		this.model.addObject("eventError", messageService.eventMessage(events));
 		this.model.addObject("event", events);
@@ -77,24 +80,28 @@ public class ModelService {
 		
 		Event event = eventRepository.getOne((long) id);
 		this.model = new ModelAndView(route);
-		navbarLinks.setCurrentPage("editorSubscribe");
+		this.navbarLinks.setCurrentPage("editorSubscribe");
 		this.model.addObject("event", event);
 		this.model.addObject("connectedUser", userService.returnUser());
 		this.model.addObject("navbarLinks", navbarLinks);
-		
-
 	}
 	
-	public void setSubscribeEditorModificationModel(String route, Registration registration) {
+	
+	public void setSubscribeEditorModificationModel(String route, Long registrationId) {
 		
 		this.model = new ModelAndView(route);
+		Optional<Registration> optionalReg = registrationRepository.findById(registrationId);
 		User connectedUser = userService.returnUser();
-		this.model.addObject("connectedUser", connectedUser);
-		this.model.addObject("registration", registration);
+		this.navbarLinks.setCurrentPage("subscribeEditorModification");
+		if (!optionalReg.isEmpty()) {
+			Registration registration = optionalReg.get();
+			this.model.addObject("registration", registration);
+			this.model.addObject("gamesRegistration", gameService.findByRegistration(registration));
+		}	
+		this.model.addObject("connectedUser", connectedUser);		
 		this.model.addObject("society", connectedUser.getSociety());
 		this.model.addObject("games", gameService.ReturnGamesBySociety(connectedUser.getSociety()));
-		this.model.addObject("gamesRegistration", gameService.findByRegistration(registration));
-		
+		this.model.addObject("navbarLinks", navbarLinks);
 	}
 
 	
