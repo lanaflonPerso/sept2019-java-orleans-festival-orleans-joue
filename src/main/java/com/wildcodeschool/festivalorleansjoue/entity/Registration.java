@@ -81,11 +81,13 @@ public class Registration {
 	
 
 	public List<Game> getGames() {
+		
 		return this.games;
 	}
 
 
 	public void setGames(List<Game> games) {
+		
 		this.games = games;
 	}
 

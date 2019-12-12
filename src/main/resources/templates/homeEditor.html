@@ -49,43 +49,48 @@
 				<div class="pcard" ></div>
 				<div class="container containerTitleStyle">
 					<h2 class="col-12 title">Mes inscriptions:</h2>
-				</div>
-				<!--
-				<div th:each="events : ${subscribedEvents}"class="container containerStyle">
-				-->
-				<div class="container containerStyle">
+				</div>				
+				<div class="container containerStyle"><!--th:each="registration : ${RegList}"-->
 					<div class="col-sm-12 p-0">
 						<div class="card">
 							<div class="card-header">
 								<!-- 
-								<h2 th:text="|Récapitulatif inscription evenement : ${events.name}|"></h2>
+								<h2 th:text="|Récapitulatif inscription evenement : ${event.name}|"></h2>
 								 -->
 								<h2>Inscription Evenement</h2>	
 							</div>
 							<div class="card-body">
-								<h4 class="card-title">Demande d'inscription effectuée le :</h4>
+								<h4 class="card-title" th:text="|Demande d'inscription effectuée le : |"></h4><!-- ${registration.subscribtionDate} -->
 								<p class="text-center">
-									<span class="badge badge-pill badge-warning">En attente</span>
-									<span class="badge badge-pill badge-success">Validée</span>
-									<span class="badge badge-pill badge-danger">Refusée</span>
+									<span class="badge badge-pill badge-warning" >En attente</span><!-- th:if="${registration.state} == 'pending'" -->
+									<span class="badge badge-pill badge-success" >Validée</span><!-- th:if="${registration.state} == 'validated'" -->
+									<span class="badge badge-pill badge-danger" >Refusée</span><!-- th:if="${registration.state} == 'rejected'" -->
 								</p>
 								<fieldset class="border p-3 text-left">
 									<legend class="w-auto">Récapitulatif de vos demandes</legend>
 									<div class="row align-items-center">
 										<div class="col-sm-8">
-											<p>Nombre de tables demandées : <span class="badge badge-pill badge-secondary">5</span></p>
-											<p>Vous avez besoin d'un raccord au réseau éléctrique : <span class="badge badge-pill badge-secondary">oui</span></p>
-											<p>Vous Souhaitez vendre des produits lors de l'évènement : <span class="badge badge-pill badge-secondary">oui</span></p>
-											<p>Des représentants de votre entreprise seront présents lors de l'évènement : <span class="badge badge-pill badge-secondary">oui</span></p>
-											<p>Vous avez besoin de bénévoles pour l'animation de vos jeux : <span class="badge badge-pill badge-secondary">non</span></p>
+											<p>Nombre de tables demandées : <span class="badge badge-pill badge-secondary">5</span></p><!-- th:text="${registration.tablesQuantity}" -->
+											<p>Vous avez besoin d'un raccord au réseau éléctrique : <span class="badge badge-pill badge-secondary">oui</span></p><!-- th:if="${registration.electricalSupplyNeed}" -->
+											<p>Vous Souhaitez vendre des produits lors de l'évènement : <span class="badge badge-pill badge-secondary">oui</span></p><!-- th:if="${registration.saleOption}" -->
+											<p>Des représentants de votre entreprise seront présents lors de l'évènement : <span class="badge badge-pill badge-secondary">oui</span></p><!-- th:if="${event.agentProvided}" -->
+											<p>Vous avez besoin de bénévoles pour l'animation de vos jeux : <span class="badge badge-pill badge-secondary">non</span></p><!-- th:if="${registration.volunteersNeed}" -->
 										</div>
 									</div>  
 								</fieldset>
 								<fieldset class="border p-3 text-left">
 									<legend class="w-auto">Vos jeux inscrits</legend>
-									<div class="row align-items-center">
+									<div class="row align-items-center">										
+										 <div class="card col-3"> <!-- th:each="game:${registration.games}" -->
+										 	<a href="">
+											<img src="../pictures/default_game_picture.jpg"  class="card-img-top" alt="image du jeu">
+											</a>
+											<div class="card-body">
+												<p class="card-text">Nom :</p> <!-- th:text="${game.name}" -->
+											</div>
+										</div>										
 										<div class="col-sm-12">
-											<p>Vous avez demandé x tables, vous devez inscrire x jeux.</p>											
+											<p></p><!-- th:text="|Vous avez demandé ${registration.tablesQuantity} tables, vous devez inscrire ${registration.tablesQuantity} jeux.|" -->											
 										</div>
 									</div>  
 								</fieldset>
