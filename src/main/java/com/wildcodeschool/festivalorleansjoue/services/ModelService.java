@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 import com.wildcodeschool.festivalorleansjoue.entity.Event;
+import com.wildcodeschool.festivalorleansjoue.entity.Registration;
 import com.wildcodeschool.festivalorleansjoue.entity.User;
 import com.wildcodeschool.festivalorleansjoue.repository.EventRepository;
 import com.wildcodeschool.festivalorleansjoue.repository.UserRepository;
@@ -78,13 +79,15 @@ public class ModelService {
 		this.model.addObject("navbarLinks", navbarLinks);
 	}
 	
-	public void setSubscribeEditorModificationModel(String route, int id) {
+	public void setSubscribeEditorModificationModel(String route, Registration registration) {
 		
 		this.model = new ModelAndView(route);
 		User connectedUser = userService.returnUser();
 		this.model.addObject("connectedUser", connectedUser);
+		this.model.addObject("registration", registration);
 		this.model.addObject("society", connectedUser.getSociety());
 		this.model.addObject("games", gameService.ReturnGamesBySociety(connectedUser.getSociety()));
+		this.model.addObject("gamesRegistration", gameService.findByRegistration(registration));
 		
 	}
 

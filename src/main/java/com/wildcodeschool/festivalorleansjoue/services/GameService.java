@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wildcodeschool.festivalorleansjoue.entity.Game;
+import com.wildcodeschool.festivalorleansjoue.entity.Registration;
 import com.wildcodeschool.festivalorleansjoue.entity.Society;
 import com.wildcodeschool.festivalorleansjoue.repository.GameRepository;
 
@@ -20,4 +21,15 @@ public class GameService {
 		
 		return gameRepository.findBySociety(society);
 	}
+	
+	
+	public List<Game> findByRegistration (Registration registration){
+		
+		return gameRepository.findByRegistrations(registration);
+	}
+	
+	
+	
+	
+	
 }
