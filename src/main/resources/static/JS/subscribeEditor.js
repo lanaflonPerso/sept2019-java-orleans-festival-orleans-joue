@@ -103,19 +103,20 @@ function confirmation() {
 
 //Registration cost preview and final view
 var table_quantity = 0;
-var sale_option_price = 0;
+var sale_option_choice = 0;
 var price_per_table, sale_option_price;
 var registrationCost;
 
-price_per_table = 65.00;
+price_per_table = parseFloat(document.getElementById("pricePerTable").value);
+sale_option_price = parseFloat(document.getElementById("saleOptionPrice").value);
 
 document.getElementById("saleOption").addEventListener("change", function (e) {
     if (e.target.checked == false) {
-        sale_option_price = 0;
+        sale_option_choice = 0;
     } else {
-        sale_option_price = 100;
+        sale_option_choice = sale_option_price;
     }
-    registrationCost = table_quantity * price_per_table - parseInt(table_quantity / 4) * price_per_table + sale_option_price;
+    registrationCost = table_quantity * price_per_table - parseInt(table_quantity / 4) * price_per_table + sale_option_choice;
     document.getElementById("costPreview").textContent = "Prévisualisation du coût de l'inscription : " + registrationCost.toString() + " €";
     document.getElementById("finalCost").textContent = "Coût de l'inscription : " + registrationCost.toString() + " €";
 
@@ -123,7 +124,7 @@ document.getElementById("saleOption").addEventListener("change", function (e) {
 
 document.getElementById('tablesQuantity').addEventListener('change', function () {
     table_quantity = this.value;
-    registrationCost = table_quantity * price_per_table - parseInt(table_quantity / 4) * price_per_table + sale_option_price;
+    registrationCost = table_quantity * price_per_table - parseInt(table_quantity / 4) * price_per_table + sale_option_choice;
     document.getElementById("costPreview").textContent = "Prévisualisation du coût de l'inscription : " + registrationCost.toString() + " €";
     document.getElementById("finalCost").textContent = "Coût de l'inscription : " + registrationCost.toString() + " €";
 });

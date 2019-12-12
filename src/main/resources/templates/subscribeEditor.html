@@ -37,6 +37,8 @@
 	                    </ul>
 	                    <form method="post" action="/submitRegistration">
 	                        <input type="hidden" name="eventId" th:value="${event.id}">
+	                        <input type="hidden" id="pricePerTable" name="pricePerTable" th:value="${event.pricePerTable}" disabled>
+	                        <input type="hidden" id="saleOptionPrice" name="saleOptionPrice" th:value="${event.saleOptionPrice}" disabled>
 	                        <fieldset id="state_1" class="registrationState">
 	                            <div class="quitIcon">
 	                                <a href="#" title="Annuler l'inscripition à l'évènement" onclick="confirmation();">
@@ -54,7 +56,7 @@
 	                                        <label for="tablesQuantity" th:text="|Nombre de tables souhaitées (${event.maxTablesPerEditor} max.) :|">Nombre de tables souhaitées :</label>
 	                                    </div>
 	                                    <div class="col-lg-1 p-lg-0 m-auto">
-	                                        <input type="number" id="tablesQuantity" name="tablesQuantity" value="1" min="0" max="20">
+	                                        <input type="number" id="tablesQuantity" name="tablesQuantity" value="0" min="0" max="20">
 	                                    </div>
 	                                </div>
 	                                <div class="row align-items-center">
@@ -83,7 +85,7 @@
 	                                    </div>
 	                                </div>
 	                            </fieldset>
-	                            <div id="costPreview" class="text-left registration_cost mt-3">Prévisualisation du coût de l'inscription : <span class="registrationCost">65</span> €</div>
+	                            <div id="costPreview" class="text-left registration_cost mt-3">Prévisualisation du coût de l'inscription : <span class="registrationCost">0</span> €</div>
 	                            <input type="button" name="next" class="next action-button" value="Suivant" />
 	                        </fieldset>
 	                        <fieldset class="registrationState">
