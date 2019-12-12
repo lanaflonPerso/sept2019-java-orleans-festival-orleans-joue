@@ -20,7 +20,8 @@
     padding: 20px 30px;
     box-sizing: border-box;
     width: 80%;
-    margin: 0 10%;
+    max-width:1120px;
+    margin: 0 calc((100% - 1120px) / 2);
 
     /*stacking fieldsets above each other*/
     position: relative;
@@ -219,6 +220,13 @@
 
 .fs-title br {
 	display: none;
+}
+
+@media screen and (max-width: 1407px) {
+    .registrationState {
+    	width: 80%;
+    	margin: auto 10%;
+    }
 }
 
 @media screen and (max-width: 400px) {
