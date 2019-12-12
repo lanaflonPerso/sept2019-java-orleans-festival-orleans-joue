@@ -161,7 +161,7 @@ hr {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: var(--danger);
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -170,7 +170,7 @@ hr {
     position: absolute;
     content: "";
     height: 26px;
-    width: 26px;
+    width: 13px;
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -187,19 +187,45 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(39px);
+    -ms-transform: translateX(39px);
+    transform: translateX(39px);
 }
 
 /* Rounded sliders */
 .slider.round {
-    border-radius: 34px;
+    border-radius: 5px;   
 }
 
 .slider.round:before {
-    border-radius: 50%;
+    border-radius:3px;    
 }
+
+.switch_on, .switch_off {
+    position: absolute;
+    bottom: 3px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.switch_on {
+    left: 5px;
+    display: none;
+}
+
+.switch_off {
+    right: 5px;
+}
+
+input:checked ~ .switch_off {
+    display: none;
+}
+
+input:checked ~ .switch_on {
+    display: block;
+}
+
 
 /*Icone quit*/
 .quitIcon {
@@ -226,4 +252,12 @@ input:checked + .slider:before {
 	font-weight: lighter;
 	margin-left: 1rem;
     fill: var(--danger);
+}
+
+.non_highlighted
+{
+ -moz-user-select: none; /* Firefox */
+ -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+ -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+ user-select: none; /* Propriété standard */
 }
