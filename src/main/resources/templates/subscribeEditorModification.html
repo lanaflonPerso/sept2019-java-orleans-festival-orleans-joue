@@ -18,9 +18,54 @@
 	    <header th:replace="navBar.html :: top"></header>
 	    <main>
 	    	<hr />
+	    	<section id="agents">
+	    		<div class="container containerTitleStyle">
+					<h2 class="col-sm-12 p-0 title">Mes collaborateurs présents à l'évenement:</h2>
+				</div>
+				<div class="container">
+			    	<div class="row justify-content-center">
+						<table class="table table-striped table-bordered col-12">
+						  <thead>
+						    <tr>
+						      <th scope="col">Nom</th>
+						      <th scope="col">Prénom</th>
+						      <th scope="col">Numéro</th>
+						      <th scope="col">Mail</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <td>Mark</td>
+						      <td>Otto</td>
+						      <td>0606060606</td>
+						      <td>@mdo</td>
+						    </tr>
+						    <tr>
+						      <td>Jacob</td>
+						      <td>Thornton</td>
+						      <td>0606060606</td>
+						      <td>@fat</td>
+						    </tr>
+						    <tr>
+						      <td>Larry</td>
+						      <td>the Bird</td>
+						      <td>0606060606</td>
+						      <td>@twitter</td>
+						    </tr>
+						      <td colspan="4" class="text-center font-weight-bold">Ajouter un collaborateur<br />
+						      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14 svgAddAgent" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
+						      </td>
+						    </tr>
+						  </tbody>
+						</table>
+				</div>
+	    	</section>
+	    	<hr />
 	    	<section id="Games">
-	    		<h2>Mes jeux:</h2>
-				<div class="container-fluid">
+	    		<div class="container containerTitleStyle">
+					<h2 class="col-sm-12 p-0 title">Mes jeux:</h2>
+				</div>
+				<div class="container">
 			    	<div class="row justify-content-center">
 						<div class="card col-4 col-lg-2 ml-2 mr-2 mb-3 card-custom" th:each="item : ${new int[18]}">
 							<div class="img-container">
