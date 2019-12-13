@@ -222,6 +222,12 @@
 	display: none;
 }
 
+.table_error {
+    color: var(--danger);
+    font-size: 0.9em;
+    font-style: italic;
+}
+
 @media screen and (max-width: 1407px) {
     .registrationState {
     	width: 80%;

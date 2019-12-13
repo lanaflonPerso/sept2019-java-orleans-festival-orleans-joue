@@ -39,6 +39,7 @@
 	                        <input type="hidden" name="eventId" th:value="${event.id}">
 	                        <input type="hidden" id="pricePerTable" name="pricePerTable" th:value="${event.pricePerTable}" disabled>
 	                        <input type="hidden" id="saleOptionPrice" name="saleOptionPrice" th:value="${event.saleOptionPrice}" disabled>
+	                        <input type="hidden" id="maxTablesPerEditor" name="maxTablesPerEditor" th:value="${event.maxTablesPerEditor}" disabled>
 	                        <input type="hidden" id="userId" name="userId" th:value="${connectedUser.id}">
 	                        <fieldset id="state_1" class="registrationState">
 	                            <div class="quitIcon">
@@ -55,6 +56,7 @@
 	                                <div class="row align-items-center">
 	                                    <div class="col-sm-10">
 	                                        <label for="tablesQuantity" th:text="|Nombre de tables souhaitées (${event.maxTablesPerEditor} max.) :|">Nombre de tables souhaitées :</label>
+	                                        <p id="table_error" class="table_error"></p>
 	                                    </div>
 	                                    <div class="col-lg-1 p-lg-0 m-auto">
 	                                        <input type="number" id="tablesQuantity" name="tablesQuantity" value="0">
