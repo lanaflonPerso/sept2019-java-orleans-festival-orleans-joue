@@ -21,6 +21,7 @@
     height: 20vh;
     object-fit: cover;
     position:center;
+    cursor:pointer;
 }
 
 .card-custom{
@@ -33,6 +34,7 @@
 
 .deleteUpdateSVG{
 	width:20%;
+	cursor:pointer;
 }
 
 .deleteUpdateSVG:first-child{
@@ -61,4 +63,5 @@
 .svgAddAgent{
 	fill:orange;
 	width:5%;
+	cursor:pointer;
 }
