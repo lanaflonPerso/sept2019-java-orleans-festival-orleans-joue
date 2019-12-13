@@ -59,34 +59,34 @@
 							</div>
 							<div class="card-body">
 								<h4 class="card-title" th:text="|Demande d'inscription effectuée le :     ${#dates.format(registration.subscriptionDate, 'dd/MM/yyyy')}|"></h4>
-								<p class="text-center">
-									<span class="badge badge-pill badge-warning" th:if="${registration.state} == 'pending'">En attente</span>
-									<span class="badge badge-pill badge-success" th:if="${registration.state} == 'validated'">Validée</span> 
-									<span class="badge badge-pill badge-danger" th:if="${registration.state} == 'rejected'">Refusée</span>
+								<p class="row text-center justify-content-center">
+									<span class="col-6 col-lg-3 badge badge-pill badge-warning d-inline-flex align-items-center justify-content-center" th:if="${registration.state} == 'pending'">EN ATTENTE</span>
+									<span class="badge badge-pill badge-success d-inline-flex align-items-center justify-content-center" th:if="${registration.state} == 'validated'">VALID&Eacute;E</span> 
+									<span class="badge badge-pill badge-danger d-inline-flex align-items-center justify-content-center" th:if="${registration.state} == 'rejected'">REFUS&Eacute;E</span>
 								</p>
 								<fieldset class="border p-3 text-left">
 									<legend class="w-auto">Récapitulatif de vos demandes</legend>
 									<div class="row align-items-center">
-										<div class="col-sm-8">
-											<p>Nombre de tables demandées : <span class="badge badge-pill badge-secondary" th:text="${registration.tablesQuantity}"></span></p>
-											<p>Vous avez besoin d'un raccord au réseau éléctrique : <span class="badge badge-pill badge-secondary" th:if="${registration.electricalSupplyNeed}">oui</span>
-																									<span class="badge badge-pill badge-secondary" th:unless="${registration.electricalSupplyNeed}">non</span></p>
-											<p>Vous Souhaitez vendre des produits lors de l'évènement : <span class="badge badge-pill badge-secondary" th:if="${registration.saleOption}">oui</span>
-																										<span class="badge badge-pill badge-secondary" th:unless="${registration.saleOption}">non</span></p>
-											<p>Des représentants de votre entreprise seront présents lors de l'évènement : <span class="badge badge-pill badge-secondary" th:if="${registration.agentProvided}">oui</span>
-																														   <span class="badge badge-pill badge-secondary" th:unless="${registration.agentProvided}">non</span></p>
-											<p>Vous avez besoin de bénévoles pour l'animation de vos jeux : <span class="badge badge-pill badge-secondary" th:if="${registration.volunteersNeed}">oui</span>
-																											<span class="badge badge-pill badge-secondary" th:unless="${registration.volunteersNeed}">non</span></p>
+										<div class="col-sm-10">
+											<p>Nombre de tables demandées : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center text-center justify-content-center badgeDetails" th:text="${registration.tablesQuantity}"></span></p>
+											<p>Vous avez besoin d'un raccord au réseau éléctrique : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:if="${registration.electricalSupplyNeed}">OUI</span>
+																									<span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:unless="${registration.electricalSupplyNeed}">NON</span></p>
+											<p>Vous Souhaitez vendre des produits lors de l'évènement : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:if="${registration.saleOption}">OUI</span>
+																										<span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:unless="${registration.saleOption}">NON</span></p>
+											<p>Des représentants de votre entreprise seront présents lors de l'évènement : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:if="${registration.agentProvided}">OUI</span>
+																														   <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:unless="${registration.agentProvided}">NON</span></p>
+											<p>Vous avez besoin de bénévoles pour l'animation de vos jeux : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:if="${registration.volunteersNeed}">OUI</span>
+																											<span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:unless="${registration.volunteersNeed}">NON</span></p>
 										</div>
 									</div>  
 								</fieldset>
 								<fieldset class="border p-3 text-left">
 									<legend class="w-auto">Vos jeux inscrits</legend>
 									<div class="row align-items-center">										
-										 <div class="card col-3"> <!-- th:each="game:${registration.games}" -->
+										 <div class="card col-3" th:each="game, itemStat : ${registration.games}"> 
 											<img src="../pictures/default_game_picture.jpg"  class="card-img-top" alt="image du jeu">
 											<div class="card-body">
-												<p class="card-text">Nom :</p> <!-- th:text="${game.name}" -->
+												<p class="card-text" th:text="|Nom : games[${itemStat.index}].name|"></p> 
 											</div>
 										</div>										
 										<div class="col-sm-12">
@@ -94,15 +94,16 @@
 										</div>
 									</div>  
 								</fieldset>
-								<fieldset class="border p-3 text-left" th:if="${registration.agentProvided}">
+								<fieldset class="border p-3 text-left">
 									<legend class="w-auto">Vos collaborateurs</legend>
 									<div class="row align-items-center">
 										<div class="col-sm-12">
-											<p>Vous avez indiqué que vos collaborateurs participeront à l'évènement. Merci de compléter leur inscription.</p>											
+											<p th:if="${registration.agentProvided}">Vous avez indiqué que vos collaborateurs participeront à l'évènement. Merci de compléter leur inscription.</p>		
+											<p th:unless="${registration.agentProvided}">Aucun collaborateur de votre entreprise ne sera présent.</p>								
 										</div>
 									</div>  
 								</fieldset>
-								<fieldset class="border p-3 text-left" th:if="${registration.registrationCost != 0} ">
+								<fieldset class="border p-3 text-left">
 									<legend class="w-auto">Coût de votre participation</legend>
 									<div class="row align-items-center">
 										<div class="col-sm-12">
@@ -111,7 +112,7 @@
 									</div>  
 								</fieldset>
 								<form class="d-flex justify-content-end"  method="post" action="/subscribeEditorModification">
-									<button type="submit" class="col-10 col-lg-2 btn btn-primary" name="submitBtn">Modifier ma demande</button>
+									<button type="submit" class="col-10 col-md-6 col-lg-3 btn btn-primary subscribeModifBtn" name="submitBtn">Modifier ma demande</button>
 									<input type="hidden" id="regitration" th:name="registrationId" th:value="${registration.id}">
 								</form>							
 							</div>

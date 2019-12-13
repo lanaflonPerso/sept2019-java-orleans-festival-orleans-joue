@@ -17,6 +17,12 @@
     padding: 0;
 }
 
+@media (max-width: 544px) {  
+  * {
+  	font-size:0.8rem;
+  } 
+}
+
 textarea {
     resize: none;
 }
@@ -32,6 +38,11 @@ h4,
 h5 {
     font-family: 'Acme', sans-serif;
 }
+
+p, label, ul {
+	font-size: 1.2rem;
+}
+
 
 .helloUser {
     padding-left: 3rem;
@@ -144,6 +155,7 @@ hr {
     display: inline-block;
     width: 60px;
     height: 34px;
+    font-size: 1rem;
 }
 
 /* Hide default HTML checkbox */
@@ -176,6 +188,10 @@ hr {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
+}
+
+.subscribeForm {
+	font-size: 1.5rem!important;
 }
 
 input:checked + .slider {
@@ -248,10 +264,12 @@ input:checked ~ .switch_on {
 
 .badge {
 	color: white;
-	font-size: 1rem;
+	font-size: 1.2rem;
+	height: 2.5rem;
 	font-weight: lighter;
 	margin-left: 1rem;
     fill: var(--danger);
+    width: 7rem;
 }
 
 .non_highlighted
@@ -261,3 +279,21 @@ input:checked ~ .switch_on {
  -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
  user-select: none; /* Propriété standard */
 }
+
+.registration_cost {
+	font-size: 1.2rem!important;
+}
+
+.badgeDetails {
+	width: 3.2rem;
+}
+
+.subscribeModifBtn {
+	height: 3rem;
+	font-size: 1.4rem;
+}
+
+.stateBadge {
+	font-size: 1.2rem;
+}
+
