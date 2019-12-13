@@ -100,6 +100,7 @@ public class ModelService {
 		if (!optionalReg.isEmpty()) {
 			Registration registration = optionalReg.get();
 			this.model.addObject("registration", registration);
+			System.out.println(registration);
 			this.model.addObject("gamesRegistration", gameService.findByRegistration(registration));
 			this.model.addObject("agentRegistration", agentService.findAgentByRegistration(registration));
 		}	

@@ -7,11 +7,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form>
+      <form method="POST" action="/addRegistrationGame">
         <div class="modal-body">
           <div class="form-group">
             <label for="name">Nom du jeux</label>
-            <input type="text" class="form-control" id="name" name="name" aria-describedby="nameGameHelp" value="nom du jeux">
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="nameGameHelp" placeholder="nom du jeux">
             <small id="nameGameHelp" class="form-text text-muted">Indiquez le nom du jeux</small>
           </div>
           <div class="form-group">
@@ -22,7 +22,7 @@
           </div>        
           <div class="form-group">
             <label for="author">Auteur</label>
-            <input type="text" class="form-control" id="author" name="author" aria-describedby="authorHelp" placeholder="Enter email" value="nom de l'auteur">
+            <input type="text" class="form-control" id="author" name="author" aria-describedby="authorHelp" placeholder="nom de l'auteur">
             <small id="authorHelp" class="form-text text-muted">Indiquez l'auteur du jeux</small>
           </div>
           <div class="form-group">
@@ -32,8 +32,8 @@
           </div>
           <div class="form-group">
             <label for="description">Description</label>
-            <input type="textArea" class="form-control" id="description" aria-describedby="descriptionHelp" name="description" value="description">
-          	<small id="descriptionHelp" class="form-text text-muted">Indiquez la description du jeux*</small>
+            <input type="textArea" class="form-control" id="description" aria-describedby="descriptionHelp" name="description" placeholder="description">
+          	<small id="descriptionHelp" class="form-text text-muted">Indiquez la description du jeux</small>
           </div>
           <div class="form-group">
             <label for="webLink">URL</label>
@@ -41,6 +41,7 @@
             <small id="linkHelp" class="form-text text-muted">Lien du jeux (optionnel)</small>
           </div>
         </div>
+        <input type="hidden" name="registrationId" th:value="${registration.id}">
         <div class="modal-footer border-top-0 d-flex justify-content-center">
           <button type="submit" class="btn btn-success">Submit</button>
         </div>

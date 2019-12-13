@@ -3,11 +3,15 @@ package com.wildcodeschool.festivalorleansjoue.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.wildcodeschool.festivalorleansjoue.entity.Game;
 import com.wildcodeschool.festivalorleansjoue.repository.GameRepository;
+import com.wildcodeschool.festivalorleansjoue.services.GameService;
+import com.wildcodeschool.festivalorleansjoue.services.RegistrationService;
 
 	@Controller
 	public class GameController {
@@ -15,6 +19,11 @@ import com.wildcodeschool.festivalorleansjoue.repository.GameRepository;
 		@Autowired
 		private GameRepository gameRepository;
 		
+		@Autowired
+		private GameService gameService;
+		
+		@Autowired
+		private RegistrationService registrationService;
 		
 		
 		@PostMapping("/game")
@@ -42,22 +51,33 @@ import com.wildcodeschool.festivalorleansjoue.repository.GameRepository;
 //	    	return "game";
 //	    }
 //		
+		@PostMapping("/addGame")
+	    public ModelAndView postGame(@ModelAttribute Game game) {
+			gameService.addGame(game);
+			ModelMap model = new ModelMap();
+			model.addAttribute("Game", game);
+			return new ModelAndView("redirect:/profil", model);
+		}
 		
-		@PostMapping("/addgame")
-	    public String postGame(@ModelAttribute Game game) {
+		
+		@PostMapping("/addRegistrationGame")
+	    public ModelAndView postRegistrationGame(@ModelAttribute Game game, Long registrationId) {
+			gameService.addGame(game);
+			registrationService.addRegistrationGame(game, registrationId);
+			ModelMap model = new ModelMap();
+			model.addAttribute("registrationId", registrationId);
+			return new ModelAndView("redirect:/subscribeEditorModification", model);
+			
 
-	    	
-
-	        return "redirect:/subscribeEditorModification";
 	    }
 		
 		
-		@PostMapping("/deletegame")
-	    public String deleteGame(@ModelAttribute Game game) {
-
-	    	
-
-	        return "redirect:/subscribeEditorModification";
+		@PostMapping("/deleteRegistrationGame")
+	    public ModelAndView deleteGame(@ModelAttribute Game game, Long registrationId) {
+			registrationService.deleteRegistrationGame(game, registrationId);
+			ModelMap model = new ModelMap();
+			model.addAttribute("registrationId", registrationId);
+			return new ModelAndView("redirect:/subscribeEditorModification", model);
 	    }
 
 }

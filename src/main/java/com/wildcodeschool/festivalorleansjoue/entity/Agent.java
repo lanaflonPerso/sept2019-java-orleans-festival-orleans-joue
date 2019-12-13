@@ -21,8 +21,10 @@ public class Agent {
 	String lastName;
 	String mail;
 	String phone;
+	boolean gardenParty;
+	boolean accommodation;
 	@ManyToMany(mappedBy = "agents")
-	private List<Agent> agents = new ArrayList<>();
+	private List<Registration> registrations = new ArrayList<>();
 	@ManyToOne
 	@JoinColumn(name = "society_id")
 	private Society society;
@@ -82,6 +84,36 @@ public class Agent {
 	}
 
 
+	public boolean isGardenParty() {
+		return this.gardenParty;
+	}
+
+
+	public void setGardenParty(boolean gardenParty) {
+		this.gardenParty = gardenParty;
+	}
+
+
+	public boolean isAccommodation() {
+		return this.accommodation;
+	}
+
+
+	public void setAccommodation(boolean accommodation) {
+		this.accommodation = accommodation;
+	}
+
+
+	public List<Registration> getRegistrations() {
+		return registrations;
+	}
+
+
+	public void setRegistration(List<Registration> registrations) {
+		this.registrations = registrations;
+	}
+
+
 	public Society getSociety() {
 		return this.society;
 	}
@@ -91,6 +123,4 @@ public class Agent {
 		this.society = society;
 	}
 
-
-	
 }

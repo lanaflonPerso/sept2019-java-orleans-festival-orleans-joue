@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -23,7 +24,9 @@ public class Game {
 	String publicationDate;
 	String picture;
 	String webLink;
-	@ManyToMany(mappedBy = "games")
+	//@ManyToMany(cascade = CascadeType.ALL, mappedBy = "games")
+	@ManyToMany
+	@JoinTable(name = "game_registration", joinColumns = @JoinColumn(name = "game_id"), inverseJoinColumns = @JoinColumn(name = "registration_id"))
 	private List<Registration> registrations = new ArrayList<>();
 	@ManyToOne
 	@JoinColumn(name = "society_id")
