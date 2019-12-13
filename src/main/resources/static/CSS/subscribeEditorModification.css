@@ -12,47 +12,6 @@
 	margin-bottom:0;	
 }
 
-.img-container{
-	position:relative;
-}
-
-.positionButton{
-	position: absolute;
-  	top: 50%;
-  	left:50%;
-  	transform: translate(-50%, -50%);
-  	width:100%;
-}
-.messageDelete, .messageEdit{
-	visibility:hidden;
-}
-
-.messageEdit *, .messageDelete *{
-	font-weight:bold;
-	background-color: white;
-	padding:0.5rem;
-	border-radius:5px;
-}
-
-.messageEdit *{
-	color:#f57900;
-}
-
-.messageDelete *{
-	color:#cc0000;
-}
-.card-custom:hover .card-img-top:not(:last-child){
-	transition: all 0.5s ease;
-	filter: grayscale(100%);
-}
-.card-custom:hover .messageEdit{
-	visibility: visible;
-}
-
-.card-custom:hover .messageDelete{
-	visibility: visible;
-}
-
 .buttonP{
 	margin:0;
 }
@@ -73,11 +32,26 @@
 }
 
 .deleteUpdateSVG{
-	width:30%;
+	width:20%;
 }
 
 .deleteUpdateSVG:first-child{
+
+	fill:gray;
+}
+
+.deleteUpdateSVG:last-child{
+
+	fill:gray;
+}
+
+.deleteUpdateSVG:first-child:hover{
+
 	fill:red;
+}
+
+.deleteUpdateSVG:last-child:hover{
+	fill:orange;
 }
 
 .previewImg{
