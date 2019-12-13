@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
 
 @Entity
 public class Event {
@@ -34,10 +37,13 @@ public class Event {
 	private boolean registrationOpen = false;
 	private boolean registrationBefore = false;
 	private String registrationMessage;
+	private boolean agentProvided;
 	@ManyToMany
 	@JoinTable(name = "EventTasks", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "task_id"))
 	private List<Tasks> tasks = new ArrayList<>();
-	
+	@OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+	private List<Registration> regList = new ArrayList<>();
+
 
 	public Event() {
 	}
@@ -245,6 +251,18 @@ public class Event {
 		this.registrationBefore = registrationBefore;
 	}
 	
+	
+	public boolean isAgentProvided() {
+		
+		return this.agentProvided;
+	}
+
+
+	public void setAgentProvided(boolean agentProvided) {
+		
+		this.agentProvided = agentProvided;
+	}
+	
 
 	public String getRegistrationMessage() {
 
@@ -256,5 +274,18 @@ public class Event {
 
 		this.registrationMessage = registrationMessage;
 	}
+
+
+	public List<Registration> getRegList() {
+		
+		return regList;
+	}
+
+
+	public void setRegList(List<Registration> regList) {
+		
+		this.regList = regList;
+	}	
+	
 
 }

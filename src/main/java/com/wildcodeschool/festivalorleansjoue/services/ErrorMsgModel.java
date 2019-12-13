@@ -1,6 +1,9 @@
 package com.wildcodeschool.festivalorleansjoue.services;
 
-public class ErrorMsgModel {
+import org.springframework.stereotype.Service;
+
+@Service
+public class ErrorMsgModel implements IErrorMsgModelDAO{
 
 	private boolean errorON = false;
 	private String errorMsg;

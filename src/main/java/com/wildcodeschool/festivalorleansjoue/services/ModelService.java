@@ -11,7 +11,6 @@ import com.wildcodeschool.festivalorleansjoue.entity.Event;
 import com.wildcodeschool.festivalorleansjoue.entity.User;
 import com.wildcodeschool.festivalorleansjoue.repository.EventRepository;
 import com.wildcodeschool.festivalorleansjoue.repository.UserRepository;
-import com.wildcodeschool.festivalorleansjoue.utils.DateUtils;
 
 @Service
 public class ModelService {
@@ -21,7 +20,14 @@ public class ModelService {
 	@Autowired
 	UserRepository userRepository;
 	ModelAndView model = new ModelAndView();
-	ErrorMsgModel errorModel;
+	@Autowired
+	UserService userService;
+	@Autowired
+	EventService eventService;
+	@Autowired
+	MessageService messageService;
+	@Autowired
+	NavbarLinksService navbarLinks;
 	
 
 	public ModelService() {
@@ -41,53 +47,32 @@ public class ModelService {
 	}
 	
 
-	public void setHomeModel(String route) {
+	public void setHomeModel(String route, Optional<String> hasSubscribe) {
 
 		Date today = new Date();
+		this.model = new ModelAndView(route);
 		List<Event> events = new ArrayList<>();
-		events = eventRepository.findByEventEndingDateAfter(today);
-		this.errorModel = new ErrorMsgModel();
-		this.model = new ModelAndView(route);		
-		if (events.size() == 0) {
-			this.errorModel.setErrorON(true);
-			this.errorModel.setErrorMsg("Aucun évènnement en cours.");
+		events = eventService.returnEvent(today);
+		User connectedUser = userService.returnUser();
+		eventService.setMessage(connectedUser, events, today);
+		navbarLinks.setCurrentPage("home");
+		if (!hasSubscribe.isEmpty()) {
+			this.model.addObject("hasSubscribe",(hasSubscribe.get()));
 		}
-
-		User connectedUser = new User();
-		Optional<User> optionalUser = userRepository.findById(1L);
-		if (optionalUser.isPresent()) {
-			connectedUser = optionalUser.get();
-		}
-
-		if (connectedUser.getUserRole().getWording().equals("editeur")) {
-			for (Event event2 : events) {
-				if (event2.getEditorsRegistrationBeginDate().before(today) && event2.getEditorsRegistrationEndDate().after(today)) {
-					event2.setRegistrationOpen(true);
-				} else
-					DateUtils.registrationCondition(today, event2);
-			}
-		}
-
-		else if (connectedUser.getUserRole().getWording().equals("boutique")) {
-			for (Event event2 : events) {
-				if (event2.getShopsRegistrationBeginDate().before(today) && event2.getShopsRegistrationEndDate().after(today)) {
-					event2.setRegistrationOpen(true);
-				} else
-					DateUtils.registrationCondition(today, event2);
-			}
-		}
-
-		else if (connectedUser.getUserRole().getWording().equals("benevole")) {
-			for (Event event2 : events) {
-				if (event2.getVolunteersRegistrationBeginDate().before(today) && event2.getVolunteersRegistrationEndDate().after(today)) {
-					event2.setRegistrationOpen(true);
-				} else
-					DateUtils.registrationCondition(today, event2);
-			}
-		}
-
 		this.model.addObject("connectedUser", connectedUser);
-		this.model.addObject("eventError", this.errorModel);
-		this.model.addObject("event", events);		
+		this.model.addObject("eventError", messageService.eventMessage(events));
+		this.model.addObject("event", events);
+		this.model.addObject("navbarLinks", navbarLinks);
+	}
+	
+	
+	public void setSubscribeEditorModel(String route, int id) {
+		
+		Event event = eventRepository.getOne((long) id);
+		this.model = new ModelAndView(route);
+		navbarLinks.setCurrentPage("editorSubscribe");
+		this.model.addObject("event", event);
+		this.model.addObject("connectedUser", userService.returnUser());
+		this.model.addObject("navbarLinks", navbarLinks);
 	}
 }
