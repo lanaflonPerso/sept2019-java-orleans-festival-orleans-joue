@@ -27,19 +27,20 @@
 	            <div class="container containerTitleStyle">
 	                <h2 class="col-12 title">Evenements:</h2>
 	            </div>
-	            <div th:if="!${eventError.errorON}" class="container containerStyle" th:each="eventInfos : ${event}">
+	            <div th:if="!${eventError.errorON}" class="container containerStyle" th:each="event : ${event}">
 	                <div class="col-sm-12 p-0">
 	                    <div class="card">
 	                        <div class="card-header">
-	                            <h2 th:text="${eventInfos.name}">Evènement</h2>
+	                            <h2 th:text="${event.event.name}">Evènement</h2>
 	                        </div>
 	                        <form class="card-body" action="subscribeEditor" method="POST">
-	                            <h4 class="card-title" th:text="|${eventInfos.name} ouvre ses portes du ${#dates.format(eventInfos.eventBeginningDate, 'dd/MM/yyyy')} au ${#dates.format(eventInfos.eventEndingDate, 'dd/MM/yyyy')}|"></h4>
-								<p class="card-text" th:text="${eventInfos.description}"></p>
-								<p class="regMessage" th:unless="${eventInfos.registrationOpen}" th:text="${eventInfos.registrationMessage}"></p>
-								<input name="id" type="hidden" th:value="${eventInfos.id}">
-								<button type="submit" th:if="${eventInfos.registrationOpen}" class="btn btn-primary">S'inscrire</button>
-							</form>
+	                            <h4 class="card-title" th:text="|${event.event.name} ouvre ses portes du ${#dates.format(event.event.eventBeginningDate, 'dd/MM/yyyy')} au ${#dates.format(event.event.eventEndingDate, 'dd/MM/yyyy')}|"></h4>
+								<p class="card-text" th:text="${event.event.description}"></p>
+								<p class="regMessage" th:unless="${event.event.registrationOpen}" th:text="${event.event.registrationMessage}"></p>
+								<input name="id" type="hidden" th:value="${event.event.id}">
+								<button type="submit" th:if="${event.subscribeBtnOn} and ${event.event.registrationOpen}" class="btn btn-primary">S'inscrire</button>
+								<p class="eventSubscribeMsg" th:unless="${event.subscribeBtnOn} and !${event.event.registrationOpen}">Vous avez fait une demande d'inscription à cet événement</p>
+							</form>	
 						</div>
 					</div>
 				</div>

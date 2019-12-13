@@ -11,6 +11,7 @@ import com.wildcodeschool.festivalorleansjoue.entity.Event;
 import com.wildcodeschool.festivalorleansjoue.entity.Registration;
 import com.wildcodeschool.festivalorleansjoue.entity.Society;
 import com.wildcodeschool.festivalorleansjoue.entity.User;
+import com.wildcodeschool.festivalorleansjoue.models.EventCardModel;
 import com.wildcodeschool.festivalorleansjoue.repository.EventRepository;
 import com.wildcodeschool.festivalorleansjoue.repository.RegistrationRepository;
 import com.wildcodeschool.festivalorleansjoue.repository.UserRepository;
@@ -37,7 +38,6 @@ public class ModelService {
 	GameService gameService;
 	@Autowired
 	AgentService agentService;
-
 
 	public ModelService() {
 
@@ -66,21 +66,46 @@ public class ModelService {
 		eventService.setMessage(connectedUser, events, today);
 		navbarLinks.setCurrentPage("home");
 		if (!hasSubscribe.isEmpty()) {
-			this.model.addObject("hasSubscribe",(hasSubscribe.get()));
+			this.model.addObject("hasSubscribe", (hasSubscribe.get()));
 		}
 		Society userSociety = connectedUser.getSociety();
+		List<EventCardModel> eventCardModels = new ArrayList<>();
 		if (userSociety != null) {
-			this.model.addObject("registrations", userSociety.getRegList());
+			List<Registration> registrationList = userSociety.getRegList();
+			this.model.addObject("registrations", registrationList);
+			if (registrationList.size() != 0) {
+				for (int i = 0; i < events.size(); i++) {
+					for (int j = 0; j < registrationList.size(); j++) {
+						if (registrationList.get(j).getEvent() == events.get(i)) {
+							eventCardModels.add(new EventCardModel(events.get(i), false));
+						} else {
+							eventCardModels.add(new EventCardModel(events.get(i), true));	
+						}
+					}
+					System.out.println("pass 1");
+					System.out.println(eventCardModels.size());
+				}				
+			} else {
+				for (int i = 0; i < events.size(); i++) {
+					eventCardModels.add(new EventCardModel(events.get(i), true));
+					System.out.println("pass 2");
+				}
+			}
+		} else {
+			for (int i = 0; i < events.size(); i++) {
+				eventCardModels.add(new EventCardModel(events.get(i), true));
+				System.out.println("pass 3");
+			}
 		}
+		System.out.println("pass 4");
 		this.model.addObject("connectedUser", connectedUser);
 		this.model.addObject("eventError", messageService.eventMessage(events));
-		this.model.addObject("event", events);
+		this.model.addObject("event", eventCardModels);
 		this.model.addObject("navbarLinks", navbarLinks);
 	}
-	
-	
+
 	public void setSubscribeEditorModel(String route, int id) {
-		
+
 		Event event = eventRepository.getOne((long) id);
 		this.model = new ModelAndView(route);
 		this.navbarLinks.setCurrentPage("subscribeEditor");
@@ -88,10 +113,9 @@ public class ModelService {
 		this.model.addObject("connectedUser", userService.returnUser());
 		this.model.addObject("navbarLinks", navbarLinks);
 	}
-	
-	
+
 	public void setSubscribeEditorModificationModel(String route, Long registrationId) {
-		
+
 		this.model = new ModelAndView(route);
 		System.out.println(registrationId);
 		Optional<Registration> optionalReg = registrationRepository.findById(registrationId);
@@ -103,9 +127,9 @@ public class ModelService {
 			System.out.println(registration);
 			this.model.addObject("gamesRegistration", gameService.findByRegistration(registration));
 			this.model.addObject("agentRegistration", agentService.findAgentByRegistration(registration));
-		}	
-		this.model.addObject("navbarLinks", navbarLinks);		
-		this.model.addObject("connectedUser", connectedUser);		
+		}
+		this.model.addObject("navbarLinks", navbarLinks);
+		this.model.addObject("connectedUser", connectedUser);
 		this.model.addObject("society", connectedUser.getSociety());
 		this.model.addObject("games", gameService.ReturnGamesBySociety(connectedUser.getSociety()));
 		this.model.addObject("agents", agentService.findAgentBySociety(connectedUser.getSociety()));
