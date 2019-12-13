@@ -84,9 +84,7 @@
 									<legend class="w-auto">Vos jeux inscrits</legend>
 									<div class="row align-items-center">										
 										 <div class="card col-3"> <!-- th:each="game:${registration.games}" -->
-										 	<a href="">
 											<img src="../pictures/default_game_picture.jpg"  class="card-img-top" alt="image du jeu">
-											</a>
 											<div class="card-body">
 												<p class="card-text">Nom :</p> <!-- th:text="${game.name}" -->
 											</div>
@@ -96,7 +94,7 @@
 										</div>
 									</div>  
 								</fieldset>
-								<fieldset class="border p-3 text-left">
+								<fieldset class="border p-3 text-left" th:if="${registration.agentProvided}">
 									<legend class="w-auto">Vos collaborateurs</legend>
 									<div class="row align-items-center">
 										<div class="col-sm-12">
@@ -104,11 +102,11 @@
 										</div>
 									</div>  
 								</fieldset>
-								<fieldset class="border p-3 text-left">
+								<fieldset class="border p-3 text-left" th:if="${registration.registrationCost != 0} ">
 									<legend class="w-auto">Coût de votre participation</legend>
 									<div class="row align-items-center">
 										<div class="col-sm-12">
-										<p>Le montant de votre inscription est de :  euros</p>
+										<p th:text="|Le montant de votre inscription est de : ${registration.registrationCost} euros|"></p>
 										</div>
 									</div>  
 								</fieldset>

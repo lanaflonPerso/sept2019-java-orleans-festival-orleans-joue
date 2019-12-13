@@ -69,6 +69,7 @@ import com.wildcodeschool.festivalorleansjoue.utils.MathUtils;
 				user = optionalUser.get();
 			}
 			registration.setSociety(user.getSociety());
+			registration.setState("pending");
 			registrationRepository.save(registration);
 			ModelMap model = new ModelMap();
 			model.addAttribute("hasSubscribe", "ok");

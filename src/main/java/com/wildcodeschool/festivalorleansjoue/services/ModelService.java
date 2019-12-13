@@ -90,6 +90,7 @@ public class ModelService {
 	public void setSubscribeEditorModificationModel(String route, Long registrationId) {
 		
 		this.model = new ModelAndView(route);
+		System.out.println(registrationId);
 		Optional<Registration> optionalReg = registrationRepository.findById(registrationId);
 		User connectedUser = userService.returnUser();
 		this.navbarLinks.setCurrentPage("subscribeEditorModification");
