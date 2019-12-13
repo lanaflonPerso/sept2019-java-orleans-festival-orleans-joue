@@ -34,7 +34,10 @@ public class ModelService {
 	@Autowired
 	NavbarLinksService navbarLinks;
 	@Autowired
-	GameService gameService;	
+	GameService gameService;
+	@Autowired
+	AgentService agentService;
+
 
 	public ModelService() {
 
@@ -98,12 +101,14 @@ public class ModelService {
 			Registration registration = optionalReg.get();
 			this.model.addObject("registration", registration);
 			this.model.addObject("gamesRegistration", gameService.findByRegistration(registration));
+			this.model.addObject("agentRegistration", agentService.findAgentByRegistration(registration));
 		}	
+		this.model.addObject("navbarLinks", navbarLinks);		
 		this.model.addObject("connectedUser", connectedUser);		
 		this.model.addObject("society", connectedUser.getSociety());
 		this.model.addObject("games", gameService.ReturnGamesBySociety(connectedUser.getSociety()));
-		this.model.addObject("navbarLinks", navbarLinks);
+		this.model.addObject("agents", agentService.findAgentBySociety(connectedUser.getSociety()));
+
 	}
 
-	
 }

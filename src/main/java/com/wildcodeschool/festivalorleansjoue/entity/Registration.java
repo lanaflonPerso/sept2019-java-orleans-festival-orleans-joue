@@ -29,6 +29,9 @@ public class Registration {
 	@ManyToMany
 	@JoinTable(name = "game_registration", joinColumns = @JoinColumn(name = "registration_id"), inverseJoinColumns = @JoinColumn(name = "game_id"))
 	private List<Game> games = new ArrayList<>();
+	@ManyToMany
+	@JoinTable(name = "agent_registration", joinColumns = @JoinColumn(name = "registration_id"), inverseJoinColumns = @JoinColumn(name = "agent_id"))
+	private List<Agent> agents = new ArrayList<>();
 	private int tablesQuantity;
 	private boolean electricalSupplyNeed;
 	private boolean saleOption;
@@ -90,6 +93,16 @@ public class Registration {
 	public void setGames(List<Game> games) {
 		
 		this.games = games;
+	}
+
+
+	public List<Agent> getAgents() {
+		return this.agents;
+	}
+
+
+	public void setAgents(List<Agent> agents) {
+		this.agents = agents;
 	}
 
 

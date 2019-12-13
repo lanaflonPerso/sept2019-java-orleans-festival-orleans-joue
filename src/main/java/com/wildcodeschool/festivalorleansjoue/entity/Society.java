@@ -27,6 +27,8 @@ public class Society {
 	private List<Game> game = new ArrayList<Game>();
 	@OneToMany(mappedBy = "society", cascade = CascadeType.ALL)
 	private List<Registration> regList = new ArrayList<>();
+	@OneToMany(mappedBy = "society")
+	private List<Agent> agents = new ArrayList<Agent>();
 
 
 	public Society() {
@@ -103,6 +105,16 @@ public class Society {
 	public void setGame(List<Game> game) {
 		
 		this.game = game;
+	}
+
+
+	public List<Agent> getAgents() {
+		return this.agents;
+	}
+
+
+	public void setAgents(List<Agent> agents) {
+		this.agents = agents;
 	}	
 
 }
