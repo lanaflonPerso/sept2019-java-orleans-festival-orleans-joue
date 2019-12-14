@@ -77,27 +77,22 @@ public class ModelService {
 				for (int i = 0; i < events.size(); i++) {
 					for (int j = 0; j < registrationList.size(); j++) {
 						if (registrationList.get(j).getEvent() == events.get(i)) {
-							eventCardModels.add(new EventCardModel(events.get(i), false));
+							eventCardModels.add(new EventCardModel(events.get(i), false, true));
 						} else {
-							eventCardModels.add(new EventCardModel(events.get(i), true));	
+							eventCardModels.add(new EventCardModel(events.get(i), true, false));	
 						}
 					}
-					System.out.println("pass 1");
-					System.out.println(eventCardModels.size());
 				}				
 			} else {
 				for (int i = 0; i < events.size(); i++) {
-					eventCardModels.add(new EventCardModel(events.get(i), true));
-					System.out.println("pass 2");
+					eventCardModels.add(new EventCardModel(events.get(i), true, false));
 				}
 			}
 		} else {
 			for (int i = 0; i < events.size(); i++) {
-				eventCardModels.add(new EventCardModel(events.get(i), true));
-				System.out.println("pass 3");
+				eventCardModels.add(new EventCardModel(events.get(i), true, false));
 			}
 		}
-		System.out.println("pass 4");
 		this.model.addObject("connectedUser", connectedUser);
 		this.model.addObject("eventError", messageService.eventMessage(events));
 		this.model.addObject("event", eventCardModels);

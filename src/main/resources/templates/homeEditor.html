@@ -39,7 +39,7 @@
 								<p class="regMessage" th:unless="${event.event.registrationOpen}" th:text="${event.event.registrationMessage}"></p>
 								<input name="id" type="hidden" th:value="${event.event.id}">
 								<button type="submit" th:if="${event.subscribeBtnOn} and ${event.event.registrationOpen}" class="btn btn-primary">S'inscrire</button>
-								<p class="eventSubscribeMsg" th:unless="${event.subscribeBtnOn} and !${event.event.registrationOpen}">Vous avez fait une demande d'inscription à cet événement</p>
+								<p class="eventSubscribeMsg" th:if="!${event.subscribeBtnOn} and ${event.hasSubscribe}">Vous avez fait une demande d'inscription à cet événement</p>
 							</form>	
 						</div>
 					</div>
