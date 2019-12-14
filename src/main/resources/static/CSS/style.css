@@ -1,7 +1,8 @@
 :root {
     --orange: #ec5d31;
     --purple: #5e3388;
-    --grey: #ccc;
+/*    --grey: #ccc; */
+    --grey: #c4c4c4;
     --active: #82D485;
     --danger: #DC3545;
     --font-1: 'Acme';
@@ -280,6 +281,8 @@ input:checked ~ .switch_on {
  user-select: none; /* Propriété standard */
 }
 
+/* ------------------------ homeEditor ----------------------- */
+
 .registration_cost {
 	font-size: 1.2rem!important;
 }
@@ -301,3 +304,6 @@ input:checked ~ .switch_on {
 	color: var(--purple);
 }
 
+.border {
+	border: 1px solid var(--grey)!important;
+}

@@ -112,6 +112,14 @@
 										</div>
 									</div>  
 								</fieldset>
+								<fieldset class="border p-3 text-left">
+									<legend class="w-auto">Vos commentaires</legend>
+									<div class="row align-items-center">
+										<div class="col-sm-12">
+										<p th:text="${registration.comments}"></p>
+										</div>
+									</div>  
+								</fieldset>
 								<form class="d-flex justify-content-end"  method="post" action="/subscribeEditorModification">
 									<button type="submit" class="col-10 col-md-6 col-lg-3 btn btn-primary subscribeModifBtn" name="submitBtn">Modifier ma demande</button>
 									<input type="hidden" id="regitration" th:name="registrationId" th:value="${registration.id}">
