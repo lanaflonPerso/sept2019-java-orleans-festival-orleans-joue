@@ -58,7 +58,7 @@
 	                                        <label for="tablesQuantity" th:text="|Nombre de tables souhaitées (${event.maxTablesPerEditor} max.) :|">Nombre de tables souhaitées :</label>
 	                                        <p id="table_error" class="table_error"></p>
 	                                    </div>
-	                                    <div class="col-lg-1 p-lg-0 m-auto">
+	                                    <div class="col-6 col-lg-1 p-lg-0 m-auto tablesInput">
 	                                        <input type="number" id="tablesQuantity" name="tablesQuantity" value="0">
 	                                    </div>
 	                                </div>
@@ -152,7 +152,7 @@
 	                            <h3 class="fs-subtitle subscribeForm" th:text="${event.name}"></h3>
 	                            <div>
 	                                <label for="comments" class="w-100 text-left pt-3">Ajouter un commentaire</label>
-	                                <textarea id="comments" class="comments" name="comments"></textarea>
+	                                <textarea id="comments" class="comments" name="comments" rows="6" cols="30"></textarea>
 	                            </div>
 	                            <div>
 	                                <label id="finalCost" for="cost" class="registration_cost w-100 text-center mt-4">Coût de l'inscription : 65 euros</label>

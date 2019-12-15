@@ -208,8 +208,31 @@
 }
 
 .registration_cost {
-    font-style: italic;
-    font-size: 1.1em;
+	font-style: italic;
+	font-size: 1.2rem;
+}
+
+.registrationCost {
+	font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {  
+	.switch_on {
+		font-size: 1.3rem;
+	} 
+	
+	.switch_off {
+		font-size: 1.3rem;
+	}
+	
+	.next {
+		font-size: 1.2rem;
+	}
+	
+	.previous {
+		font-size: 1.2rem;
+	}
+	
 }
 
 .quitIcon {
@@ -226,6 +249,10 @@
     color: var(--danger);
     font-size: 0.9em;
     font-style: italic;
+}
+
+.tablesInput {
+	font-size: 1.2rem;
 }
 
 @media screen and (max-width: 1407px) {
@@ -250,9 +277,13 @@
     }
     
     .registrationState {
-    	padding-left:8px;
-    	padding-right: 8px;
-    	width: 90%;
-    	margin: auto 5%;
+    	padding-left:5px;
+    	padding-right: 5px;
+    	width: 98%;
+    	margin: auto 1%;
     }
+}
+
+.comments {
+	font-size: 1.2rem;
 }

@@ -23,15 +23,15 @@
 	        <h1 class="helloUser" th:text="|Bonjour ${connectedUser.firstname} ${connectedUser.lastname}|"></h1>
 	        <hr class="col-12" />
 	        <section class="fluid-container" id="evenement">
-	            <div class="pcard"></div>
+	            <div class="pcard d-none d-md-block"></div>
 	            <div class="container containerTitleStyle">
-	                <h2 class="col-12 title">Evenements:</h2>
+	                <h2 class="col-12 title">&Eacute;vènements:</h2>
 	            </div>
 	            <div th:if="!${eventError.errorON}" class="container containerStyle" th:each="event : ${event}">
 	                <div class="col-sm-12 p-0">
 	                    <div class="card">
 	                        <div class="card-header">
-	                            <h2 th:text="${event.event.name}">Evènement</h2>
+	                            <h2 th:text="${event.event.name}"></h2>
 	                        </div>
 	                        <form class="card-body" action="subscribeEditor" method="POST">
 	                            <h4 class="card-title" th:text="|${event.event.name} ouvre ses portes du ${#dates.format(event.event.eventBeginningDate, 'dd/MM/yyyy')} au ${#dates.format(event.event.eventEndingDate, 'dd/MM/yyyy')}|"></h4>
@@ -39,7 +39,7 @@
 								<p class="regMessage" th:unless="${event.event.registrationOpen}" th:text="${event.event.registrationMessage}"></p>
 								<input name="id" type="hidden" th:value="${event.event.id}">
 								<button type="submit" th:if="${event.subscribeBtnOn} and ${event.event.registrationOpen}" class="btn btn-primary">S'inscrire</button>
-								<p class="eventSubscribeMsg" th:if="!${event.subscribeBtnOn} and ${event.hasSubscribe}">Vous avez fait une demande d'inscription à cet événement</p>
+								<p class="eventSubscribeMsg" th:if="!${event.subscribeBtnOn} and ${event.hasSubscribe}">Vous avez fait une demande d'inscription à cet évènement</p>
 							</form>	
 						</div>
 					</div>
@@ -47,16 +47,16 @@
 			</section>
 			<hr class="col-12 hrBottom"/>
 			<section class="fluid-container" id="inscription">
-				<div class="pcard" ></div>
+				<div class="pcard d-none"></div>
 				<div class="container containerTitleStyle">
 					<h2 class="col-12 title">Mes inscriptions:</h2>
-					<h3 class="col-12 title" th:unless="${registrations} != null">Aucune inscription</h3>
+					<h3 class="col-12 title" th:if="${#lists.isEmpty(registrations)}">Aucune inscription effectuée.</h3>
 				</div>				
-				<div class="container containerStyle" th:if="${registrations} != null" th:each="registration : ${registrations}">
+				<div class="container containerStyle" th:each="registration : ${registrations}">
 					<div class="col-sm-12 p-0">
 						<div class="card">
 							<div class="card-header">
-								<h2 th:text="|Récapitulatif inscription evenement :	${registration.event?.name}|"></h2>	
+								<h2 th:text="|Récapitulatif inscription evenement :	${registration.event.name}|"></h2>	
 							</div>
 							<div class="card-body">
 								<h4 class="card-title" th:text="|Demande d'inscription effectuée le :     ${#dates.format(registration.subscriptionDate, 'dd/MM/yyyy')}|"></h4>
@@ -131,7 +131,7 @@
 			</section>
 			<hr class="col-12 hrBottom"/>
 			<section class="fluid-container" id="information">
-				<div class="pcard" ></div>
+				<div class="pcard d-none" ></div>
 					<div class="container containerTitleStyle">
 						<h2 class="col-sm-12 p-0 title">Mes informations:</h2>
 					</div>

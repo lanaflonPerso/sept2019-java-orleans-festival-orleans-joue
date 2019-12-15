@@ -19,9 +19,30 @@
 }
 
 @media (max-width: 768px) {  
-  * {
+	
+	* {
   	font-size:0.8rem;
-  } 
+	} 
+	
+	h1 {
+	    font-size: 1.8rem;
+	}
+	
+	h2 {
+		font-size: 1.5rem;
+	}
+	
+	h3 {
+		font-size: 1.2rem;
+	}
+	
+	h4 {
+		font-size: 1.2rem;
+	}
+	
+	.subscribeModifBtn {
+		font-size: 1.2rem!important;
+	}
 }
 
 textarea {
@@ -268,7 +289,6 @@ input:checked ~ .switch_on {
 	font-size: 1.2rem;
 	height: 2.5rem;
 	font-weight: lighter;
-	margin-left: 1rem;
     fill: var(--danger);
     width: 7rem;
 }
@@ -281,14 +301,11 @@ input:checked ~ .switch_on {
  user-select: none; /* Propriété standard */
 }
 
-/* ------------------------ homeEditor ----------------------- */
-
-.registration_cost {
-	font-size: 1.2rem!important;
-}
+/* ------------------------ homeEditor registrations details ----------------------- */
 
 .badgeDetails {
 	width: 3.2rem;
+	margin-left: 1rem;
 }
 
 .subscribeModifBtn {
