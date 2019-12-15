@@ -42,3 +42,10 @@ nav li a {
         background: white;
     }
 }
+
+.navBarTitle {
+	font-size: 2.2rem;
+	font-family: 'acme';
+	color: white;
+	margin: auto;
+}

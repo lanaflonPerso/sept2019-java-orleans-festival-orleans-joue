@@ -6,7 +6,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class NavbarLinksService {
 	
-	private String currentPage;	
+	private String currentPage;
+	private boolean homepageLinkOn;
 	
 	
 	public NavbarLinksService() {
@@ -22,5 +23,20 @@ public class NavbarLinksService {
 	public void setCurrentPage(String currentPage) {
 		
 		this.currentPage = currentPage;
-	}	
+	}
+
+
+	public boolean isHomepageLinkOn() {
+		
+		return this.homepageLinkOn;
+	}
+
+
+	public void setHomepageLinkOn(boolean homepageLinkOn) {
+		
+		this.homepageLinkOn = homepageLinkOn;
+	}
+	
+	
+	
 }

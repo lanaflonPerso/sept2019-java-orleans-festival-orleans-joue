@@ -1,50 +1,63 @@
-<header th:fragment="top">
-  <!-- Fixed navbar -->
-  <nav class="mb-1 navbar fixed-top navbar-expand-lg navbar-dark default-color">
-    <a class="nav-link p-0" href="/accueil_editeur">
-      <img src="../pictures/logo_transparent2.png" class="rounded-circle z-depth-0" alt="Logo Orléans Joue" height="70">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-      aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-      <ul class="navbar-nav col-12 col-lg-6 cd-main-nav">
-
-        <li class="nav-item mx-auto" th:if="${navbarLinks.currentPage} == 'home'">
-          <a class="nav-link navElement" href="#evenement">Evenement</a>
-        </li>
-        <li class="nav-item mx-auto" th:if="${navbarLinks.currentPage} == 'home'">
-          <a class="nav-link navElement" href="#inscription">Mon Inscription</a>
-        </li>
-        <li class="nav-item mx-auto" th:if="${navbarLinks.currentPage} == 'home'">
-          <a class="nav-link navElement" href="#information">Mes Informations</a>
-        </li>
-        <div class="dropdown-divider mt-3 mb-0"></div>
-        <li class="nav-item mx-auto d-block d-lg-none mt-3">
-          <a class="nav-link navElement" href="#">Mon profil</a>
-        </li>
-        <li class="nav-item mx-auto d-block d-lg-none mb-3">
-          <a class="nav-link navElement" href="#">Deconnection</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto nav-flex-icons">
-        <li class="nav-item avatar d-none d-lg-block">
-          <div class="nav-link p-0">
-            <img th:src="@{${connectedUser.getProfilePicture()}}" class="rounded-circle z-depth-0"
-              alt="Image de profil" height="35">
-          </div>
-        </li>
-        <li class="nav-item dropdown d-none d-lg-block">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-          </a>
-          <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-            <a class="dropdown-item" href="#">Mon profil</a>
-            <a class="dropdown-item" href="#">Deconnection</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</header>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css?family=Acme|Roboto&display=swap" rel="stylesheet"> 
+	</head>
+	<header th:fragment="top">
+	  <!-- Fixed navbar -->
+	  <nav class="mb-1 navbar fixed-top navbar-expand-lg navbar-dark default-color">
+	    <a class="nav-link p-0" href="/accueil_editeur" th:if="${navbarLinks.currentPage} == 'home'">
+	      <img src="../pictures/logo_transparent2.png" class="rounded-circle z-depth-0" alt="Logo OrlÃ©ans Joue" height="70">
+	    </a>
+	    <p class="navBarTitle nav-link" th:unless="${navbarLinks.currentPage} == 'home'">Inscription à un évènement</p>
+	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+	      aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+	      <ul class="navbar-nav col-12 col-lg-6 cd-main-nav" th:if="${navbarLinks.currentPage} == 'home'">
+	
+	        <li class="nav-item mx-auto">
+	          <a class="nav-link navElement" href="#evenement">Evenement</a>
+	        </li>
+	        <li class="nav-item mx-auto">
+	          <a class="nav-link navElement" href="#inscription">Mon Inscription</a>
+	        </li>
+	        <li class="nav-item mx-auto">
+	          <a class="nav-link navElement" href="#information">Mes Informations</a>
+	        </li>
+	        <div class="dropdown-divider mt-3 mb-0"></div>
+	        <li class="nav-item mx-auto d-block d-lg-none mt-3">
+	          <a class="nav-link navElement" href="#">Mon profil</a>
+	        </li>
+	        <li class="nav-item mx-auto d-block d-lg-none mb-3">
+	          <a class="nav-link navElement" href="#">Deconnection</a>
+	        </li>
+	      </ul>
+	      <ul class="navbar-nav ml-auto nav-flex-icons">
+	        <li class="nav-item avatar d-none d-lg-block">
+	          <div class="nav-link p-0">
+	            <img th:src="@{${connectedUser.getProfilePicture()}}" class="rounded-circle z-depth-0"
+	              alt="Image de profil" height="35">
+	          </div>
+	        </li>
+	        <li class="nav-item dropdown d-none d-lg-block">
+	          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+	            aria-haspopup="true" aria-expanded="false">
+	          </a>
+	          <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+	            <a class="dropdown-item" href="#">Mon profil</a>
+	            <a class="dropdown-item" href="#">Deconnection</a>
+	          </div>
+	        </li>
+	      </ul>
+	    </div>
+	  </nav>
+	</header>
+</html>

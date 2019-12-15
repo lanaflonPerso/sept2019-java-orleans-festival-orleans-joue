@@ -76,6 +76,7 @@ public class ModelService {
 			if (registrationList.size() != 0) {
 				for (int i = 0; i < events.size(); i++) {
 					for (int j = 0; j < registrationList.size(); j++) {
+						
 						if (registrationList.get(j).getEvent() == events.get(i)) {
 							eventCardModels.add(new EventCardModel(events.get(i), false, true));
 						} else {
@@ -112,7 +113,6 @@ public class ModelService {
 	public void setSubscribeEditorModificationModel(String route, Long registrationId) {
 
 		this.model = new ModelAndView(route);
-		System.out.println(registrationId);
 		Optional<Registration> optionalReg = registrationRepository.findById(registrationId);
 		User connectedUser = userService.returnUser();
 		this.navbarLinks.setCurrentPage("subscribeEditorModification");

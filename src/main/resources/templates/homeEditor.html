@@ -47,7 +47,7 @@
 			</section>
 			<hr class="col-12 hrBottom"/>
 			<section class="fluid-container" id="inscription">
-				<div class="pcard d-none"></div>
+				<div class="pcard d-none d-md-block"></div>
 				<div class="container containerTitleStyle">
 					<h2 class="col-12 title">Mes inscriptions:</h2>
 					<h3 class="col-12 title" th:if="${#lists.isEmpty(registrations)}">Aucune inscription effectuée.</h3>
@@ -84,10 +84,10 @@
 								<fieldset class="border p-3 text-left">
 									<legend class="w-auto">Vos jeux inscrits</legend>
 									<div class="row align-items-center">										
-										 <div class="card col-3" th:each="game, itemStat : ${registration.games}"> 
-											<img src="../pictures/default_game_picture.jpg"  class="card-img-top" alt="image du jeu">
+										 <div class="card col-3" th:each="game : ${games}"> 
+											<img th:src="${game.picture}"  class="card-img-top" alt="image du jeu">
 											<div class="card-body">
-												<p class="card-text" th:text="|Nom : games[${itemStat.index}].name|"></p> 
+												<p class="card-text" th:text="|Nom : game.name|"></p> 
 											</div>
 										</div>										
 										<div class="col-sm-12">
@@ -131,7 +131,7 @@
 			</section>
 			<hr class="col-12 hrBottom"/>
 			<section class="fluid-container" id="information">
-				<div class="pcard d-none" ></div>
+				<div class="pcard d-none d-md-block" ></div>
 					<div class="container containerTitleStyle">
 						<h2 class="col-sm-12 p-0 title">Mes informations:</h2>
 					</div>
