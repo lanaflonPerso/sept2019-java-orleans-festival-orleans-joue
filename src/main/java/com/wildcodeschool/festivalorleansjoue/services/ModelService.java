@@ -119,7 +119,6 @@ public class ModelService {
 		if (!optionalReg.isEmpty()) {
 			Registration registration = optionalReg.get();
 			this.model.addObject("registration", registration);
-			System.out.println(registration);
 			this.model.addObject("gamesRegistration", gameService.findByRegistration(registration));
 			this.model.addObject("agentRegistration", agentService.findAgentByRegistration(registration));
 		}
@@ -128,7 +127,5 @@ public class ModelService {
 		this.model.addObject("society", connectedUser.getSociety());
 		this.model.addObject("games", gameService.ReturnGamesBySociety(connectedUser.getSociety()));
 		this.model.addObject("agents", agentService.findAgentBySociety(connectedUser.getSociety()));
-
 	}
-
 }
