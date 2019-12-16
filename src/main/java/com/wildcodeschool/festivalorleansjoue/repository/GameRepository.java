@@ -15,4 +15,6 @@ public interface GameRepository extends JpaRepository<Game, Long>{
 	
 	public List<Game> findByRegistrations (Registration registration);
 	
+	public List<Game> findBySocietyAndRegistrationsNotOrRegistrationsIsNull (Society society, Registration registration);
+	
 }

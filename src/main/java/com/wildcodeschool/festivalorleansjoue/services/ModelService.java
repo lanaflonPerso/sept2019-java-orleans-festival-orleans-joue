@@ -121,6 +121,7 @@ public class ModelService {
 			this.model.addObject("registration", registration);
 			this.model.addObject("gamesRegistration", gameService.findByRegistration(registration));
 			this.model.addObject("agentRegistration", agentService.findAgentByRegistration(registration));
+			this.model.addObject("gamesSocietyOnly", gameService.findByRegistrationNotSociety(connectedUser.getSociety(), registration));
 		}
 		this.model.addObject("navbarLinks", navbarLinks);
 		this.model.addObject("connectedUser", connectedUser);

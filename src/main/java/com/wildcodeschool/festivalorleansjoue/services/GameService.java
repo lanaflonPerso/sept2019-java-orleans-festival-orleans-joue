@@ -28,7 +28,11 @@ public class GameService {
 		return gameRepository.findByRegistrations(registration);
 	}
 	
-
+	public List<Game> findByRegistrationNotSociety (Society society,Registration registration){
+		
+		return gameRepository.findBySocietyAndRegistrationsNotOrRegistrationsIsNull(society, registration);
+	}
+	
 	public void addGame (Game game) {
 		
 		gameRepository.save(game);
