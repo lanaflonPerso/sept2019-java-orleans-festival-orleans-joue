@@ -40,7 +40,7 @@
 								<p class="card-text" th:text="${event.event.description}"></p>
 								<p class="regMessage" th:unless="${event.event.registrationOpen}" th:text="${event.event.registrationMessage}"></p>
 								<input name="id" type="hidden" th:value="${event.event.id}">
-								<button type="submit" th:if="${event.subscribeBtnOn} and ${event.event.registrationOpen}" class="col-6 col-md-4 col-lg-2 btn btn-primary registrateBtn">S'inscrire</button>
+								<button type="submit" th:if="${event.subscribeBtnOn} and ${event.event.registrationOpen}" class="regBtn col-6 col-md-4 col-lg-2 btn btn-primary">S'inscrire</button>
 								<p class="text-center eventSubscribeMsg" th:if="!${event.subscribeBtnOn} and ${event.hasSubscribe}">Vous avez fait une demande d'inscription à cet évènement</p>
 							</form>	
 						</div>
@@ -49,8 +49,7 @@
  				<div class="row">
 	        		<hr class="col-11 col-sm-12 hrBottom"/>
 	        	</div>  
-			</section>
-			
+			</section>			
 			<section class="fluid-container" id="inscription">
 				<div class="pcard"></div>
 				<div class="container containerTitleStyle">

@@ -19,13 +19,12 @@
 <body>
     <header th:replace="navBar.html :: top"></header>
     <main>
-        <section class="container-fluid">
+        <section class="container-fluid" id="myRegistration">
             <div class="container containerTitleStyle">
                 <h2 class="col-sm-12 p-0 mb-4 title">Mes informations générales</h2>
             </div>
-
+			<div class="pcard"></div>
             <form method="post" action="/submitRegistration" class="border m-3 p-3 p-4 col-sm-10 col-lg-7 mx-auto">
-
                 <input type="hidden" name="eventId" th:value="${registration.event?.id}">
                 <input type="hidden" id="pricePerTable" name="pricePerTable" th:value="${registration.event?.pricePerTable}" disabled>
                 <input type="hidden" id="saleOptionPrice" name="saleOptionPrice" th:value="${registration.event?.saleOptionPrice}" disabled>
@@ -100,11 +99,11 @@
 
                     <button type="submit" name="registration" class="btn btn-primary btn-update">Valider les modifications</button>
                 </div>
-
             </form>
         </section>
         <hr class="my-5" />
         <section id="agents">
+        <div class="pcard"></div>
             <div class="container containerTitleStyle">
                 <h2 class="col-sm-12 p-0 title">Mes collaborateurs présents à l'évenement:</h2>
             </div>
@@ -151,7 +150,8 @@
             </div>
         </section>
         <hr />
-        <section id="Games">
+        <section id="games">
+        <div class="pcard"></div>
             <div class="container containerTitleStyle">
                 <h2 class="col-sm-12 p-0 title">Mes jeux:</h2>
             </div>
