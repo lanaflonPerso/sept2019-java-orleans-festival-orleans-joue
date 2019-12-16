@@ -11,15 +11,14 @@ import com.wildcodeschool.festivalorleansjoue.services.ModelService;
 
 @RestController
 public class SubscribeEditorModificationController {
-	
+
 	@Autowired
 	ModelService modelService;
-	
-	
+
 	@RequestMapping(value = "/subscribeEditorModification", method = { RequestMethod.GET, RequestMethod.POST })
-		public ModelAndView subscribeEditor(@RequestParam Long registrationId) {
-		
-		modelService.setSubscribeEditorModificationModel("subscribeEditorModification",registrationId);
+	public ModelAndView subscribeEditorUpdate(@RequestParam Long registrationId) {
+
+		modelService.setSubscribeEditorModificationModel("subscribeEditorModification", registrationId);
 		return modelService.getModel();
 	}
 }

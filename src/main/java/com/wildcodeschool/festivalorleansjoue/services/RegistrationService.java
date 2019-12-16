@@ -39,4 +39,7 @@ public class RegistrationService {
 		System.out.println(registration.getGames().size());
 	}
 	
+	public void deleteEditorRegistration(Long registrationId) {
+		registrationRepository.deleteById(registrationId);	
+	}	
 }
