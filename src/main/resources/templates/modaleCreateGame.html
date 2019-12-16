@@ -9,13 +9,21 @@
       </div>
       <form method="POST" action="/addRegistrationGame" enctype="multipart/form-data">
         <div class="modal-body">
+          <div th:if="${society.game.size() !=0}" class="form-group">
+            <label for="name">Choisissez un jeu de votre bibliotheque:</label>
+			<select th:field="*{society.game}" class="custom-select">
+			    <option value="" selected disabled hidden>Selectionner un jeu</option>
+			    <option th:each="game : ${society.game}" th:value="${game.name}"th:text="${game.name}"/>
+			</select>
+			<p class="align-self-center text-center mt-2">ou</p>
+         </div>
           <div class="form-group">
             <label for="name">Nom du jeux</label>
             <input type="text" class="form-control" id="name" name="name" aria-describedby="nameGameHelp" placeholder="nom du jeux">
             <small id="nameGameHelp" class="form-text text-muted">Indiquez le nom du jeux</small>
           </div>
           <div class="form-group">
-            <label for="picture">Image:</label>
+            	<label for="picture">Image:</label>
 				<input type="file" id="pictureCreate" name="file_picture" aria-describedby="pictureHelp" accept="image/png, image/jpeg">
 				<img id="picturePreviewCreate" src="#" alt="your image" class="d-none"/>            
 				<small id="pictureHelp" class="form-text text-muted">Choisissez une image</small>
@@ -43,6 +51,7 @@
           </div>
         </div>
         <input type="hidden" name="registrationId" th:value="${registration.id}">
+        <input type="hidden" name="societyId" th:value="${society.id}">
         <div class="modal-footer border-top-0 d-flex justify-content-center">
           <button type="submit" class="btn btn-success">Submit</button>
         </div>

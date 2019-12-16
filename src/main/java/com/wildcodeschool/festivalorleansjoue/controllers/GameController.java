@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import com.wildcodeschool.festivalorleansjoue.entity.Game;
 import com.wildcodeschool.festivalorleansjoue.repository.GameRepository;
+import com.wildcodeschool.festivalorleansjoue.repository.SocietyRepository;
 import com.wildcodeschool.festivalorleansjoue.services.FileService;
 import com.wildcodeschool.festivalorleansjoue.services.GameService;
 import com.wildcodeschool.festivalorleansjoue.services.RegistrationService;
@@ -30,6 +31,8 @@ import com.wildcodeschool.festivalorleansjoue.services.RegistrationService;
 		@Autowired
 		private FileService fileService;
 		
+		@Autowired
+		private SocietyRepository societyRepository;
 		
 		@PostMapping("/game")
 	    public String getAll(Model model) {
@@ -67,10 +70,11 @@ import com.wildcodeschool.festivalorleansjoue.services.RegistrationService;
 		
 		
 		@PostMapping("/addRegistrationGame")
-	    public ModelAndView postRegistrationGame(@ModelAttribute Game game, @RequestParam(name = "file_picture") MultipartFile filePicture, Long registrationId) {
+	    public ModelAndView postRegistrationGame(@ModelAttribute Game game, @RequestParam(name = "file_picture") MultipartFile filePicture, Long registrationId, Long societyId) {
 			
 			if (!filePicture.isEmpty())
 				game.setPicture("/pictures/uploads/games_pictures/" + fileService.uploadFile(filePicture));
+			game.setSociety(societyRepository.getOne(societyId));
 			gameService.addGame(game);
 			registrationService.addRegistrationGame(game, registrationId);
 			ModelMap model = new ModelMap();
