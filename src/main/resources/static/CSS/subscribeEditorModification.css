@@ -66,10 +66,12 @@
 	cursor:pointer;
 }
 
+
 .deleteButton{
 	background: none;
     border: none;
     padding: 0;
+
 }
 
 .btn {
@@ -80,4 +82,10 @@
 
 .btn-update {
     align-self: center;
+}
+
+.svgActionAgent{
+	fill:orange;
+	width:25%;
+	cursor:pointer;
 }
