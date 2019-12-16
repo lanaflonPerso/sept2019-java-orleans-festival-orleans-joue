@@ -21,12 +21,14 @@
 	    <header th:replace="navBar.html :: top"></header>
 	    <main>	
 	        <h1 class="helloUser" th:text="|Bonjour ${connectedUser.firstname} ${connectedUser.lastname}|"></h1>
-	        <hr class="col-12" />
 	        <section class="fluid-container" id="evenement">
-	            <div class="pcard d-none d-md-block"></div>
+ 	        <div class="row">
+		  		<hr class="col-11 col-sm-12"/>
+	        </div>	
+	            <div class="pcard"></div>
 	            <div class="container containerTitleStyle">
 	                <h2 class="col-12 title">&Eacute;vènements:</h2>
-	            </div>
+	            </div> 
 	            <div th:if="!${eventError.errorON}" class="container containerStyle" th:each="event : ${event}">
 	                <div class="col-sm-12 p-0">
 	                    <div class="card">
@@ -38,16 +40,19 @@
 								<p class="card-text" th:text="${event.event.description}"></p>
 								<p class="regMessage" th:unless="${event.event.registrationOpen}" th:text="${event.event.registrationMessage}"></p>
 								<input name="id" type="hidden" th:value="${event.event.id}">
-								<button type="submit" th:if="${event.subscribeBtnOn} and ${event.event.registrationOpen}" class="btn btn-primary">S'inscrire</button>
+								<button type="submit" th:if="${event.subscribeBtnOn} and ${event.event.registrationOpen}" class="col-6 col-md-4 col-lg-2 btn btn-primary registrateBtn">S'inscrire</button>
 								<p class="eventSubscribeMsg" th:if="!${event.subscribeBtnOn} and ${event.hasSubscribe}">Vous avez fait une demande d'inscription à cet évènement</p>
 							</form>	
 						</div>
 					</div>
 				</div>
+ 				<div class="row">
+	        		<hr class="col-11 col-sm-12 hrBottom"/>
+	        	</div>  
 			</section>
-			<hr class="col-12 hrBottom"/>
+			
 			<section class="fluid-container" id="inscription">
-				<div class="pcard d-none d-md-block"></div>
+				<div class="pcard"></div>
 				<div class="container containerTitleStyle">
 					<h2 class="col-12 title">Mes inscriptions:</h2>
 					<h3 class="col-12 title" th:if="${#lists.isEmpty(registrations)}">Aucune inscription effectuée.</h3>
@@ -129,9 +134,11 @@
 					</div>
 				</div>
 			</section>
-			<hr class="col-12 hrBottom"/>
-			<section class="fluid-container" id="information">
-				<div class="pcard d-none d-md-block" ></div>
+ 			<div class="row">
+	        	<hr class="col-11 col-sm-12 hrBottom"/>
+	        </div>  
+			<section id="information" class="fluid-container">
+				<div class="pcard" ></div>
 					<div class="container containerTitleStyle">
 						<h2 class="col-sm-12 p-0 title">Mes informations:</h2>
 					</div>

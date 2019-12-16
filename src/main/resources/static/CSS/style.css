@@ -18,31 +18,8 @@
     padding: 0;
 }
 
-@media (max-width: 768px) {  
-	
-	* {
-  	font-size:0.8rem;
-	} 
-	
-	h1 {
-	    font-size: 1.8rem;
-	}
-	
-	h2 {
-		font-size: 1.5rem;
-	}
-	
-	h3 {
-		font-size: 1.2rem;
-	}
-	
-	h4 {
-		font-size: 1.2rem;
-	}
-	
-	.subscribeModifBtn {
-		font-size: 1.2rem!important;
-	}
+.row {
+	margin: 0!important;
 }
 
 textarea {
@@ -80,7 +57,7 @@ hr {
 
 /*Card*/
 .pcard {
-    height: 90px;
+    height: 6rem;
 }
 
 .containerStyle {
@@ -323,4 +300,40 @@ input:checked ~ .switch_on {
 
 .border {
 	border: 1px solid var(--grey)!important;
+}
+
+@media (max-width: 768px) {  
+	
+	* {
+  	font-size:0.8rem;
+	} 
+	
+	h1 {
+	    font-size: 1.8rem;
+	}
+	
+	h2 {
+		font-size: 1.5rem;
+	}
+	
+	h3 {
+		font-size: 1.2rem;
+	}
+	
+	h4 {
+		font-size: 1.2rem;
+	}
+	
+	.subscribeModifBtn {
+		font-size: 1.2rem!important;
+	}
+	
+	.registrateBtn {
+		height: 2.8rem;
+		font-size: 1.4rem;
+	}
+	
+	.pcard {
+		height: 2rem;
+	}
 }
