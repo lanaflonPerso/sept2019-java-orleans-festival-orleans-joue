@@ -22,7 +22,7 @@
 					<h2 class="col-sm-12 p-0 title">Informations générales:</h2>
 				</div>
                     <form method="post" action="/submitRegistration">
-		                        <input type="hidden" name="eventId" th:value="${registration.id}">
+		                        <input type="hidden" name="eventId" th:value="${registration.event?.id}">
 		                        <input type="hidden" id="pricePerTable" name="pricePerTable" th:value="${registration.event?.pricePerTable}" disabled>
 		                        <input type="hidden" id="saleOptionPrice" name="saleOptionPrice" th:value="${registration.event?.saleOptionPrice}" disabled>
 		                        <input type="hidden" id="userId" name="userId" th:value="${connectedUser.id}">
