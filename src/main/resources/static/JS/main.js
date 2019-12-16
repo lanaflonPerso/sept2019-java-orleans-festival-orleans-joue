@@ -53,18 +53,21 @@ jQuery(document).ready(function ($) {
     });
 });
 
-window.onload = function (e) {    
-    e.preventDefault();
-    
-    if (hasSubscribe === "ok") {
-		if (!$("#toastAlertOk").is(":visible") ){ 
+window.onload = function(e) {
+	e.preventDefault();
+
+	if (hasSubscribe === "ok") {
+		if (!$("#toastAlertOk").is(":visible")) {
 			$("#toastAlertOk").fadeIn(400).delay(2000).fadeOut(400);
 		}
-    }
-    else if (hasSubscribe === "ko") {
-		if (!$("#toastAlertKo").is(":visible") ){ 
+	} else if (hasSubscribe === "ko") {
+		if (!$("#toastAlertKo").is(":visible")) {
 			$("#toastAlertKo").fadeIn(400).delay(2000).fadeOut(400);
 		}
-    };
+	} else if (hasSubscribe === "delete") {
+		if (!$("#toastAlertDelete").is(":visible")) {
+			$("#toastAlertDelete").fadeIn(400).delay(2000).fadeOut(400);
+		}
+	}
 };
 
