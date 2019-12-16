@@ -83,7 +83,7 @@ public class ModelService {
 							eventCardModels.add(new EventCardModel(events.get(i), true, false));	
 						}
 					}
-				}				
+				}
 			} else {
 				for (int i = 0; i < events.size(); i++) {
 					eventCardModels.add(new EventCardModel(events.get(i), true, false));

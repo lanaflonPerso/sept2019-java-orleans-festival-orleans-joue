@@ -79,16 +79,34 @@ hr {
     background: lightgrey;
 }
 
-.card-body {
+.gameCardTop {
+	background-color: var(--grey);
+}
+
+.card-img-top {
+	height: 10rem;
+	padding: 5px;
+	border-radius: 8px;
+}
+
+.gameCardBody {
     display: flex;
     flex-direction: column;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.regGamesMsg {
+	margin-top: 1.5rem!important;
 }
 
 .btn {
 	margin-top: 1rem;
+	font-size: 1.2rem;
     background: var(--purple);
     border: none;
-    margin-left: auto;
+    margin-left: 82%!important; 
 }
 
 .btn:hover {
@@ -305,7 +323,7 @@ input:checked ~ .switch_on {
 @media (max-width: 768px) {  
 	
 	* {
-  	font-size:0.8rem;
+  		font-size:0.8rem;
 	} 
 	
 	h1 {
