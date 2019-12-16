@@ -13,6 +13,25 @@ function readURL(input) {
     }
 }
 
+function readURLCreate(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+        	$('#picturePreviewCreate').removeClass("d-none")
+        	$('#picturePreviewCreate').addClass("d-block");
+        	$('#picturePreviewCreate').addClass("previewImg");
+            $('#picturePreviewCreate').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
 $("#picture").change(function(){
     readURL(this);
+});
+
+$("#pictureCreate").change(function(){
+    readURLCreate(this);
 });
