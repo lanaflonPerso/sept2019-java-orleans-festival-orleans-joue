@@ -75,3 +75,4 @@ INSERT INTO event_tasks VALUES(1,2);
 INSERT INTO event_tasks VALUES(1,3);
 INSERT INTO event_tasks VALUES(2,1);
 INSERT INTO event_tasks VALUES(2,1);
+INSERT INTO `registration` (`agent_provided`, `comments`, `electrical_supply_need`, `registration_cost`, `sale_option`, `state`, `subscription_date`, `tables_quantity`, `volunteers_need`, `event_id`, `society_id`) VALUES (b'1', 'Besoin de 2 t-shirt supplémentaires.', b'1', '360', b'1', 'pending', '2019-12-16 15:09:22', '5', b'1', '1', '1');
