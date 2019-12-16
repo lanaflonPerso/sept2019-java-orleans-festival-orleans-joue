@@ -9,13 +9,16 @@
       </div>
       <form method="POST" action="/addRegistrationGame" enctype="multipart/form-data">
         <div class="modal-body">
-          <div th:if="${gamesSocietyOnly.size() !=0}" class="form-group">
+          <div th:if="${gamesSocietyOnly.size() !=0}" class="form-group mt-1 mb-1">
             <label for="name">Choisissez un jeu de votre bibliotheque:</label>
-			<select th:field="*{gamesSocietyOnly}" class="custom-select">
-			    <option value="Selectionner un jeu" selected disabled hidden>Selectionner un jeu</option>
-			    <option th:each="game : ${gamesSocietyOnly}" th:value="${game.name}" th:text="${game.name}"/>
-			</select>
-			<p class="align-self-center text-center mt-2">ou</p>
+			<div class="d-flex row align-item-center justify-content-around">
+				<select th:field="*{gamesSocietyOnly}" class="custom-select col-6">
+				    <option value="Selectionner un jeu" selected disabled hidden>Selectionner un jeu</option>
+				    <option th:each="game : ${gamesSocietyOnly}" th:value="${game.name}" th:text="${game.name}"/>
+				</select>
+				<button type="submit" class="btn btn-primary col-4">Ajouter</button>
+				<p class="align-self-center text-center col-12 mt-3 mb-0">ou</p>
+			</div>
          </div>
           <div class="form-group">
             <label for="name">Nom du jeux</label>
@@ -53,7 +56,7 @@
         <input type="hidden" name="registrationId" th:value="${registration.id}">
         <input type="hidden" name="societyId" th:value="${society.id}">
         <div class="modal-footer border-top-0 d-flex justify-content-center">
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" class="btn btn-success ml-auto">Submit</button>
         </div>
       </form>
     </div>

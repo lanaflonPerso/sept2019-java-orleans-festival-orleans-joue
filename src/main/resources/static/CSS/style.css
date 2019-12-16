@@ -102,11 +102,9 @@ hr {
 }
 
 .btn {
-	margin-top: 1rem;
 	font-size: 1.2rem;
     background: var(--purple);
     border: none;
-    margin-left: 82%!important; 
 }
 
 .btn:hover {
