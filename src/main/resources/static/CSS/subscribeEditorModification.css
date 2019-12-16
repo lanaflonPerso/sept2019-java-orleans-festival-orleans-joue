@@ -28,26 +28,26 @@
 	border-color: #5c3566;
 }
 
-.card-custom svg{
+.card-img-custom{
 	fill:orange;
 }
 
 .deleteUpdateSVG{
-	width:20%;
+	width:40%;
 	cursor:pointer;
 }
 
-.deleteUpdateSVG:first-child{
+.deleteSVG{
 
 	fill:gray;
 }
 
-.deleteUpdateSVG:last-child{
+.deleteUpdateSVG{
 
 	fill:gray;
 }
 
-.deleteUpdateSVG:first-child:hover{
+.deleteSVG:first-child:hover{
 
 	fill:red;
 }
@@ -64,4 +64,10 @@
 	fill:orange;
 	width:5%;
 	cursor:pointer;
+}
+
+.deleteButton{
+	background: none;
+    border: none;
+    padding: 0;
 }
