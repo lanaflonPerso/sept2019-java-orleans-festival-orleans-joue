@@ -25,8 +25,8 @@ public class Registration {
 	@ManyToOne
 	@JoinColumn(name = "event_id")
 	private Event event;
-	@ManyToMany(mappedBy = "registrations")
-	//@JoinTable(name = "game_registration", joinColumns = @JoinColumn(name = "registration_id"), inverseJoinColumns = @JoinColumn(name = "game_id"))
+	@ManyToMany //(mappedBy = "registrations")
+	@JoinTable(name = "game_registration", joinColumns = @JoinColumn(name = "registration_id"), inverseJoinColumns = @JoinColumn(name = "game_id"))
 	private List<Game> games = new ArrayList<>();
 	@ManyToMany
 	@JoinTable(name = "agent_registration", joinColumns = @JoinColumn(name = "registration_id"), inverseJoinColumns = @JoinColumn(name = "agent_id"))

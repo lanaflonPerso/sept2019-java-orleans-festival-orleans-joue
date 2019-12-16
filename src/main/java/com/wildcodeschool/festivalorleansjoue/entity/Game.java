@@ -3,6 +3,7 @@ package com.wildcodeschool.festivalorleansjoue.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,9 +25,9 @@ public class Game {
 	String publicationDate;
 	String picture;
 	String webLink;
-	//@ManyToMany(cascade = CascadeType.ALL, mappedBy = "games")
-	@ManyToMany
-	@JoinTable(name = "game_registration", joinColumns = @JoinColumn(name = "game_id"), inverseJoinColumns = @JoinColumn(name = "registration_id"))
+	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "games")
+	//@ManyToMany
+	//@JoinTable(name = "game_registration", joinColumns = @JoinColumn(name = "game_id"), inverseJoinColumns = @JoinColumn(name = "registration_id"))
 	private List<Registration> registrations = new ArrayList<>();
 	@ManyToOne
 	@JoinColumn(name = "society_id")

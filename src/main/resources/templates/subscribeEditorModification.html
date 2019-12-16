@@ -134,17 +134,17 @@
 				</div>
 				<div class="fluid-container">
 			    	<div class="row justify-content-center">
-						<div class="card col-4 col-lg-2 ml-2 mr-2 mb-3 card-custom" th:each="gamesRegistration : ${gamesRegistration}">
+						<div class="card col-4 col-lg-2 ml-2 mr-2 mb-3 card-custom" th:each="gameRegistration : ${gamesRegistration}">
 							<div class="img-container">
-								<img class="card-img-top card-img-custom" th:if="${gamesRegistration.picture !=''}" th:src="|..${gamesRegistration.picture}|" alt="Card image cap">
-								<img class="card-img-top card-img-custom" th:unless="${gamesRegistration.picture !=''}" th:src="@{${connectedUser.getProfilePicture()}}" alt="Card image cap">
+								<img class="card-img-top card-img-custom" th:if="${gameRegistration.picture !=''}" th:src="|..${gameRegistration.picture}|" alt="Card image cap">
+								<img class="card-img-top card-img-custom" th:unless="${gameRegistration.picture !=''}" th:src="@{${connectedUser.getProfilePicture()}}" alt="Card image cap">
 							</div>
 							<div class="card-body card-body-custom">
-						    	<p class="card-text card-text-custom" th:text="${gamesRegistration.name}">Shadow of the darkness</p>
+						    	<p class="card-text card-text-custom" th:text="${gameRegistration.name}">Shadow of the darkness</p>
 								<div class="d-flex svgContainer justify-content-around align-items-center p-2">
 									<form method="POST" action="/deleteRegistrationGame" class="deleteUpdateSVG">
 										<input type="hidden" name="registrationId" th:value="${registration.id}">
-										<input type="hidden" name="gamesRegistrationId" th:value="${gamesRegistration}">
+										<input type="hidden" name="gameRegistrationId" th:value="${gameRegistration.id}">
 										<button  type="submit" class="col-12 deleteButton">
 											<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times-circle" class="svg-inline--fa fa-times-circle fa-w-16 deleteSVG" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path></svg>
 										</button>

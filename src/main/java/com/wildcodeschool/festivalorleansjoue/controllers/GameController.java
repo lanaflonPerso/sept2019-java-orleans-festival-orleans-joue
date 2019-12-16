@@ -80,8 +80,9 @@ import com.wildcodeschool.festivalorleansjoue.services.RegistrationService;
 		
 		
 		@PostMapping("/deleteRegistrationGame")
-	    public ModelAndView deleteGame(@ModelAttribute Game game, Long registrationId) {
-			
+	    public ModelAndView deleteGame(@RequestParam Long gameRegistrationId, Long registrationId) {
+			System.out.println("controller de delete");
+			Game game = gameRepository.getOne(gameRegistrationId);
 			registrationService.deleteRegistrationGame(game, registrationId);
 			ModelMap model = new ModelMap();
 			model.addAttribute("registrationId", registrationId);
