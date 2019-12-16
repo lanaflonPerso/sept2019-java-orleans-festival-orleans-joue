@@ -12,10 +12,10 @@
 	<header th:fragment="top">
 	  <!-- Fixed navbar -->
 	  <nav class="mb-1 navbar fixed-top navbar-expand-lg navbar-dark default-color">
-	    <a class="nav-link p-0" href="/accueil_editeur" th:if="${navbarLinks.currentPage} == 'home'">
+	    <a class="nav-link p-0" href="/accueil_editeur" th:unless="${navbarLinks.currentPage} == 'subscribeEditor'">
 	      <img src="../pictures/logo_transparent2.png" class="rounded-circle z-depth-0" alt="Logo OrlÃ©ans Joue" height="70">
 	    </a>
-	    <p class="navBarTitle nav-link" th:unless="${navbarLinks.currentPage} == 'home'">Inscription à un évènement</p>
+	    <p class="navBarTitle nav-link" th:if="${navbarLinks.currentPage} == 'subscribeEditor'">Inscription à un évènement</p>
 	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
 	      aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>

@@ -89,7 +89,7 @@
 								<fieldset class="border p-3 text-left">
 									<legend class="w-auto">Vos jeux inscrits</legend>
 									<div class="row align-items-center">										
-										 <div class="card col-3" th:each="game : ${games}"> 
+										 <div class="card col-3" th:each="game : ${games}" th:if="${registration.society} == ${game.society}"> 
 											<img th:src="${game.picture}"  class="card-img-top" alt="image du jeu">
 											<div class="card-body">
 												<p class="card-text" th:text="|Nom : game.name|"></p> 
