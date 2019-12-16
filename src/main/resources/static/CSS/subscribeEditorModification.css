@@ -71,3 +71,13 @@
     border: none;
     padding: 0;
 }
+
+.btn {
+	margin-top: 0;
+	font-size: 1.2rem;
+    margin-left: 0!important; 
+}
+
+.btn-update {
+    align-self: center;
+}

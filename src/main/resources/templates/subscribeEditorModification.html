@@ -19,26 +19,26 @@
 <body>
     <header th:replace="navBar.html :: top"></header>
     <main>
-        <section>
+        <section class="container-fluid">
             <div class="container containerTitleStyle">
-                <h2 class="col-sm-12 p-0 title">Informations générales:</h2>
+                <h2 class="col-sm-12 p-0 mb-4 title">Mes informations générales</h2>
             </div>
-            <form method="post" action="/submitRegistration">
+
+            <form method="post" action="/submitRegistration" class="border m-3 p-3 p-4 col-sm-10 col-lg-7 mx-auto">
+
                 <input type="hidden" name="eventId" th:value="${registration.event?.id}">
                 <input type="hidden" id="pricePerTable" name="pricePerTable" th:value="${registration.event?.pricePerTable}" disabled>
                 <input type="hidden" id="saleOptionPrice" name="saleOptionPrice" th:value="${registration.event?.saleOptionPrice}" disabled>
                 <input type="hidden" id="userId" name="userId" th:value="${connectedUser.id}">
-                <fieldset id="state_1" class="registrationState">
-                    <div class="col-sm-10">
-                        <label for="tablesQuantity" th:text="|Nombre de tables souhaitées (${registration.event?.maxTablesPerEditor} max.) :|">Nombre de tables souhaitées :</label>
-                    </div>
-                    <div class="col-lg-1 p-lg-0 m-auto">
-                        <input type="number" id="tablesQuantity" name="tablesQuantity" th:value="${registration.tablesQuantity}">
-                    </div>
-                    <div class="col-sm-10">
-                        <label for="electricalSupplyNeed">Besoin d'un raccord au réseau éléctrique :</label>
-                    </div>
-                    <div class="m-auto">
+
+                <div class="form-group">
+                    <label for="tablesQuantity" th:text="|Nombre de tables souhaitées (${registration.event?.maxTablesPerEditor} max.) :|">Nombre de tables souhaitées :</label>
+                    <input type="number" id="tablesQuantity" class="form-control w-25" name="tablesQuantity" th:value="${registration.tablesQuantity}">
+                </div>
+
+                <div class="form-group">
+                    <label for="electricalSupplyNeed">Besoin d'un raccord au réseau éléctrique :</label>
+                    <div>
                         <label class="switch">
                             <input type="checkbox" id="electricalSupplyNeed" name="electricalSupplyNeed" th:checked="${registration.electricalSupplyNeed}">
                             <span class="slider round"></span>
@@ -46,10 +46,10 @@
                             <div class="switch_off">NON</div>
                         </label>
                     </div>
-                    <h3>Option vente</h3>
-                    <div class="col-sm-10">
-                        <label for="saleOption">Souhaitez-vous vendre des produits lors de l'évènement ?</label>
-                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="saleOption">Souhaitez-vous vendre des produits lors de l'évènement ?</label>
                     <div class="m-auto">
                         <label class="switch">
                             <input type="checkbox" id="saleOption" class="saleOption" name="saleOption" th:checked="${registration.saleOption}">
@@ -58,44 +58,52 @@
                             <div class="switch_off">NON</div>
                         </label>
                     </div>
-                    <h3>Animateurs</h3>
-                    <div class="row align-items-center">
-                        <div class="col-sm-10">
-                            <label for="agent">Des représentants de votre entreprise seront-ils présents ?</label>
-                        </div>
-                        <div class="m-auto">
-                            <label class="switch">
-                                <input type="checkbox" id="agent" name="agentProvided" th:checked="${registration.agentProvided}">
-                                <span class="slider round"></span>
-                                <div class="switch_on">OUI</div>
-                                <div class="switch_off">NON</div>
-                            </label>
-                        </div>
-                    </div>
-                    <h3>Bénévoles</h3>
-                    <div class="volunteer col-sm-10">
-                        <div class="m-auto">
-                            <label class="switch">
-                                <input type="checkbox" id="volunteer" name="volunteersNeed" th:checked="${registration.volunteersNeed}">
-                                <span class="slider round"></span>
-                                <div class="switch_on">OUI</div>
-                                <div class="switch_off">NON</div>
-                            </label>
-                        </div>
-                    </div>
-                    <h3 class="fs-title">Informations complémentaires</h2>
-                        <div>
-                            <label for="comments" class="w-100 text-left pt-3">Ajouter un commentaire</label>
-                            <textarea id="comments" class="comments" name="comments" th:text="${registration.comments}"></textarea>
-                        </div>
-                        <div>
-                            <label id="finalCost" for="cost" class="registration_cost w-100 text-center mt-4">Coût de l'inscription : 65 euros</label>
-                        </div>
-                        <button type="submit" name="registration" class="next action-button">Valider</button>
-            </form>
+                </div>
 
+                <div class="form-group">
+                    <div>
+                        <label for="agent">Des représentants de votre entreprise seront-ils présents ?</label>
+                    </div>
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="agent" name="agentProvided" th:checked="${registration.agentProvided}">
+                            <span class="slider round"></span>
+                            <div class="switch_on">OUI</div>
+                            <div class="switch_off">NON</div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="volunteer">
+                        <label for="volunteer">Aurez-vous besoin de bénévoles ?</label>
+                    </div>
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="volunteer" name="volunteersNeed" th:checked="${registration.volunteersNeed}" />
+                            <span class="slider round"></span>
+                            <div class="switch_on">OUI</div>
+                            <div class="switch_off">NON</div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Ajouter un commentaire</label>
+                    <textarea id="comments" class="form-control comments" name="comments" th:text="${registration.comments}"></textarea>
+                </div>
+
+                <div>
+                    <div id="finalCost" class="registration_cost text-center mt-4">Coût de l'inscription : <span class="registrationCost">0</span> €</div>
+                </div>
+                <div class="form-group mt-4 mb-2 d-flex justify-content-center">
+
+                    <button type="submit" name="registration" class="btn btn-primary btn-update">Valider les modifications</button>
+                </div>
+
+            </form>
         </section>
-        <hr />
+        <hr class="my-5" />
         <section id="agents">
             <div class="container containerTitleStyle">
                 <h2 class="col-sm-12 p-0 title">Mes collaborateurs présents à l'évenement:</h2>
@@ -194,6 +202,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="JS/main.js"></script>
+    <script src="JS/updateEditorRegistration.js"></script>
     <script src="JS/picturePreview.js"></script>
 </body>
 
