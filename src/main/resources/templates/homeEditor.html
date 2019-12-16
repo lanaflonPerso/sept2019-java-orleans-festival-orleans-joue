@@ -128,7 +128,11 @@
 								<form class="d-flex justify-content-end"  method="post" action="/subscribeEditorModification">
 									<button type="submit" class="col-10 col-md-6 col-lg-3 btn btn-primary subscribeModifBtn" name="submitBtn">Modifier ma demande</button>
 									<input type="hidden" id="regitration" th:name="registrationId" th:value="${registration.id}">
-								</form>							
+								</form>
+								<form class="d-flex justify-content-end"  method="post" action="#">
+									<button type="submit" class="col-10 col-md-6 col-lg-3 btn btn-primary subscribeModifBtn" >Supprimer ma demande</button>
+									<input type="hidden" id="regitration" th:name="registrationId" th:value="${registration.id}">
+								</form>						
 							</div>
 						</div>
 					</div>
