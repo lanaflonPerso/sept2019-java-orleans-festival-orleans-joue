@@ -11,9 +11,9 @@
         <div class="modal-body">
           <div th:if="${society.game.size() !=0}" class="form-group">
             <label for="name">Choisissez un jeu de votre bibliotheque:</label>
-			<select th:field="*{society.game}" class="custom-select">
-			    <option value="" selected disabled hidden>Selectionner un jeu</option>
-			    <option th:each="game : ${society.game}" th:value="${game.name}"th:text="${game.name}"/>
+			<select th:field="*{society}" class="custom-select">
+			    <option value="Selectionner un jeu" selected disabled hidden>Selectionner un jeu</option>
+			    <option th:each="game : ${society.game}" th:value="${game.name}" th:text="${game.name}"/>
 			</select>
 			<p class="align-self-center text-center mt-2">ou</p>
          </div>
