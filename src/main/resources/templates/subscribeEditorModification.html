@@ -136,7 +136,8 @@
 			    	<div class="row justify-content-center">
 						<div class="card col-4 col-lg-2 ml-2 mr-2 mb-3 card-custom" th:each="gamesRegistration : ${gamesRegistration}">
 							<div class="img-container">
-								<img class="card-img-top card-img-custom" th:src="|..${gamesRegistration.picture}|" alt="Card image cap">
+								<img class="card-img-top card-img-custom" th:if="${gamesRegistration.picture !=''}" th:src="|..${gamesRegistration.picture}|" alt="Card image cap">
+								<img class="card-img-top card-img-custom" th:unless="${gamesRegistration.picture !=''}" th:src="@{${connectedUser.getProfilePicture()}}" alt="Card image cap">
 							</div>
 							<div class="card-body card-body-custom">
 						    	<p class="card-text card-text-custom" th:text="${gamesRegistration.name}">Shadow of the darkness</p>

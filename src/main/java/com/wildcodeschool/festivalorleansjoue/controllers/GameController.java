@@ -69,7 +69,8 @@ import com.wildcodeschool.festivalorleansjoue.services.RegistrationService;
 		@PostMapping("/addRegistrationGame")
 	    public ModelAndView postRegistrationGame(@ModelAttribute Game game, @RequestParam(name = "file_picture") MultipartFile filePicture, Long registrationId) {
 			
-			game.setPicture("/pictures/uploads/games_pictures/" + fileService.uploadFile(filePicture));
+			if (!filePicture.isEmpty())
+				game.setPicture("/pictures/uploads/games_pictures/" + fileService.uploadFile(filePicture));
 			gameService.addGame(game);
 			registrationService.addRegistrationGame(game, registrationId);
 			ModelMap model = new ModelMap();
