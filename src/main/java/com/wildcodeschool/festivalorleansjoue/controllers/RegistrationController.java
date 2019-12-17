@@ -29,4 +29,5 @@ public class RegistrationController {
 		model.addAttribute("hasSubscribe", "delete");
 		return new ModelAndView("redirect:/accueil_editeur", model);
 	}
+	
 }
