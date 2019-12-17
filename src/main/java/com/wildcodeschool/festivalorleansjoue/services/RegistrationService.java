@@ -61,9 +61,7 @@ public class RegistrationService {
 		registrationRepository.deleteById(registrationId);	
 	}	
 	
-<<<<<<< HEAD
 
-=======
 	
 	public void addRegistrationAgent(Agent agent, Long registrationId) {
 		
@@ -87,5 +85,4 @@ public class RegistrationService {
 		registrationRepository.save(registration);
 		registration = registrationRepository.findById(registrationId).get();
 	}
->>>>>>> crud agent
 }
