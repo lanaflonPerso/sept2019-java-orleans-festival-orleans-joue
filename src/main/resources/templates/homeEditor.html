@@ -22,9 +22,11 @@
 	    <main>	
 	        <h1 class="helloUser" th:text="|Bonjour ${connectedUser.firstname} ${connectedUser.lastname}|"></h1>
 	        <section class="fluid-container" id="evenement">
- 	        <div class="row">
-		  		<hr class="col-11 col-sm-12"/>
-	        </div>	
+		        <div class="container">
+		 	        <div class="row">
+				  		<hr class="col-11 col-sm-12 hrBottom"/>
+			        </div>
+		        </div>	
 	            <div class="pcard"></div>
 	            <div class="container containerTitleStyle">
 	                <h2 class="col-12 mb-4 title">&Eacute;vènements:</h2>
@@ -48,9 +50,11 @@
 						</div>
 					</div>
 				</div>
- 				<div class="row">
-	        		<hr class="col-11 col-sm-12 hrBottom"/>
-	        	</div>  
+ 				<div class="container">
+		 	        <div class="row">
+				  		<hr class="col-11 col-sm-12 hrBottom"/>
+			        </div>
+		        </div>  
 			</section>			
 			<section class="fluid-container" id="inscription">
 				<div class="pcard"></div>
@@ -130,19 +134,21 @@
 								</fieldset>
 								<form class="d-flex justify-content-end mt-3"  method="post" action="/subscribeEditorModification">
 									<button type="submit" class="col-10 col-md-6 col-lg-3 btn btn-primary subscribeModifBtn" name="submitBtn">Modifier ma demande</button>
-									<input type="hidden" id="regitration" th:name="registrationId" th:value="${registration.id}">
+									<input type="hidden" id="regitration" name="registrationId" th:value="${registration.id}">
 								</form>
 								<form class="d-flex justify-content-end mt-3"  method="post" action="/deleteEditorRegistration">
 									<button type="submit" class="col-10 col-md-6 col-lg-3 btn btn-primary subscribeModifBtn" onclick="return confirm('Etes-vous sûr de vouloir annuler votre inscription ?');" >Annuler ma demande</button>
-									<input type="hidden" id="regitration" th:name="registrationId" th:value="${registration.id}">
+									<input type="hidden" id="registration" name="registrationId" th:value="${registration.id}">
 								</form>						
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
- 			<div class="row">
-	        	<hr class="col-11 col-sm-12 hrBottom"/>
+ 			<div class="container">
+	 	        <div class="row">
+			  		<hr class="col-11 col-sm-12 hrBottom"/>
+		        </div>
 	        </div>  
 			<section id="information" class="fluid-container">
 				<div class="pcard" ></div>

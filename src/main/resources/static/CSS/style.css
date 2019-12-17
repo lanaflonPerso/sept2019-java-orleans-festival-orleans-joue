@@ -319,6 +319,10 @@ input:checked ~ .switch_on {
 	border: 1px solid var(--grey)!important;
 }
 
+.mainPanel {
+	width: 100%;
+}
+
 
 @media (max-width: 768px) {  
 	
