@@ -66,12 +66,12 @@ window.onload = function(e) {
 		}
 	} else if (hasSubscribe === "delete") {
 		if (!$(".toastKo").is(":visible")) {
-			$(".toastKo").text('Votre demande d\'inscription a bien été annulée.');
+			$(".toastKo p").text('Votre demande d\'inscription a bien été annulée.');
 			$(".toastKo").fadeIn(400).delay(2000).fadeOut(400);
 		}
 	} else if (hasSubscribe === "update") {
 		if (!$(".toastOk").is(":visible")) {
-			$(".toastOk").text('Votre mise à jour a bien été prise en compte.');
+			$(".toastOk p").text('Votre mise à jour a bien été prise en compte.');
 			$(".toastOk").fadeIn(400).delay(2000).fadeOut(400);
 		}
 	}
