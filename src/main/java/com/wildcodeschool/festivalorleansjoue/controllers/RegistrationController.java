@@ -9,12 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.wildcodeschool.festivalorleansjoue.entity.Event;
 import com.wildcodeschool.festivalorleansjoue.entity.Registration;
 import com.wildcodeschool.festivalorleansjoue.repository.RegistrationRepository;
 import com.wildcodeschool.festivalorleansjoue.services.ModelService;
 import com.wildcodeschool.festivalorleansjoue.services.RegistrationService;
-import com.wildcodeschool.festivalorleansjoue.utils.MathUtils;
 
 
 @RestController
@@ -67,38 +65,12 @@ public class RegistrationController {
 	@PostMapping("/updateEditorRegistration")
 	public ModelAndView updateEditorRegistration(@ModelAttribute Registration registration) {
 
-		Registration originalReg = registrationRepository.getOne(registration.getId());
-		 
-		//Tables quantity
-		Event event = originalReg.getEvent();
-		if (registration.getTablesQuantity() > event.getMaxTablesPerEditor()) {
-			registration.setTablesQuantity(event.getMaxTablesPerEditor());
-		} else if (registration.getTablesQuantity() < 0) {
-			registration.setTablesQuantity(0);
-		}
-		
-		//Registration cost
-		int tablesQuantity = registration.getTablesQuantity();
-		float tablePrice = event.getPricePerTable();		
-		float saleOptionPrice = (registration.isSaleOption()) ? event.getSaleOptionPrice() : 0.00f;
-		float registrationCost = MathUtils.registrationCost(tablesQuantity, tablePrice, saleOptionPrice);		
-		registration.setRegistrationCost(registrationCost);
-		
-		//Update changes
-		originalReg.setTablesQuantity(registration.getTablesQuantity());
-		originalReg.setElectricalSupplyNeed(registration.isElectricalSupplyNeed());
-		originalReg.setSaleOption(registration.isSaleOption());
-		originalReg.setAgentProvided(registration.isAgentProvided());
-		originalReg.setVolunteersNeed(registration.isVolunteersNeed());
-		originalReg.setComments(registration.getComments());
-		originalReg.setRegistrationCost(registration.getRegistrationCost());	
-		registrationRepository.save(originalReg);
+		registrationService.updateEditorRegistrationService(registration);
 		
 		//Set toast message
 		ModelMap model = new ModelMap();
 		model.addAttribute("hasSubscribe", "ok");
-		
-//		return modelService.getModel();
+
 		return new ModelAndView("redirect:/accueil_editeur", model);
 	}
 }

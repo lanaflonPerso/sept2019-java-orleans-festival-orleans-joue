@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wildcodeschool.festivalorleansjoue.entity.Agent;
+import com.wildcodeschool.festivalorleansjoue.entity.Event;
 import com.wildcodeschool.festivalorleansjoue.entity.Game;
 import com.wildcodeschool.festivalorleansjoue.entity.Registration;
 import com.wildcodeschool.festivalorleansjoue.repository.GameRepository;
 import com.wildcodeschool.festivalorleansjoue.repository.RegistrationRepository;
+import com.wildcodeschool.festivalorleansjoue.utils.MathUtils;
 
 @Service
 public class RegistrationService {
@@ -88,5 +90,35 @@ public class RegistrationService {
 		System.out.println("registration agents size:" +registration.getAgents().size());
 		registrationRepository.save(registration);
 		registration = registrationRepository.findById(registrationId).get();
+	}
+	
+	
+	public void updateEditorRegistrationService(Registration registration) {
+		Registration originalReg = registrationRepository.getOne(registration.getId());
+		 
+		//Tables quantity
+		Event event = originalReg.getEvent();
+		if (registration.getTablesQuantity() > event.getMaxTablesPerEditor()) {
+			registration.setTablesQuantity(event.getMaxTablesPerEditor());
+		} else if (registration.getTablesQuantity() < 0) {
+			registration.setTablesQuantity(0);
+		}
+		
+		//Registration cost
+		int tablesQuantity = registration.getTablesQuantity();
+		float tablePrice = event.getPricePerTable();		
+		float saleOptionPrice = (registration.isSaleOption()) ? event.getSaleOptionPrice() : 0.00f;
+		float registrationCost = MathUtils.registrationCost(tablesQuantity, tablePrice, saleOptionPrice);		
+		registration.setRegistrationCost(registrationCost);
+		
+		//Update changes
+		originalReg.setTablesQuantity(registration.getTablesQuantity());
+		originalReg.setElectricalSupplyNeed(registration.isElectricalSupplyNeed());
+		originalReg.setSaleOption(registration.isSaleOption());
+		originalReg.setAgentProvided(registration.isAgentProvided());
+		originalReg.setVolunteersNeed(registration.isVolunteersNeed());
+		originalReg.setComments(registration.getComments());
+		originalReg.setRegistrationCost(registration.getRegistrationCost());	
+		registrationRepository.save(originalReg);
 	}
 }
