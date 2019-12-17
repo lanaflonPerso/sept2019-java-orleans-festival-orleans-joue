@@ -76,3 +76,45 @@ INSERT INTO event_tasks VALUES(1,3);
 INSERT INTO event_tasks VALUES(2,1);
 INSERT INTO event_tasks VALUES(2,1);
 INSERT INTO `registration` (`agent_provided`, `comments`, `electrical_supply_need`, `registration_cost`, `sale_option`, `state`, `subscription_date`, `tables_quantity`, `volunteers_need`, `event_id`, `society_id`) VALUES (b'1', 'Besoin de 2 t-shirt supplémentaires.', b'1', '360', b'1', 'pending', '2019-12-16 15:09:22', '5', b'1', '1', '1');
+INSERT INTO `game` (`name`, 
+					`author`, 
+					`description`, 
+					`publication_date`, 
+					`picture`, 
+					`web_link`,
+					`society_id`
+					) 
+VALUES ('Sid Meier’s Civilization : Une Aube Nouvelle', 
+		'James Kniffen', 
+		'Sid Meier’s Civilization : Une Aube Nouvelle transpose l’un des plus grands succès du jeu vidéo jamais édité en jeu de stratégie sur plateau.',
+		'2018-1-1',
+		'/pictures/uploads/games_pictures/sid-meiers-civilization-une-aube-nouvelle.jpg',
+'https://www.philibertnet.com/fr/fantasy-flight-games/68280-sid-meiers-civilization-une-aube-nouvelle-8435407619661.html?gclid=EAIaIQobChMInu7Tn7285gIVwbHtCh0QRAz2EAQYAyABEgINV_D_BwE',
+1);
+INSERT INTO game_registration VALUES(1,1);
+INSERT INTO `game` (`name`, 
+					`description`, 
+					`publication_date`, 
+					`picture`, 
+					`web_link`,
+					`society_id`
+					) 
+VALUES ('CITADELLES',  
+		'La nouvelle édition luxueuse du célèbre jeu de ruse et d''''intrigues...Citadelles est un jeu de cartes incontournable, devenu l''''un des plus grands succès de ces dernières années.',
+		'2018-1-1',
+		'/pictures/uploads/games_pictures/citadelles--4eme-ed--p-image-68422-grande.jpg',
+'https://www.espritjeu.com/jeux-de-societe/citadelles-4e-edition.html?gclid=EAIaIQobChMInu7Tn7285gIVwbHtCh0QRAz2EAQYASABEgJBT_D_BwE',
+1);
+INSERT INTO game_registration VALUES(1,2);
+INSERT INTO `game` (`name`, 
+					`description`, 
+					`publication_date`, 
+					`web_link`,
+					`society_id`
+					) 
+VALUES ('JUST ONE', 
+		'Jouez tous ensemble pour découvrir les mots Mystère ! Just One est un jeu d''''ambiance et de déduction pour 3 à 7 joueurs.',
+		'2018-1-1',
+'https://www.espritjeu.com/just-one.html?gclid=EAIaIQobChMInu7Tn7285gIVwbHtCh0QRAz2EAQYBCABEgLW8fD_BwE',
+1);
+INSERT INTO game_registration VALUES(1,3);
