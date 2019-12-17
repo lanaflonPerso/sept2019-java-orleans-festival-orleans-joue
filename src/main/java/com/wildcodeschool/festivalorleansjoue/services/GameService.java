@@ -1,6 +1,7 @@
 package com.wildcodeschool.festivalorleansjoue.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,7 @@ public class GameService {
 	}
 	
 	public void addGame (Game game) {
-		
+				
 		gameRepository.save(game);
 	}
 	
@@ -42,5 +43,13 @@ public class GameService {
 	public void deleteGame (Game game) {
 		
 		gameRepository.delete(game);
+	}
+
+	
+	public void modifyGame (Game game) {
+		
+		Optional<Game> originalGame = gameRepository.findById(game.getId());
+		game.setSociety(originalGame.get().getSociety());
+		gameRepository.save(game);
 	}
 }

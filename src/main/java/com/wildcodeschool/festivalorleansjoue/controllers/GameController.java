@@ -41,24 +41,7 @@ import com.wildcodeschool.festivalorleansjoue.services.UserService;
 	    	return "game";
 	    }
 		
-		
-//		@PostMapping("/game")
-//	    public String getAllByEditor(Model model) {
-//
-//			
-//	    	model.addAttribute("game", gameRepository.findById(id));
-//	    	return "game";
-//	    }
-//		
-//		
-//		@PostMapping("/game")
-//	    public String getAllByRegistrationId(Model model) {
-//
-//			
-//	    	model.addAttribute("game", gameRepository.findById(id));
-//	    	return "game";
-//	    }
-//		
+
 		@PostMapping("/addGame")
 	    public ModelAndView postGame(@ModelAttribute Game game) {
 			
@@ -95,5 +78,16 @@ import com.wildcodeschool.festivalorleansjoue.services.UserService;
 			model.addAttribute("registrationId", registrationId);
 			return new ModelAndView("redirect:/subscribeEditorModification", model);
 	    }
+		
+		@PostMapping("/modifyGame")
+	    public ModelAndView modifyGame(@ModelAttribute Game game, Long registrationId) {
+			System.out.println("coucou");
+			System.out.println(registrationId);
+			System.out.println(game.getId());
+			gameService.modifyGame(game);
+			ModelMap model = new ModelMap();
+			model.addAttribute("registrationId", registrationId);
+			return new ModelAndView("redirect:/subscribeEditorModification", model);
+		}
 
 }

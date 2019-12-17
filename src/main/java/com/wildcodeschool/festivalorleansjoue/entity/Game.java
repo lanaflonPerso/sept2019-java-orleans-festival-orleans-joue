@@ -1,6 +1,7 @@
 package com.wildcodeschool.festivalorleansjoue.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Game {
 
@@ -21,7 +24,8 @@ public class Game {
 	String name;
 	String author;
 	String description;
-	String publicationDate;
+	@DateTimeFormat (pattern="yyyy-MM-dd")
+	Date publicationDate;
 	String picture;
 	String webLink;
 	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "games")
@@ -85,13 +89,13 @@ public class Game {
 	}
 
 
-	public String getPublicationDate() {
+	public Date getPublicationDate() {
 		
 		return this.publicationDate;
 	}
 
 
-	public void setPublicationDate(String publicationDate) {
+	public void setPublicationDate(Date publicationDate) {
 		
 		this.publicationDate = publicationDate;
 	}
