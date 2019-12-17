@@ -94,8 +94,8 @@
 								<fieldset class="border p-1 p-md-3 text-left">
 									<legend class="w-auto">Vos jeux inscrits</legend>
 									<div class="fluid-container">
-										<div class="row align-items-center">										
-											 <div class="card col-12 col-md-6 col-lg-2 gameCardTop p-0 mx-1" th:each="game : ${registration.games}" > <!-- th:if="${registration.society} == ${game.society}" -->
+										<div class="row justify-content-center">										
+											 <div class="card col-5 col-sm-4 col-lg-2 gameCardTop p-0 mx-1" th:each="game : ${registration.games}" >
 												<img th:src="${game.picture}"  class="card-img-top" alt="image du jeu">
 												<div class="card-body gameCardBody p-0 m-0">
 													<p class="card-text" th:text="${game.name}"></p> 
