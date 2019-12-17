@@ -110,7 +110,7 @@ public class ModelService {
 		this.model.addObject("navbarLinks", navbarLinks);
 	}
 
-	public void setSubscribeEditorModificationModel(String route, Long registrationId) {
+	public void setSubscribeEditorModificationModel(String route, Long registrationId, Optional<String> hasSubscribe) {
 
 		this.model = new ModelAndView(route);
 		Optional<Registration> optionalReg = registrationRepository.findById(registrationId);
@@ -130,5 +130,9 @@ public class ModelService {
 		this.model.addObject("society", connectedUser.getSociety());
 		this.model.addObject("games", gameService.ReturnGamesBySociety(connectedUser.getSociety()));
 		this.model.addObject("agents", agentService.findAgentBySociety(connectedUser.getSociety()));
+		
+		if (!hasSubscribe.isEmpty()) {
+			this.model.addObject("hasSubscribe", (hasSubscribe.get()));
+		}
 	}
 }

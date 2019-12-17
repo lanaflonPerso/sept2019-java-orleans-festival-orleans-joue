@@ -57,9 +57,9 @@ window.onload = function(e) {
 	e.preventDefault();
 
 	if (hasSubscribe === "update") {
-		if (!$(".toastOk").is(":visible")) {
+		if (!$("#toastAlertOk").is(":visible")) {
 			$(".toastOk p").text('Votre mise à jour a bien été prise en compte.');
-			$(".toastOk").fadeIn(400).delay(2000).fadeOut(400);
+			$("#toastAlertOk").fadeIn(400).delay(2000).fadeOut(400);
 		}
 	}
 };
