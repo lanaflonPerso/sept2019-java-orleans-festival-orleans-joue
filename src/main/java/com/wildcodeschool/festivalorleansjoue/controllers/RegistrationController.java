@@ -69,7 +69,7 @@ public class RegistrationController {
 		
 		//Set toast message
 		ModelMap model = new ModelMap();
-		model.addAttribute("hasSubscribe", "ok");
+		model.addAttribute("hasSubscribe", "update");
 
 		return new ModelAndView("redirect:/accueil_editeur", model);
 	}

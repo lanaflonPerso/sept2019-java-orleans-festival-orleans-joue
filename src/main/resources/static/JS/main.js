@@ -61,12 +61,18 @@ window.onload = function(e) {
 			$("#toastAlertOk").fadeIn(400).delay(2000).fadeOut(400);
 		}
 	} else if (hasSubscribe === "ko") {
-		if (!$("#toastAlertKo").is(":visible")) {
-			$("#toastAlertKo").fadeIn(400).delay(2000).fadeOut(400);
+		if (!$(".toastKo").is(":visible")) {
+			$(".toastKo").fadeIn(400).delay(2000).fadeOut(400);
 		}
 	} else if (hasSubscribe === "delete") {
-		if (!$("#toastAlertDelete").is(":visible")) {
-			$("#toastAlertDelete").fadeIn(400).delay(2000).fadeOut(400);
+		if (!$(".toastKo").is(":visible")) {
+			$(".toastKo").text('Votre demande d\'inscription a bien été annulée.');
+			$(".toastKo").fadeIn(400).delay(2000).fadeOut(400);
+		}
+	} else if (hasSubscribe === "update") {
+		if (!$(".toastOk").is(":visible")) {
+			$(".toastOk").text('Votre mise à jour a bien été prise en compte.');
+			$(".toastOk").fadeIn(400).delay(2000).fadeOut(400);
 		}
 	}
 };
