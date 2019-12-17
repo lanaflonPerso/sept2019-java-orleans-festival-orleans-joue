@@ -140,7 +140,7 @@
 									<legend class="w-auto">Coût de votre participation</legend>
 									<div class="row align-items-center">
 										<div class="col-sm-12">
-										<p th:text="|Le montant de votre inscription est de : ${registration.registrationCost} euros|"></p>
+										<p th:text="|Le montant de votre inscription est de : ${#numbers.formatInteger(registration.registrationCost,2,'COMMA')} euros|"></p>
 										</div>
 									</div>  
 								</fieldset>

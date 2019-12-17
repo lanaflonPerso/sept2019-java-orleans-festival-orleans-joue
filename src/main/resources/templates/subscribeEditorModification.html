@@ -95,7 +95,7 @@
                     <textarea id="comments" class="form-control comments" name="comments" th:text="${registration.comments}"></textarea>
                 </div>
                 <div>
-                    <div id="finalCost" class="registration_cost text-center mt-4" th:text="|Coût de l'inscription : ${registration.registrationCost} €|">Coût de l'inscription : 0 €</div>
+                    <div id="finalCost" class="registration_cost text-center mt-4" th:text="|Coût de l'inscription : ${#numbers.formatInteger(registration.registrationCost,2,'COMMA')} €|">Coût de l'inscription : 0 €</div>
                 </div>
                 <div class="form-group mt-4 mb-2 d-flex justify-content-center">
 
