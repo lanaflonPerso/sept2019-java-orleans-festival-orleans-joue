@@ -2,7 +2,7 @@ package com.wildcodeschool.festivalorleansjoue.entity;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +23,7 @@ public class Agent {
 	String phone;
 	boolean gardenParty;
 	boolean accommodation;
-	@ManyToMany(mappedBy = "agents")
+	@ManyToMany(cascade = CascadeType.ALL ,mappedBy = "agents")
 	private List<Registration> registrations = new ArrayList<>();
 	@ManyToOne
 	@JoinColumn(name = "society_id")
@@ -122,5 +122,4 @@ public class Agent {
 	public void setSociety(Society society) {
 		this.society = society;
 	}
-
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wildcodeschool.festivalorleansjoue.entity.Agent;
 import com.wildcodeschool.festivalorleansjoue.entity.Game;
 import com.wildcodeschool.festivalorleansjoue.entity.Registration;
 import com.wildcodeschool.festivalorleansjoue.repository.GameRepository;
@@ -55,9 +56,36 @@ public class RegistrationService {
 		registration = registrationRepository.findById(registrationId).get();
 	}
 	
+	
 	public void deleteEditorRegistration(Long registrationId) {
 		registrationRepository.deleteById(registrationId);	
 	}	
 	
+<<<<<<< HEAD
 
+=======
+	
+	public void addRegistrationAgent(Agent agent, Long registrationId) {
+		
+		Registration registration = registrationRepository.findById(registrationId).get();
+		registration.getAgents().add(agent);
+		registrationRepository.save(registration);
+	}
+	
+	
+	public void deleteRegistrationAgent(Agent agent, Long registrationId) {
+		
+		Registration registration = registrationRepository.findById(registrationId).get();
+		System.out.println("registrationId:" + registration.getId());
+		List<Agent> agents = new ArrayList<Agent>();
+		agents = registration.getAgents();
+		System.out.println("size agents before:" + agents.size());
+		agents.remove(agent);
+		System.out.println("size agents after:" + agents.size());
+		registration.setAgents(agents);
+		System.out.println("registration agents size:" +registration.getAgents().size());
+		registrationRepository.save(registration);
+		registration = registrationRepository.findById(registrationId).get();
+	}
+>>>>>>> crud agent
 }

@@ -120,8 +120,9 @@ public class ModelService {
 			Registration registration = optionalReg.get();
 			this.model.addObject("registration", registration);
 			this.model.addObject("gamesRegistration", gameService.findByRegistration(registration));
-			this.model.addObject("agentRegistration", agentService.findAgentByRegistration(registration));
+			this.model.addObject("agentsRegistration", agentService.findAgentByRegistration(registration));
 			this.model.addObject("gamesSocietyOnly", gameService.findByRegistrationNotSociety(connectedUser.getSociety(), registration));
+			this.model.addObject("agentsSocietyOnly", agentService.findByRegistrationNotSociety(connectedUser.getSociety(), registration));
 		}
 		this.model.addObject("navbarLinks", navbarLinks);
 		this.model.addObject("connectedUser", connectedUser);

@@ -26,6 +26,12 @@ public class AgentService {
 		return agentRepository.findByRegistrations(registration);
 	}
 	
+	
+	public List<Agent> findByRegistrationNotSociety (Society society,Registration registration){
+		
+		return agentRepository.findBySocietyAndRegistrationsNotOrRegistrationsIsNull(society, registration);
+	}
+	
 
 	public void addAgent (Agent agent) {
 		
