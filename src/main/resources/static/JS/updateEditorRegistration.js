@@ -11,9 +11,6 @@ price_per_table = parseFloat(document.getElementById("pricePerTable").value);
 sale_option_price = parseFloat(document.getElementById("saleOptionPrice").value);
 max_table_quantity = parseInt(document.getElementById("maxTablesPerEditor").value);
 min_table_quantity = 0;
-price_per_table = 65;
-sale_option_price = 100;
-max_table_quantity = 20;
 
 
 document.getElementById("saleOption").addEventListener("change", function (e) {
@@ -59,20 +56,7 @@ document.getElementById('tablesQuantity').addEventListener('input', function () 
 window.onload = function(e) {
 	e.preventDefault();
 
-	if (hasSubscribe === "ok") {
-		if (!$("#toastAlertOk").is(":visible")) {
-			$("#toastAlertOk").fadeIn(400).delay(2000).fadeOut(400);
-		}
-	} else if (hasSubscribe === "ko") {
-		if (!$(".toastKo").is(":visible")) {
-			$(".toastKo").fadeIn(400).delay(2000).fadeOut(400);
-		}
-	} else if (hasSubscribe === "delete") {
-		if (!$(".toastKo").is(":visible")) {
-			$(".toastKo p").text('Votre demande d\'inscription a bien été annulée.');
-			$(".toastKo").fadeIn(400).delay(2000).fadeOut(400);
-		}
-	} else if (hasSubscribe === "update") {
+	if (hasSubscribe === "update") {
 		if (!$(".toastOk").is(":visible")) {
 			$(".toastOk p").text('Votre mise à jour a bien été prise en compte.');
 			$(".toastOk").fadeIn(400).delay(2000).fadeOut(400);

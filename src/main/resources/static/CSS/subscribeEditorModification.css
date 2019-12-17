@@ -103,3 +103,9 @@
 	background: #EC5D31;
 	color: white;
 }
+
+.table_error {
+    color: var(--danger);
+    font-size: 0.9em;
+    font-style: italic;
+}
