@@ -15,24 +15,24 @@ import com.wildcodeschool.festivalorleansjoue.repository.SocietyRepository;
 import com.wildcodeschool.festivalorleansjoue.services.FileService;
 import com.wildcodeschool.festivalorleansjoue.services.GameService;
 import com.wildcodeschool.festivalorleansjoue.services.RegistrationService;
+import com.wildcodeschool.festivalorleansjoue.services.UserService;
 
 	@Controller
 	public class GameController {
 
 		@Autowired
-		private GameRepository gameRepository;
-		
+		private GameRepository gameRepository;		
 		@Autowired
-		private GameService gameService;
-		
+		private GameService gameService;		
 		@Autowired
-		private RegistrationService registrationService;
-		
+		private RegistrationService registrationService;		
 		@Autowired
-		private FileService fileService;
-		
+		private FileService fileService;	
 		@Autowired
 		private SocietyRepository societyRepository;
+		@Autowired
+		private UserService userService;
+		
 		
 		@PostMapping("/game")
 	    public String getAll(Model model) {
@@ -72,8 +72,11 @@ import com.wildcodeschool.festivalorleansjoue.services.RegistrationService;
 		@PostMapping("/addRegistrationGame")
 	    public ModelAndView postRegistrationGame(@ModelAttribute Game game, @RequestParam(name = "file_picture") MultipartFile filePicture, Long registrationId, Long societyId) {
 			
-			if (!filePicture.isEmpty())
+			if (!filePicture.isEmpty()) {
 				game.setPicture("/pictures/uploads/games_pictures/" + fileService.uploadFile(filePicture));
+			} else {
+				game.setPicture(userService.returnUser().getProfilePicture());
+			}
 			game.setSociety(societyRepository.getOne(societyId));
 			gameService.addGame(game);
 			registrationService.addRegistrationGame(game, registrationId);
