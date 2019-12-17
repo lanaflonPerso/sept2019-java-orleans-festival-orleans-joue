@@ -23,11 +23,14 @@
             <div class="container containerTitleStyle">
                 <h2 class="col-sm-12 p-0 mb-4 title">Mes informations générales</h2>
             </div>
-            <form method="post" action="/submitRegistration" class="border m-3 p-3 p-4 col-sm-10 col-lg-7 mx-auto">
-                <input type="hidden" name="eventId" th:value="${registration.event?.id}">
-                <input type="hidden" id="pricePerTable" name="pricePerTable" th:value="${registration.event?.pricePerTable}" disabled>
-                <input type="hidden" id="saleOptionPrice" name="saleOptionPrice" th:value="${registration.event?.saleOptionPrice}" disabled>
-                <input type="hidden" id="userId" name="userId" th:value="${connectedUser.id}">
+			<div class="pcard"></div>
+            <form method="post" action="/updateEditorRegistration" class="border m-3 p-3 p-4 col-sm-10 col-lg-7 mx-auto th:" th:object="${registration}">
+				<input type="hidden" name="eventId" th:value="${event.id}" disabled>
+                <input type="hidden" id="pricePerTable" name="pricePerTable" th:value="${event.pricePerTable}" disabled>
+                <input type="hidden" id="saleOptionPrice" name="saleOptionPrice" th:value="${event.saleOptionPrice}" disabled>
+                <input type="hidden" id="maxTablesPerEditor" name="maxTablesPerEditor" th:value="${event.maxTablesPerEditor}" disabled>
+                <input type="hidden" id="userId" name="userId" th:value="${connectedUser.id}" disabled>
+				<input type="hidden" id="registrationId" name="id" th:value="${registration.id}" />
 
                 <div class="form-group">
                     <label for="tablesQuantity" th:text="|Nombre de tables souhaitées (${registration.event?.maxTablesPerEditor} max.) :|">Nombre de tables souhaitées :</label>

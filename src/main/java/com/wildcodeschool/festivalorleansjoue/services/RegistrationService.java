@@ -59,6 +59,10 @@ public class RegistrationService {
 	
 	public void deleteEditorRegistration(Long registrationId) {
 		registrationRepository.deleteById(registrationId);	
+	}
+	
+	public void updateEditorRegistration(Registration registration) {
+		registrationRepository.save(registration);
 	}	
 	
 
