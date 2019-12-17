@@ -296,6 +296,13 @@ input:checked ~ .switch_on {
 
 /* ------------------------ homeEditor registrations details ----------------------- */
 
+/*.editRegPageBackLink {
+	position: fixed;
+	z-index: 1;
+	margin-top: 26rem;
+	margin-left: 10rem;
+}*/
+
 .badgeDetails {
 	width: 3.2rem;
 	margin-left: 1rem;
