@@ -29,7 +29,7 @@
 	            <div class="container containerTitleStyle">
 	                <h2 class="col-12 mb-4 title">&Eacute;vènements:</h2>
 	            </div> 
-	            <div th:if="!${eventError.errorON}" class="container containerStyle" th:each="event : ${event}">
+	            <div th:if="!${eventError.errorON}" class="container containerStyle customCard" th:each="event : ${event}">
 	                <div class="col-sm-12 p-0">
 	                    <div class="card">
 	                        <div class="card-header">
@@ -40,7 +40,9 @@
 								<p class="card-text" th:text="${event.event.description}"></p>
 								<p class="regMessage" th:unless="${event.event.registrationOpen}" th:text="${event.event.registrationMessage}"></p>
 								<input name="id" type="hidden" th:value="${event.event.id}">
-								<button type="submit" th:if="${event.subscribeBtnOn} and ${event.event.registrationOpen}" class="regBtn col-6 col-md-4 col-lg-2 btn btn-primary">S'inscrire</button>
+								<div class="d-flex">
+									<button type="submit" th:if="${event.subscribeBtnOn} and ${event.event.registrationOpen}" class="col-6 col-md-4 col-lg-2 btn btn-primary ml-auto">S'inscrire</button>
+								</div>
 								<p class="text-center eventSubscribeMsg" th:if="!${event.subscribeBtnOn} and ${event.hasSubscribe}">Vous avez fait une demande d'inscription à cet évènement</p>
 							</form>	
 						</div>
@@ -56,23 +58,23 @@
 					<h2 class="col-12 mb-4 title">Mes inscriptions:</h2>
 					<h3 class="col-12 title" th:if="${#lists.isEmpty(registrations)}">Aucune inscription effectuée.</h3>
 				</div>				
-				<div class="container containerStyle" th:each="registration : ${registrations}">
+				<div class="container containerStyle customCard" th:each="registration : ${registrations}">
 					<div class="col-sm-12 p-0">
 						<div class="card">
 							<div class="card-header">
 								<h2 th:text="|Récapitulatif inscription evenement :	${registration.event.name}|"></h2>	
 							</div>
-							<div class="card-body">
-								<h4 class="card-title" th:text="|Demande d'inscription effectuée le :     ${#dates.format(registration.subscriptionDate, 'dd/MM/yyyy')}|"></h4>
-								<p class="row text-center justify-content-center">
+							<div class="card-body p-1">
+								<h4 class="card-title mt-2" th:text="|Demande d'inscription effectuée le :     ${#dates.format(registration.subscriptionDate, 'dd/MM/yyyy')}|"></h4>
+								<p class="row text-center justify-content-center mb-1">
 									<span class="col-6 col-lg-3 badge badge-pill badge-warning d-inline-flex align-items-center justify-content-center" th:if="${registration.state} == 'pending'">EN ATTENTE</span>
 									<span class="badge badge-pill badge-success d-inline-flex align-items-center justify-content-center" th:if="${registration.state} == 'validated'">VALID&Eacute;E</span> 
 									<span class="badge badge-pill badge-danger d-inline-flex align-items-center justify-content-center" th:if="${registration.state} == 'rejected'">REFUS&Eacute;E</span>
 								</p>
-								<fieldset class="border p-3 text-left">
+								<fieldset class="border p-1 text-left">
 									<legend class="w-auto">Récapitulatif de vos demandes</legend>
 									<div class="row align-items-center">
-										<div class="col-sm-10">
+										<div class="col-12 col-sm-10">
 											<p>Nombre de tables demandées : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center text-center justify-content-center badgeDetails" th:text="${registration.tablesQuantity}"></span></p>
 											<p>Vous avez besoin d'un raccord au réseau éléctrique : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:if="${registration.electricalSupplyNeed}">OUI</span>
 																									<span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:unless="${registration.electricalSupplyNeed}">NON</span></p>
@@ -85,7 +87,7 @@
 										</div>
 									</div>  
 								</fieldset>
-								<fieldset class="border p-3 text-left">
+								<fieldset class="border p-1 text-left">
 									<legend class="w-auto">Vos jeux inscrits</legend>
 									<div class="fluid-container">
 										<div class="row align-items-center">										
@@ -96,12 +98,12 @@
 												</div>
 											</div>
 										</div>										
-										<div class="row mt-5 regGamesMsg">
-											<p th:text="|Vous avez demandé ${registration.tablesQuantity} tables, vous devez inscrire ${registration.tablesQuantity} jeux.|"></p>											
+										<div class="row regGamesMsg">
+											<p class="col-12" th:text="|Vous avez demandé ${registration.tablesQuantity} tables, vous devez inscrire ${registration.tablesQuantity} jeux.|"></p>											
 										</div>	 
 									</div> 
 								</fieldset>
-								<fieldset class="border p-3 text-left">
+								<fieldset class="border p-1 text-left">
 									<legend class="w-auto">Vos collaborateurs</legend>
 									<div class="row align-items-center">
 										<div class="col-sm-12">
@@ -110,7 +112,7 @@
 										</div>
 									</div>  
 								</fieldset>
-								<fieldset class="border p-3 text-left">
+								<fieldset class="border p-1 text-left">
 									<legend class="w-auto">Coût de votre participation</legend>
 									<div class="row align-items-center">
 										<div class="col-sm-12">
@@ -118,7 +120,7 @@
 										</div>
 									</div>  
 								</fieldset>
-								<fieldset class="border p-3 text-left">
+								<fieldset class="border p-1 text-left">
 									<legend class="w-auto">Vos commentaires</legend>
 									<div class="row align-items-center">
 										<div class="col-sm-12">
@@ -126,11 +128,11 @@
 										</div>
 									</div>  
 								</fieldset>
-								<form class="d-flex justify-content-end"  method="post" action="/subscribeEditorModification">
+								<form class="d-flex justify-content-end mt-3"  method="post" action="/subscribeEditorModification">
 									<button type="submit" class="col-10 col-md-6 col-lg-3 btn btn-primary subscribeModifBtn" name="submitBtn">Modifier ma demande</button>
 									<input type="hidden" id="regitration" th:name="registrationId" th:value="${registration.id}">
 								</form>
-								<form class="d-flex justify-content-end"  method="post" action="/deleteEditorRegistration">
+								<form class="d-flex justify-content-end mt-3"  method="post" action="/deleteEditorRegistration">
 									<button type="submit" class="col-10 col-md-6 col-lg-3 btn btn-primary subscribeModifBtn" onclick="return confirm('Etes-vous sûr de vouloir annuler votre inscription ?');" >Annuler ma demande</button>
 									<input type="hidden" id="regitration" th:name="registrationId" th:value="${registration.id}">
 								</form>						
@@ -147,7 +149,7 @@
 					<div class="container containerTitleStyle">
 						<h2 class="col-sm-12 p-0 mb-4 title">Mes informations:</h2>
 					</div>
-				<div class="container containerStyle">
+				<div class="container containerStyle customCard">
 					<div class="col-sm-12 p-0">  
 						<div class="card">
 							<div class="card-body">
