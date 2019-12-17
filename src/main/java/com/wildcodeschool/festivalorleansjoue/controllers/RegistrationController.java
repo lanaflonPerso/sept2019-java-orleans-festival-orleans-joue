@@ -70,7 +70,8 @@ public class RegistrationController {
 		//Set toast message
 		ModelMap model = new ModelMap();
 		model.addAttribute("hasSubscribe", "update");
+		model.addAttribute("registrationId", registration.getId());
 
-		return new ModelAndView("redirect:/accueil_editeur", model);
+		return new ModelAndView("redirect:/subscribeEditorModification", model);
 	}
 }
