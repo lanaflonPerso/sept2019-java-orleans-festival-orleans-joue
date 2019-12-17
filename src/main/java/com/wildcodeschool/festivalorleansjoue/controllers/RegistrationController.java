@@ -1,7 +1,12 @@
 package com.wildcodeschool.festivalorleansjoue.controllers;
 
+import java.util.List;
+import java.util.Map.Entry;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,4 +35,28 @@ public class RegistrationController {
 		return new ModelAndView("redirect:/accueil_editeur", model);
 	}
 	
+	
+	@PostMapping(value = "/addGameToRegistration")
+	public ModelAndView addGameToRegistration(@RequestParam Long registrationId,
+											  @RequestParam(name="gameId") Long gameId) {
+		
+		System.out.println("registration:" + registrationId);
+		System.out.println("game:" + gameId);
+		registrationService.addRegistrationGame(gameId, registrationId);		
+		
+		ModelMap model = new ModelMap();
+		model.addAttribute("registrationId", registrationId);
+		
+		return new ModelAndView("redirect:/subscribeEditorModification", model);
+	}
+
+	/*
+	public String addGameToRegistration(@MatrixVariable MultiValueMap<String, String> parameters) {
+		for (Entry<String, List<String>> entry: parameters.entrySet()) {
+			System.out.println(entry.getKey());
+			System.out.println(entry.getValue());
+		}
+					return "toto";
+	}
+	*/
 }

@@ -32,6 +32,14 @@ public class RegistrationService {
 	}
 	
 	
+	public void addRegistrationGame(Long gameId, Long registrationId) {
+		
+		Registration registration = registrationRepository.findById(registrationId).get();
+		registration.getGames().add(gameRepository.getOne(gameId));
+		registrationRepository.save(registration);
+	}
+	
+	
 	public void deleteRegistrationGame(Game game, Long registrationId) {
 		
 		Registration registration = registrationRepository.findById(registrationId).get();
@@ -50,4 +58,6 @@ public class RegistrationService {
 	public void deleteEditorRegistration(Long registrationId) {
 		registrationRepository.deleteById(registrationId);	
 	}	
+	
+
 }
