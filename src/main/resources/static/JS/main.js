@@ -74,6 +74,11 @@ window.onload = function(e) {
 			$(".toastOk p").text('Votre mise à jour a bien été prise en compte.');
 			$(".toastOk").fadeIn(400).delay(2000).fadeOut(400);
 		}
+	} else if (hasSubscribe === "alreadyReg") {
+		if (!$(".toastKo").is(":visible")) {
+			$(".toastKo p").text('Vous êtes déjà inscrit');
+			$(".toastKo").fadeIn(400).delay(2000).fadeOut(400);
+		}
 	}
 };
 

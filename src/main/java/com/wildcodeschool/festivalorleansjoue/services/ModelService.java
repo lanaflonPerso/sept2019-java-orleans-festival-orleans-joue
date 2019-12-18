@@ -99,16 +99,26 @@ public class ModelService {
 		this.model.addObject("event", eventCardModels);
 		this.model.addObject("navbarLinks", navbarLinks);
 	}
+	
 
 	public void setSubscribeEditorModel(String route, int id) {
-
+		
+		Optional<String> hasSuscribe = Optional.of("alreadyReg");
 		Event event = eventRepository.getOne((long) id);
-		this.model = new ModelAndView(route);
-		this.navbarLinks.setCurrentPage("subscribeEditor");
-		this.model.addObject("event", event);
-		this.model.addObject("connectedUser", userService.returnUser());
-		this.model.addObject("navbarLinks", navbarLinks);
+		User connectedUser = userService.returnUser();
+		List<Registration> regList = new ArrayList<>();
+		regList = event.getRegList();
+		if (regList.size() != 0) {
+			for (int i = 0 ; i < regList.size() ; i++) {
+				if (connectedUser.getSociety().getName().equals(regList.get(i).getSociety().getName())) {
+					setHomeModel("homeEditor", hasSuscribe);
+				}
+			}
+		} else {
+			prepareModel(route, event, connectedUser);
+		}
 	}
+	
 
 	public void setSubscribeEditorModificationModel(String route, Long registrationId, Optional<String> hasSubscribe) {
 
@@ -129,10 +139,19 @@ public class ModelService {
 		this.model.addObject("connectedUser", connectedUser);
 		this.model.addObject("society", connectedUser.getSociety());
 		this.model.addObject("games", gameService.ReturnGamesBySociety(connectedUser.getSociety()));
-		this.model.addObject("agents", agentService.findAgentBySociety(connectedUser.getSociety()));
-		
+		this.model.addObject("agents", agentService.findAgentBySociety(connectedUser.getSociety()));		
 		if (!hasSubscribe.isEmpty()) {
 			this.model.addObject("hasSubscribe", (hasSubscribe.get()));
 		}
+	}
+	
+
+	public void prepareModel(String route, Event event, User user) {
+		
+		this.model = new ModelAndView(route);
+		this.navbarLinks.setCurrentPage("subscribeEditor");
+		this.model.addObject("event", event);
+		this.model.addObject("connectedUser", user);
+		this.model.addObject("navbarLinks", navbarLinks);
 	}
 }
