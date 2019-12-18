@@ -8,6 +8,7 @@
     --font-1: 'Acme';
     --font-2: 'Roboto';
     --font-nav: 'Open Sans';
+    --card-header-color: #e1c1ff;
 }
 
 /*Body*/
@@ -72,7 +73,7 @@ hr {
 }
 
 .card-header {
-    background: lightgrey;
+    background: var(--card-header-color);
 }
 
 .gameCardTop {
@@ -357,5 +358,6 @@ input:checked ~ .switch_on {
 	
 	.customCard {
 		width: 96%;
+		text-shadow: none;
 	}
 }
