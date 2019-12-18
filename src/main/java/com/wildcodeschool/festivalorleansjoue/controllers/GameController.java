@@ -57,11 +57,8 @@ import com.wildcodeschool.festivalorleansjoue.services.UserService;
 		@PostMapping("/addRegistrationGame")
 	    public ModelAndView postRegistrationGame(@ModelAttribute Game game, @RequestParam(name = "file_picture") MultipartFile filePicture, Long registrationId, Long societyId) {
 			
-			if (!filePicture.isEmpty()) {
+			if (!filePicture.isEmpty())
 				game.setPicture("/pictures/uploads/games_pictures/" + fileService.uploadFile(filePicture));
-			} else {
-				game.setPicture(userService.returnUser().getProfilePicture());
-			}
 			game.setSociety(societyRepository.getOne(societyId));
 			gameService.addGame(game);
 			registrationService.addRegistrationGame(game, registrationId);

@@ -95,8 +95,10 @@
 									<legend class="w-auto">Vos jeux inscrits</legend>
 									<div class="fluid-container">
 										<div class="row justify-content-center">										
-											 <div class="card col-5 col-sm-4 col-lg-2 gameCardTop p-0 mx-1" th:each="game : ${registration.games}" >
-												<img th:src="${game.picture}"  class="card-img-top" alt="image du jeu">
+											 <div class="card col-5 col-sm-4 col-lg-2 gameCardTop p-0 mx-1" th:each="game : ${registration.games}" >											
+	 										 <img th:if="${game.picture !='' AND game.picture !=null}" th:src="|..${game.picture}|"  class="card-img-top" alt="image du jeu">
+	 										 <img th:unless="${game.picture !='' AND game.picture !=null}" th:src="@{${connectedUser.getProfilePicture()}}" class="card-img-top" alt="image du jeu">
+												
 												<div class="card-body gameCardBody p-0 m-0">
 													<p class="card-text" th:text="${game.name}"></p> 
 												</div>
