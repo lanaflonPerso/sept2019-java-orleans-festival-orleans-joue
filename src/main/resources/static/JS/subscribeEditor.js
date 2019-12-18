@@ -12,7 +12,6 @@ sale_option_price = parseFloat(document.getElementById("saleOptionPrice").value)
 max_table_quantity = parseInt(document.getElementById("maxTablesPerEditor").value);
 min_table_quantity = 0;
 
-
 document.getElementById("saleOption").addEventListener("change", function (e) {
     if (e.target.checked == false) {
         sale_option_choice = 0;
@@ -53,6 +52,10 @@ var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 
 $(".next").click(function () {
+    if (table_quantity <= min_table_quantity) {
+        table_error.style.display = "block";
+        table_error.textContent = "Vous devez réserver au moins une table.";
+    }
     if (animating || table_quantity <= min_table_quantity || table_quantity > max_table_quantity) return false;
     animating = true;
 
@@ -142,11 +145,6 @@ $(".previous").click(function () {
 $(".submit").click(function () {
     return false;
 });
-
-
-
-
-
 
 //Abandon confirm message
 function confirmation() {
