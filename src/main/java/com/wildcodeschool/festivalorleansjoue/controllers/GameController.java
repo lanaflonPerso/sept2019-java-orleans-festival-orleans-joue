@@ -1,5 +1,7 @@
 package com.wildcodeschool.festivalorleansjoue.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -80,11 +82,8 @@ import com.wildcodeschool.festivalorleansjoue.services.UserService;
 	    }
 		
 		@PostMapping("/modifyGame")
-	    public ModelAndView modifyGame(@ModelAttribute Game game, Long registrationId) {
-			System.out.println("coucou");
-			System.out.println(registrationId);
-			System.out.println(game.getId());
-			gameService.modifyGame(game);
+	    public ModelAndView modifyGame(@ModelAttribute Game game, Long registrationId,@RequestParam(required = false) Optional<MultipartFile> picture) {
+			gameService.modifyGame(game, picture);
 			ModelMap model = new ModelMap();
 			model.addAttribute("registrationId", registrationId);
 			return new ModelAndView("redirect:/subscribeEditorModification", model);
