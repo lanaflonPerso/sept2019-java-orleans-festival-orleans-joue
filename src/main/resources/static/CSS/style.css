@@ -307,8 +307,7 @@ input:checked ~ .switch_on {
 	height: 3rem;
 	font-size: 1.2rem;
     min-width: 200px;
-    width: 220px;
-    
+    width: 220px;   
 }
 
 .stateBadge {
@@ -326,6 +325,7 @@ input:checked ~ .switch_on {
 .mainPanel {
 	width: 100%;
 }
+
 
 
 @media (max-width: 768px) {  
@@ -349,9 +349,7 @@ input:checked ~ .switch_on {
 	h4 {
 		font-size: 1.2rem;
 	}
-	
-
-	
+		
 	.pcard {
 		height: 2rem;
 	}
