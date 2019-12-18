@@ -79,14 +79,14 @@
 									<legend class="w-auto">Récapitulatif de vos demandes</legend>
 									<div class="row align-items-center">
 										<div class="col-12 col-sm-10">
-											<p>Nombre de tables demandées : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center text-center justify-content-center badgeDetails" th:text="${registration.tablesQuantity}"></span></p>
-											<p>Vous avez besoin d'un raccord au réseau éléctrique : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:if="${registration.electricalSupplyNeed}">OUI</span>
-																									<span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:unless="${registration.electricalSupplyNeed}">NON</span></p>
-											<p>Vous Souhaitez vendre des produits lors de l'évènement : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:if="${registration.saleOption}">OUI</span>
-																										<span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:unless="${registration.saleOption}">NON</span></p>
-											<p>Des représentants de votre entreprise seront présents lors de l'évènement : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:if="${registration.agentProvided}">OUI</span>
+											<p class="d-flex justify-content-between">Nombre de tables demandées : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center text-center justify-content-center badgeDetails" th:text="${registration.tablesQuantity}"></span></p>
+											<p class="d-flex justify-content-between">Vous avez besoin d'un raccord au réseau éléctrique : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails " th:if="${registration.electricalSupplyNeed}">OUI</span>
+																									<span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails " th:unless="${registration.electricalSupplyNeed}">NON</span></p>
+											<p class="d-flex justify-content-between">Vous Souhaitez vendre des produits lors de l'évènement : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails " th:if="${registration.saleOption}">OUI</span>
+																										<span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails " th:unless="${registration.saleOption}">NON</span></p>
+											<p class="d-flex justify-content-between">Des représentants de votre entreprise seront présents lors de l'évènement : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:if="${registration.agentProvided}">OUI</span>
 																														   <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:unless="${registration.agentProvided}">NON</span></p>
-											<p>Vous avez besoin de bénévoles pour l'animation de vos jeux : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:if="${registration.volunteersNeed}">OUI</span>
+											<p class="d-flex justify-content-between">Vous avez besoin de bénévoles pour l'animation de vos jeux : <span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:if="${registration.volunteersNeed}">OUI</span>
 																											<span class="badge badge-pill badge-secondary d-inline-flex align-items-center justify-content-center badgeDetails" th:unless="${registration.volunteersNeed}">NON</span></p>
 										</div>
 									</div>  

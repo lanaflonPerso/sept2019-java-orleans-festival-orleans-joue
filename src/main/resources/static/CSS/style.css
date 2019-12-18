@@ -76,7 +76,7 @@ hr {
 }
 
 .gameCardTop {
-	background-color: var(--grey);
+	background-color: #5E3388;
 }
 
 .card-img-top {
@@ -88,9 +88,10 @@ hr {
 .gameCardBody {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--grey);
+    border: 0;
     border-radius: 5px;
     text-align: center;
+    color:white;
 }
 
 .regGamesMsg {
@@ -300,6 +301,7 @@ input:checked ~ .switch_on {
 .badgeDetails {
 	width: 3.2rem;
 	margin-left: 1rem;
+	background-color:#5E3388
 }
 
 .subscribeModifBtn {
@@ -325,7 +327,6 @@ input:checked ~ .switch_on {
 .mainPanel {
 	width: 100%;
 }
-
 
 
 @media (max-width: 768px) {  
