@@ -68,7 +68,7 @@
 							<div class="card-header">
 								<h2 th:text="|Récapitulatif inscription evenement :	${registration.event.name}|"></h2>	
 							</div>
-							<div class="card-body p-1 p-md-3">
+							<div class="card-body p-2 p-md-3">
 								<h4 class="card-title mt-2" th:text="|Demande d'inscription effectuée le :     ${#dates.format(registration.subscriptionDate, 'dd/MM/yyyy')}|"></h4>
 								<p class="row text-center justify-content-center mb-1">
 									<span class="col-6 col-lg-3 badge badge-pill badge-warning d-inline-flex align-items-center justify-content-center" th:if="${registration.state} == 'pending'">EN ATTENTE</span>
@@ -154,12 +154,12 @@
 										</div>
 									</div>  
 								</fieldset>
-								<form class="d-flex justify-content-end mt-3"  method="post" action="/subscribeEditorModification">
-									<button type="submit" class="col-10 col-md-6 col-lg-3 btn btn-primary subscribeModifBtn" name="submitBtn">Modifier ma demande</button>
+								<form class="d-flex justify-content-center justify-content-md-end mt-3"  method="post" action="/subscribeEditorModification">
+									<button type="submit" class=" btn btn-primary subscribeModifBtn" name="submitBtn">Modifier ma demande</button>
 									<input type="hidden" id="regitration" name="registrationId" th:value="${registration.id}">
 								</form>
-								<form class="d-flex justify-content-end mt-3"  method="post" action="/deleteEditorRegistration">
-									<button type="submit" class="col-10 col-md-6 col-lg-3 btn btn-primary subscribeModifBtn" onclick="return confirm('Etes-vous sûr de vouloir annuler votre inscription ?');" >Annuler ma demande</button>
+								<form class="d-flex justify-content-center justify-content-md-end mt-3"  method="post" action="/deleteEditorRegistration">
+									<button type="submit" class=" btn btn-primary subscribeModifBtn" onclick="return confirm('Etes-vous sûr de vouloir annuler votre inscription ?');" >Annuler ma demande</button>
 									<input type="hidden" id="registration" name="registrationId" th:value="${registration.id}">
 								</form>						
 							</div>
